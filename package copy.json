@@ -1,0 +1,18 @@
+{
+  "name": "kvstorage",
+  "version": "1.0.0",
+  "description": "sdk for kvstorage erc20",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "transfer": "node -r esm -e 'require(\"./src/transfer.js\")'"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "casper-js-sdk": "^2.5.0",
+    "esm": "^3.2.25",
+    "lodash": "^4.17.21",
+    "sleep": "^6.3.0"
+  }
+}
