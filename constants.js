@@ -13,6 +13,9 @@ export const PATH_TO_SOURCE_KEYS = `${process.env.HOME}/keys/jdk_keys/jdk1`;
 //Path to target keys
 export const PATH_TO_TRAGET_KEYS = `${process.env.HOME}/keys/jdk_keys/jdk2`;
 
+//Path to test11 which has KVstorage contract installed
+export const PATH_TO_KV_KEYS = `${process.env.HOME}/my-project/keys/test11`;
+
 // Path to folder containing keys with which to act as test users.
 export const PATH_TO_USERS =
   process.env.CSPR_INTS_PATH_TO_USERS ||
@@ -43,7 +46,7 @@ export const DEPLOY_GAS_PAYMENT_FOR_NATIVE_TRANSFER =
 
 // Gas payment for native transfers to be offered.
 export const DEPLOY_GAS_PAYMENT_FOR_SESSION_TRANSFER =
-  process.env.CSPR_INTS_DEPLOY_GAS_PAYMENT_FOR_SESSION_TRANSFER || 1000000000;
+  process.env.CSPR_INTS_DEPLOY_GAS_PAYMENT_FOR_SESSION_TRANSFER || 3000000000;
 
 // Gas price to be offered.
 export const DEPLOY_GAS_PRICE = process.env.CSPR_INTS_DEPLOY_GAS_PRICE
