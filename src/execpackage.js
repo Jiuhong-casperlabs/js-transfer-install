@@ -48,9 +48,7 @@ const main = async () => {
       packageHashAsByteArray,
       2,
       "get_message",
-      RuntimeArgs.fromMap({
-        amount: CLValueBuilder.u256(AMOUNT_TO_TRANSFER),
-      })
+      RuntimeArgs.fromMap({})
     ),
     DeployUtil.standardPayment(
       constants.DEPLOY_GAS_PAYMENT_FOR_SESSION_TRANSFER
