@@ -8,7 +8,7 @@ export const PATH_TO_FAUCET_KEYS =
   `${process.env.NCTL}/assets/net-1/faucet`;
 
 // Path to source keys
-export const PATH_TO_SOURCE_KEYS = `${process.env.HOME}/keys/jdk_keys/jdk1`;
+export const PATH_TO_SOURCE_KEYS = `${process.env.HOME}/my-project/keys/test11`;
 
 //Path to target keys
 export const PATH_TO_TRAGET_KEYS = `${process.env.HOME}/keys/jdk_keys/jdk2`;
