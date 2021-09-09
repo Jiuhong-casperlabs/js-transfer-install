@@ -1,13 +1,6 @@
-import {
-  DeployUtil,
-  CasperClient,
-  RuntimeArgs,
-  CLValueBuilder,
-} from "casper-js-sdk";
+import { DeployUtil, CasperClient, RuntimeArgs } from "casper-js-sdk";
 import * as utils from "../utils";
 import * as constants from "../constants";
-
-const AMOUNT_TO_TRANSFER = 2500000000;
 
 const main = async () => {
   //Step 1: Set casper node client
@@ -16,10 +9,6 @@ const main = async () => {
   //Step 2: Set contract operator key pair
   const keyPairofContract = utils.getKeyPairOfContract(
     constants.PATH_TO_SOURCE_KEYS
-  );
-  //Step 2.1: Set transfer target key pair
-  const keyPairofTarget = utils.getKeyPairOfContract(
-    constants.PATH_TO_TRAGET_KEYS
   );
 
   //Step3: Query node for global state root hash
