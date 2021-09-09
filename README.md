@@ -1,5 +1,11 @@
 notes:
 
+### execute package with version
+
+```
+npm run package
+```
+
 ### store tuple
 
 ```bash
