@@ -16,6 +16,9 @@ export const PATH_TO_TRAGET_KEYS = `${process.env.HOME}/keys/jdk_keys/jdk2`;
 //Path to test11 which has KVstorage contract installed
 export const PATH_TO_KV_KEYS = `${process.env.HOME}/my-project/keys/test11`;
 
+//Path to test11 which has KVstorage contract installed
+export const PATH_TO_CEP47_KEYS = `${process.env.HOME}/keys/jdk_keys/jdk1`;
+
 // Path to folder containing keys with which to act as test users.
 export const PATH_TO_USERS =
   process.env.CSPR_INTS_PATH_TO_USERS ||
