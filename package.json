@@ -12,7 +12,7 @@
     "transferfrom": "node -r esm -e 'require(\"./src/exec_transfer_from.js\")'",
     "package": "node -r esm -e 'require(\"./src/execpackage.js\")'",
     "getdeploy": "node -r esm -e 'require(\"./src/getdeploy.js\")'",
-    "install":"node -r esm -e 'require(\"./src/install.js\")'"
+    "installwasm":"node -r esm -e 'require(\"./src/install.js\")'"
   },
   "author": "",
   "license": "ISC",
