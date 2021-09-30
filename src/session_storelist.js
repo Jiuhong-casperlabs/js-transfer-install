@@ -9,8 +9,6 @@ import {
 import * as utils from "../utils";
 import * as constants from "../constants";
 
-const AMOUNT_TO_TRANSFER = 2500000000;
-
 const main = async () => {
   //Step 1: Set casper node client
   const client = new CasperClient(constants.DEPLOY_NODE_ADDRESS);
@@ -19,10 +17,6 @@ const main = async () => {
   const keyPairofContract = utils.getKeyPairOfContract(
     constants.PATH_TO_KV_KEYS
   );
-  //Step 2.1: Set transfer target key pair
-  // const keyPairofTarget = utils.getKeyPairOfContract(
-  //   constants.PATH_TO_TRAGET_KEYS
-  // );
 
   //Step3: Query node for global state root hash
   const stateRootHash = await utils.getStateRootHash(client);
@@ -56,7 +50,6 @@ const main = async () => {
       "store_list_of_bytes",
       RuntimeArgs.fromMap({
         value: myList,
-        // this argument --toAccountAddr-- decide the toAccountAddr
         name: new CLString('name'),
       })
     ),
@@ -64,12 +57,6 @@ const main = async () => {
       constants.DEPLOY_GAS_PAYMENT_FOR_SESSION_TRANSFER
     )
   );
-
-  //   deploy = DeployUtil.addArgToDeploy(
-  //     deploy,
-  //     "toAccountAddr",
-  //     keyPairofTarget.publicKey
-  //   );
 
   //Step 5.2 Sign deploy.
   deploy = client.signDeploy(deploy, keyPairofContract);
@@ -83,4 +70,4 @@ const main = async () => {
 
 main();
 
-//https://testnet.cspr.live/deploy/9d242efa3fab8b5191a2eabe8922da9d4fa9f9f94328efecb31fe6de09f57d15
+//https://testnet.cspr.live/deploy/ec84ef900e5906d4e7e37fa318022baac4a5fc76b39e5379b4769b31d778dfa3

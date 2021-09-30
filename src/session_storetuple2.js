@@ -7,8 +7,6 @@ import {
 import * as utils from "../utils";
 import * as constants from "../constants";
 
-const AMOUNT_TO_TRANSFER = 2500000000;
-
 const main = async () => {
   //Step 1: Set casper node client
   const client = new CasperClient(constants.DEPLOY_NODE_ADDRESS);
@@ -55,7 +53,6 @@ const main = async () => {
       "store_tuple2",
       RuntimeArgs.fromMap({
         value: tuplevalue,
-        // this argument --toAccountAddr-- decide the toAccountAddr
         name: CLValueBuilder.string("store_tuple2"),
       })
     ),
@@ -63,12 +60,6 @@ const main = async () => {
       constants.DEPLOY_GAS_PAYMENT_FOR_SESSION_TRANSFER
     )
   );
-
-  //   deploy = DeployUtil.addArgToDeploy(
-  //     deploy,
-  //     "toAccountAddr",
-  //     keyPairofTarget.publicKey
-  //   );
 
   //Step 5.2 Sign deploy.
   deploy = client.signDeploy(deploy, keyPairofContract);

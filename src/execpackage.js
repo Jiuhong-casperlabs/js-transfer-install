@@ -44,12 +44,6 @@ const main = async () => {
     )
   );
 
-  //   deploy = DeployUtil.addArgToDeploy(
-  //     deploy,
-  //     "toAccountAddr",
-  //     keyPairofTarget.publicKey
-  //   );
-
   //Step 5.2 Sign deploy.
   deploy = client.signDeploy(deploy, keyPairofContract);
 
