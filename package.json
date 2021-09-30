@@ -7,6 +7,7 @@
     "erc20-exec-approve": "node -r esm -e 'require(\"./src/exec_approve.js\")'",
     "sessiontransfer": "node -r esm -e 'require(\"./src/session_transfer.js\")'",
     "sessionstoretuple": "node -r esm -e 'require(\"./src/session_storetuple.js\")'",
+    "storelist": "node -r esm -e 'require(\"./src/session_storelist.js\")'",
     "mintone": "node -r esm -e 'require(\"./src/session_cep47.js\")'",
     "test": "node -r esm -e 'require(\"./src/test.js\")'",
     "transferfrom": "node -r esm -e 'require(\"./src/exec_transfer_from.js\")'",
