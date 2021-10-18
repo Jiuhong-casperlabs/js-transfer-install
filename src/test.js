@@ -8,6 +8,7 @@ import {
   CLI32,
   CLMap,
   CLU32,
+  Keys
 } from "casper-js-sdk";
 import {
   CLValueParsers,
@@ -19,51 +20,79 @@ import {
   CLByteArray,
   CLKey,
 } from "casper-js-sdk";
-import { Some, None } from "ts-results";
-
 import * as utils from "../utils";
+import { Some, None } from "ts-results";
 import * as constants from "../constants";
 
 const AMOUNT_TO_TRANSFER = 2500000000;
 
 const main = () => {
-  const myType = new CLOptionType(new CLBoolType());
-  const mySomeOpt = new CLOption(Some(new CLString("String")));
-  const myKey = new CLString("ABC");
-  const myVal = new CLI32(123);
-  const myMap = new CLMap([[myKey, myVal]]);
 
-  const myString = new CLString("hello");
-  const myList = new CLList([myString]);
-  const optionlist = new CLOption(Some(new CLList([new CLString("hello")])));
-
-  const keyPairofTarget = utils.getKeyPairOfContract(
-    constants.PATH_TO_TRAGET_KEYS
+  let casperClient= new CasperClient(
+    'http://192.168.2.166:40101/rpc'
   );
 
-  const byteArr = new CLByteArray(
-    new Uint8Array(keyPairofTarget.accountHash())
+  const edKeyPair = casperClient.newKeyPair(Keys.SignatureAlgorithm.Secp256K1);
+  const publicKey = edKeyPair.publicKey.value();
+  const privateKey = edKeyPair.privateKey;
+ 
+  const convertFromPrivateKey = casperClient.privateToPublicKey(
+    privateKey,
+    Keys.SignatureAlgorithm.Ed25519
   );
-  const myAccountKey = new CLKey(
-    new CLByteArray(new Uint8Array(keyPairofTarget.accountHash()))
-  );
+  const ttt =  Buffer.from(convertFromPrivateKey).toString("hex");
+  const ttt2 = Buffer.from(privateKey).toString("hex");
 
-  const count = new CLU32(1);
+  console.log("public key string: ",ttt);
+  console.log("public key string length: ",ttt.length);
 
-  const recipient = new CLKey(new CLByteArray(keyPairofTarget.accountHash()));
-  const recipient2 = new CLKey(
-    new CLByteArray(new Uint8Array(keyPairofTarget.accountHash()))
-  );
+  console.log("private key string:",ttt2)
+  console.log("private key length:",ttt2.length)
 
-  // const map1 = CLValueBuilder.map(["aaa", "bbb"]);
-  // const ttt = CLValueBuilder.option(Some(true));
 
-  // const myNoneOpt = new CLOption(None, new CLBoolType());
-  console.log("recipient2:", recipient2);
-  console.log("hello");
 
-  // let token_ids = CLValueBuilder.option("SJH", CLTypeBuilder.bool);
-  // console.log(token_ids);
+
+
+  // const myType = new CLOptionType(new CLBoolType());
+  // const mySomeOpt = new CLOption(Some(new CLString("String")));
+  // const myKey = new CLString("ABC");
+  // const myVal = new CLI32(123);
+  // const myMap = new CLMap([[myKey, myVal]]);
+
+  // const myString = new CLString("hello");
+  // const myList = new CLList([myString]);
+  // const optionlist = new CLOption(Some(new CLList([new CLString("hello")])));
+
+  // const keyPairofTarget = utils.getKeyPairOfContract(
+  //   constants.PATH_TO_TRAGET_KEYS
+  // );
+
+  // const byteArr = new CLByteArray(
+  //   new Uint8Array(keyPairofTarget.accountHash())
+  // );
+  // const myAccountKey = new CLKey(
+  //   new CLByteArray(new Uint8Array(keyPairofTarget.accountHash()))
+  // );
+
+  // const count = new CLU32(1);
+
+  // const recipient = new CLKey(new CLByteArray(keyPairofTarget.accountHash()));
+  // const recipient2 = new CLKey(
+  //   new CLByteArray(new Uint8Array(keyPairofTarget.accountHash()))
+  // );
+
+  // // const map1 = CLValueBuilder.map(["aaa", "bbb"]);
+  // // const ttt = CLValueBuilder.option(Some(true));
+
+  // // const myNoneOpt = new CLOption(None, new CLBoolType());
+  // console.log("recipient2:", recipient2);
+  // console.log("hello");
+
+  // // let token_ids = CLValueBuilder.option("SJH", CLTypeBuilder.bool);
+  // // console.log(token_ids);
+
+
+
 };
 
 main();

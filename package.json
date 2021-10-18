@@ -8,6 +8,8 @@
     "sessiontransfer": "node -r esm -e 'require(\"./src/session_transfer.js\")'",
     "sessionstoretuple": "node -r esm -e 'require(\"./src/session_storetuple.js\")'",
     "storelist": "node -r esm -e 'require(\"./src/session_storelist.js\")'",
+    "storelistkeys": "node -r esm -e 'require(\"./src/session_storelistkeys.js\")'",
+    "storekey": "node -r esm -e 'require(\"./src/session_storekey.js\")'",
     "mintone": "node -r esm -e 'require(\"./src/session_cep47.js\")'",
     "test": "node -r esm -e 'require(\"./src/test.js\")'",
     "transferfrom": "node -r esm -e 'require(\"./src/exec_transfer_from.js\")'",
