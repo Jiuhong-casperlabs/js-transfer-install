@@ -31,23 +31,18 @@ const main = async () => {
     client,
     stateRootHash,
     keyPairofContract,
-    "kvstorage_session"
+    // "kvstorage_session"
+    // "counter"
+    "kvstorage_contract"
   );
   const contractHashAsByteArray = [
     ...Buffer.from(contractHash.slice(5), "hex"),
   ];
 
 
-  // const byteArr1 = new CLByteArray(new Uint8Array([21, 31]));
-  // const myValue = new CLKey(byteArr1);
-
-  // const arr8 = new Uint8Array([21, 31]);
-  //   const myHash = new CLAccountHash(arr8);
-    // const myValue = CLValueBuilder.key(new CLByteArray(new Uint8Array([21, 31])));
-    const hash = new CLAccountHash(Uint8Array.from(Array(32).fill(42)));
-    // const expectedBytes = Uint8Array.from([0, ...Array(32).fill(42)]);
-    const myValue = new CLKey(hash);
-
+  const byteArr1 = new CLByteArray(new Uint8Array([21, 31, 41,21, 31, 41,21, 31, 41,21, 31, 41,21, 31, 41,21, 31, 41,21, 31, 41,21, 31, 41,21, 31, 41,21, 31, 41,31, 41,]));
+  console.log("byteArr1 length: ",byteArr1.data.length);
+  const myValue = new CLKey(byteArr1);
 
   let deploy = DeployUtil.makeDeploy(
     new DeployUtil.DeployParams(
