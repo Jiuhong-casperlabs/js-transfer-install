@@ -13,6 +13,7 @@
     "storekey": "node -r esm -e 'require(\"./src/session_storekey.js\")'",
     "mintone": "node -r esm -e 'require(\"./src/session_cep47.js\")'",
     "test": "node -r esm -e 'require(\"./src/test.js\")'",
+    "balance":  "node -r esm -e 'require(\"./src/getAccountBalance.js\")'",
     "transferfrom": "node -r esm -e 'require(\"./src/exec_transfer_from.js\")'",
     "package": "node -r esm -e 'require(\"./src/execpackage.js\")'",
     "getdeploy": "node -r esm -e 'require(\"./src/getdeploy.js\")'",
