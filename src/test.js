@@ -19,6 +19,7 @@ import {
   CLOptionType,
   CLByteArray,
   CLKey,
+  CLPublicKey
 } from "casper-js-sdk";
 import * as utils from "../utils";
 import { Some, None } from "ts-results";
@@ -43,16 +44,21 @@ const main = () => {
   const ttt =  Buffer.from(convertFromPrivateKey).toString("hex");
   const ttt2 = Buffer.from(privateKey).toString("hex");
 
-  console.log("public key string: ",ttt);
-  console.log("public key string length: ",ttt.length);
+  // console.log("public key string: ",ttt);
+  // console.log("public key string length: ",ttt.length);
 
-  console.log("private key string:",ttt2)
-  console.log("private key length:",ttt2.length)
-
-
+  // console.log("private key string:",ttt2)
+  // console.log("private key length:",ttt2.length)
 
 
 
+  const hexString = '010e31a03ea026a8e375653573e0120c8cb96699e6c9721ae1ea98f896e6576ac3';
+
+  const hex = Uint8Array.from(Buffer.from(hexString, 'hex'));
+  console.log("hex:",hex)
+
+  const result = CLPublicKey.fromHex(hexString).toAccountHashStr()
+  console.log("result:",result)
   // const myType = new CLOptionType(new CLBoolType());
   // const mySomeOpt = new CLOption(Some(new CLString("String")));
   // const myKey = new CLString("ABC");

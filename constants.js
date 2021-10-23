@@ -16,6 +16,8 @@ export const PATH_TO_TRAGET_KEYS = `${process.env.HOME}/keys/jdk_keys/jdk2`;
 //Path to test11 which has KVstorage contract installed
 export const PATH_TO_KV_KEYS = `${process.env.HOME}/keys/test99`;
 
+export const PATH_TO_BALANCE = `${process.env.HOME}/keys/test30`;
+
 //Path to test11 which has KVstorage contract installed
 export const PATH_TO_CEP47_KEYS = `${process.env.HOME}/keys/jdk_keys/jdk1`;
 
