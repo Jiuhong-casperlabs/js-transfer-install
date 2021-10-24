@@ -8,7 +8,12 @@ const main = () => {
 
   const hexString = '010e31a03ea026a8e375653573e0120c8cb96699e6c9721ae1ea98f896e6576ac3';
 
-  const result = CLPublicKey.fromHex(hexString).toAccountHashStr()
+  //account-hash-d9758b25962f4cba82ba0047389af97a70acb7df43b391f9ffb293801bea5061
+  const result2 = CLPublicKey.fromHex(hexString).toAccountHashStr()
+  console.log("result2:",result2)
+
+  //d9758b25962f4cba82ba0047389af97a70acb7df43b391f9ffb293801bea5061
+  const result = Buffer.from(CLPublicKey.fromHex(hexString).toAccountHash()).toString('hex')
   console.log("result:",result)
 
 };
