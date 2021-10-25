@@ -1,5 +1,11 @@
 notes:
 
+### public key string to account hash
+
+```
+npm run ptoa
+```
+
 ### execute package with version
 
 ```
