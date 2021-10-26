@@ -2,7 +2,7 @@
 
 #### step1: deploy share 
 
-#### step2: deploy `locked` which initial public keys which can have access right.
+#### step2: deploy `locked` with initial public keys which can have access right.
 
 ```
 npm run deploylock
