@@ -10,6 +10,7 @@
     "storebyte": "node -r esm -e 'require(\"./src/session_storebytearray.js\")'",
     "storelist": "node -r esm -e 'require(\"./src/session_storelist.js\")'",
     "storelistkeys": "node -r esm -e 'require(\"./src/session_storelistkeys.js\")'",
+    "storelistpks": "node -r esm -e 'require(\"./src/session_storelistpks.js\")'",
     "storekey": "node -r esm -e 'require(\"./src/session_storekey.js\")'",
     "mintone": "node -r esm -e 'require(\"./src/session_cep47.js\")'",
     "test": "node -r esm -e 'require(\"./src/test.js\")'",
@@ -18,6 +19,9 @@
     "transferfrom": "node -r esm -e 'require(\"./src/exec_transfer_from.js\")'",
     "package": "node -r esm -e 'require(\"./src/execpackage.js\")'",
     "getdeploy": "node -r esm -e 'require(\"./src/getdeploy.js\")'",
+    "deploylock": "node -r esm -e 'require(\"./src/deploylocked.js\")'",
+    "calllocked": "node -r esm -e 'require(\"./src/calllockedget_access.js\")'",
+    "lockedgco": "node -r esm -e 'require(\"./src/calllockedgroup_access_only.js\")'",
     "installwasm":"node -r esm -e 'require(\"./src/install.js\")'"
   },
   "author": "",

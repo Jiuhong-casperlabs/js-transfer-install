@@ -1,4 +1,23 @@
-notes:
+### restrict access
+
+#### step1: deploy share 
+
+#### step2: deploy `locked` which initial public keys which can have access right.
+
+```
+npm run deploylock
+```
+
+#### step3: call entry point `get_access` of `locked` to gain access. 
+
+```
+npm run calllocked
+```
+
+#### step4: call entry point `group_access_only` of `locked` to see if function can be accessed. `User error: 777` is expected.
+```
+npm run lockedgco
+```
 
 ### public key string to account hash
 

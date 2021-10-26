@@ -15,6 +15,9 @@ export const PATH_TO_TRAGET_KEYS = `${process.env.HOME}/keys/jdk_keys/jdk2`;
 
 //Path to test11 which has KVstorage contract installed
 export const PATH_TO_KV_KEYS = `${process.env.HOME}/keys/test99`;
+export const PATH_TO_CALLLOCKED = `${process.env.HOME}/keys/test98`;
+export const PATH_LIST_KEY98 = `${process.env.HOME}/keys/test98`;
+export const PATH_LIST_KEY11 = `${process.env.HOME}/keys/test11`;
 
 export const PATH_TO_BALANCE = `${process.env.HOME}/keys/test30`;
 
@@ -35,6 +38,13 @@ export const PATH_TO_VALIDATORS =
 export const PATH_TO_CONTRACT_ERC_20 =
   process.env.PATH_TO_CONTRACT_ERC_20 ||
   `${process.env.HOME}/learning/js/kvstorage/wasm/erc20.wasm`;
+
+// Path to an ERC20 samrt contract wasm file.
+export const PATH_TO_LOCKED =
+  `${process.env.HOME}/casperecosystem/uref-sharing-example/target/wasm32-unknown-unknown/release/locked.wasm`;
+
+  export const PATH_TO_LOCKED1 =
+  `${process.env.HOME}/rust/urefshare_working/target/wasm32-unknown-unknown/release/locked.wasm`;
 
 // Name of target chain.
 export const DEPLOY_CHAIN_NAME =
