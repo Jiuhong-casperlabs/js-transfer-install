@@ -1,4 +1,4 @@
-### restrict access
+### Restrict access
 
 #### step1: deploy share 
 
@@ -9,35 +9,37 @@ npm run deploylock
 ```
 
 #### step3: call entry point `get_access` of `locked` to gain access. 
+Only public keys which are in public keys list of step2 can get access. Others will return `User error: 1` 
 
 ```
 npm run calllocked
 ```
 
-#### step4: call entry point `group_access_only` of `locked` to see if function can be accessed. `User error: 777` is expected.
+#### step4: call entry point `group_access_only` of `locked` to see if function can be accessed. 
+If the public key has access right, `User error: 777`  (intentional) is returned.
 ```
 npm run lockedgco
 ```
 
-### public key string to account hash
+### Public key string to account hash
 
 ```
 npm run ptoa
 ```
 
-### execute package with version
+### Execute package with version
 
 ```
 npm run package
 ```
 
-### store tuple
+### Store tuple
 
 ```bash
 npm run sessionstoretuple
 ```
 
-### exec_transfer_from
+### Exec_transfer_from
 
 step1: to initial namedkey "allowances\-{owner}\-{sender}"
 
