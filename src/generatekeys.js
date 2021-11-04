@@ -1,22 +1,7 @@
-import {
-  CasperClient,
-  CLValueBuilder,
-  DeployUtil,
-  RuntimeArgs,
-  CLList,
-  CLString,
-  CLKey,
-  CLByteArray,
-  CLValue,
-  Keys,
-} from "casper-js-sdk";
+import { Keys } from "casper-js-sdk";
 import * as constants from "../constants";
-import * as utils from "../utils";
 import fs from "fs";
 import path from "path";
-
-// Path to contract to be installed.
-const PATH_TO_CONTRACT = constants.PATH_TO_LOCKED;
 
 /**
  * Demonstration entry point.
@@ -50,8 +35,6 @@ const main = async () => {
     folder + "/" + accountAddress + "_private.pem",
     privateKeyInPem
   );
-
-  return accountAddress;
 };
 
 main();
