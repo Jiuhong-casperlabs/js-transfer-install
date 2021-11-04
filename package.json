@@ -14,7 +14,7 @@
     "storekey": "node -r esm -e 'require(\"./src/session_storekey.js\")'",
     "mintone": "node -r esm -e 'require(\"./src/session_cep47.js\")'",
     "test": "node -r esm -e 'require(\"./src/test.js\")'",
-    "balance":  "node -r esm -e 'require(\"./src/getAccountBalance.js\")'",
+    "balance": "node -r esm -e 'require(\"./src/getAccountBalance.js\")'",
     "ptoa": "node -r esm -e 'require(\"./src/publickeytoaccounthash.js\")'",
     "transferfrom": "node -r esm -e 'require(\"./src/exec_transfer_from.js\")'",
     "package": "node -r esm -e 'require(\"./src/execpackage.js\")'",
@@ -22,7 +22,8 @@
     "deploylock": "node -r esm -e 'require(\"./src/deploylocked.js\")'",
     "calllocked": "node -r esm -e 'require(\"./src/calllockedget_access.js\")'",
     "lockedgco": "node -r esm -e 'require(\"./src/calllockedgroup_access_only.js\")'",
-    "installwasm":"node -r esm -e 'require(\"./src/install.js\")'"
+    "keys": "node -r esm -e 'require(\"./src/generatekeys.js\")'",
+    "installwasm": "node -r esm -e 'require(\"./src/install.js\")'"
   },
   "author": "",
   "license": "ISC",
