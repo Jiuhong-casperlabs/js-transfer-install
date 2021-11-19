@@ -19,7 +19,8 @@ import {
   CLOptionType,
   CLByteArray,
   CLKey,
-  CLPublicKey
+  CLPublicKey,
+  CLPublicKeyTag,
 } from "casper-js-sdk";
 import * as utils from "../utils";
 import { Some, None } from "ts-results";
@@ -96,6 +97,21 @@ const main = () => {
 
   // // let token_ids = CLValueBuilder.option("SJH", CLTypeBuilder.bool);
   // // console.log(token_ids);
+
+      const rawEd25519Account = Uint8Array.from([
+  154, 211, 137, 116, 146, 249, 164, 57,
+  9,  35,  64, 255,  83, 105, 131, 86,
+  169, 250, 100, 248,  12,  68, 201,  17,
+  43,  62, 151,  55, 158,  87, 186, 148
+  ]);
+  
+  const publicKeyEd25519 = new CLPublicKey(
+  rawEd25519Account,
+  CLPublicKeyTag.ED25519
+  );
+
+  const accountAddress = publicKeyEd25519.toHex();
+  console.log("pk is: ", accountAddress);
 
 
 
