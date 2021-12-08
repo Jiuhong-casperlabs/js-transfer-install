@@ -64,14 +64,15 @@ const main = async () => {
     )
   );
 
+  console.log("deploy is before sign: ",deploy)
   //Step 5.2 Sign deploy.
   deploy = client.signDeploy(deploy, keyPairofContract);
 
+  console.log("deploy is after sign: ",deploy)
   //Step 5.3 Dispatch deploy to node.
   let deployHash = await client.putDeploy(deploy);
 
-  console.log(`store_key ${myValue} 
-   deploy hash = ${deployHash}`);
+  console.log(`deploy hash = ${deployHash}`);
 };
 
 main();

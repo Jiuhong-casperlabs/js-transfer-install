@@ -2,18 +2,16 @@ import {
   DeployUtil,
   CasperClient,
   RuntimeArgs,
-  CLList,
-  CLU8,
   CLString,
   CLPublicKey,
   CLByteArray,
   CLKey,
+  CLOption,
   CLAccountHash,
-  CLValueBuilder
 } from "casper-js-sdk";
 import * as utils from "../utils";
 import * as constants from "../constants";
-
+import { Some, None } from "ts-results";
 const main = async () => {
   //Step 1: Set casper node client
   const client = new CasperClient(constants.DEPLOY_NODE_ADDRESS);
@@ -31,22 +29,21 @@ const main = async () => {
     client,
     stateRootHash,
     keyPairofContract,
-    "kvstorage_session"
+    // "kvstorage_session"
+    // "counter"
+    "mykv"
   );
   const contractHashAsByteArray = [
     ...Buffer.from(contractHash.slice(5), "hex"),
   ];
 
-
-  const myValue = new CLByteArray(new Uint8Array([21, 31,41]));
-
-
-  // const arr8 = new Uint8Array([21, 31]);
-  //   const myHash = new CLAccountHash(arr8);
-    // const myValue = CLValueBuilder.key(new CLByteArray(new Uint8Array([21, 31])));
-    // const hash = new CLAccountHash(Uint8Array.from(Array(32).fill(42)));
-    // const myValue = new CLKey(hash);
-
+  const byteArr1 = new CLByteArray(
+    new Uint8Array([
+      21, 31, 41, 21, 31, 41, 21, 31, 41, 21, 31, 41, 21, 31, 41, 21, 31, 41,
+      21, 31, 41, 21, 31, 41, 21, 31, 41, 21, 31, 41, 31, 41,
+    ])
+  );
+  const myValue = new CLOption(Some(new CLKey(byteArr1)));
 
   let deploy = DeployUtil.makeDeploy(
     new DeployUtil.DeployParams(
@@ -57,10 +54,10 @@ const main = async () => {
     ),
     DeployUtil.ExecutableDeployItem.newStoredContractByHash(
       contractHashAsByteArray,
-      "store_byte_array",
+      "store_optionkey",
       RuntimeArgs.fromMap({
         value: myValue,
-        name: new CLString('name'),
+        name: new CLString("name"),
       })
     ),
     DeployUtil.standardPayment(
@@ -68,16 +65,15 @@ const main = async () => {
     )
   );
 
-  console.log("deploy is: ",deploy)
-
+  console.log("deploy is before sign: ", deploy);
   //Step 5.2 Sign deploy.
   deploy = client.signDeploy(deploy, keyPairofContract);
 
+  console.log("deploy is after sign: ", deploy);
   //Step 5.3 Dispatch deploy to node.
   let deployHash = await client.putDeploy(deploy);
 
-  console.log(`store_key ${myValue} 
-   deploy hash = ${deployHash}`);
+  console.log(`deploy hash = ${deployHash}`);
 };
 
 main();
