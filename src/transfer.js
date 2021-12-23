@@ -44,11 +44,11 @@ const main = async () => {
   deploy = client.signDeploy(deploy, source);
 
   //ste 3.4 Dispatch deploy to node
-  // let deployHash = await client.putDeploy(deploy);
+  let deployHash = await client.putDeploy(deploy);
 
-  // console.log(
-  //   `transferring ${AMOUNT_TO_TRANSFER} tokens -> user ${target} :: deploy hash = ${deployHash}`
-  // );
+  console.log(
+    `transferring ${AMOUNT_TO_TRANSFER} tokens -> user ${target} :: deploy hash = ${deployHash}`
+  );
 };
 
 main();

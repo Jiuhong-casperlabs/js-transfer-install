@@ -22,6 +22,8 @@
     "transferfrom": "node -r esm -e 'require(\"./src/exec_transfer_from.js\")'",
     "package": "node -r esm -e 'require(\"./src/execpackage.js\")'",
     "getdeploy": "node -r esm -e 'require(\"./src/getdeploy.js\")'",
+    "testdeploy": "node -r esm -e 'require(\"./src/testdeploy.js\")'",
+    "getbalance": "node -r esm -e 'require(\"./src/getbalance.js\")'",
     "deploylock": "node -r esm -e 'require(\"./src/deploylocked.js\")'",
     "calllocked": "node -r esm -e 'require(\"./src/calllockedget_access.js\")'",
     "lockedgco": "node -r esm -e 'require(\"./src/calllockedgroup_access_only.js\")'",
