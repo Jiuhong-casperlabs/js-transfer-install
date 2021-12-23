@@ -1,5 +1,5 @@
 import * as constants from "../constants";
-import { CasperClient, DeployUtil,CLPublicKey,CLPublicKeyTag } from "casper-js-sdk";
+import { CasperClient,CLPublicKey,CLPublicKeyTag } from "casper-js-sdk";
 
 
 const main = async () => {
