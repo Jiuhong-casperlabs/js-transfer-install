@@ -1,5 +1,5 @@
 /**
- * @fileOverview CSPR JS SDK demo: ERC20 - install contract.
+ * @fileOverview CSPR JS SDK demo: CASK - install contract.
  */
 
 import {
