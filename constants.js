@@ -46,6 +46,11 @@ export const PATH_TO_LOCKED =
   export const PATH_TO_LOCKED1 =
   `${process.env.HOME}/rust/urefshare_working/target/wasm32-unknown-unknown/release/locked.wasm`;
 
+// Path to an CASK samrt contract wasm file.
+export const PATH_TO_CONTRACT_CASK =
+process.env.PATH_TO_CONTRACT_CASK ||
+  `${process.env.HOME}/caspereco/CaskNFT/target/wasm32-unknown-unknown/release/cask-token.wasm`;
+
 // Name of target chain.
 export const DEPLOY_CHAIN_NAME =
   // process.env.CSPR_INTS_DEPLOY_CHAIN_NAME || "casper-net-1";
@@ -53,7 +58,7 @@ export const DEPLOY_CHAIN_NAME =
 
 // Gas payment to be offered.
 export const DEPLOY_GAS_PAYMENT_FOR_INSTALL =
-  process.env.CSPR_INTS_DEPLOY_GAS_PAYMENT || 60000000000;
+  process.env.CSPR_INTS_DEPLOY_GAS_PAYMENT || 200000000000;
 
 // Gas payment for native transfers to be offered.
 export const DEPLOY_GAS_PAYMENT_FOR_NATIVE_TRANSFER =

@@ -28,7 +28,8 @@
     "calllocked": "node -r esm -e 'require(\"./src/calllockedget_access.js\")'",
     "lockedgco": "node -r esm -e 'require(\"./src/calllockedgroup_access_only.js\")'",
     "keys": "node -r esm -e 'require(\"./src/generatekeys.js\")'",
-    "installwasm": "node -r esm -e 'require(\"./src/install.js\")'"
+    "installwasm": "node -r esm -e 'require(\"./src/install.js\")'",
+    "installcask": "node -r esm -e 'require(\"./src/install_cask_token.js\")'"
   },
   "author": "",
   "license": "ISC",

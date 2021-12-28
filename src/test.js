@@ -8,6 +8,7 @@ import {
   CLI32,
   CLMap,
   CLU32,
+  CLAccountHash,
   Keys,
 } from "casper-js-sdk";
 import {
@@ -71,9 +72,13 @@ const main = () => {
     constants.PATH_TO_TRAGET_KEYS
   );
 
-  // const byteArr = new CLByteArray(
-  //   new Uint8Array(keyPairofTarget.accountHash())
-  // );
+  const byteArr = new CLByteArray(
+    new Uint8Array(keyPairofTarget.accountHash())
+  );
+
+  console.log("keyPairofTarget.accountHash():", keyPairofTarget.accountHash())
+  console.log("byteArr:",byteArr)
+
   // const myAccountKey = new CLKey(
   //   new CLByteArray(new Uint8Array(keyPairofTarget.accountHash()))
   // );
@@ -110,18 +115,18 @@ const main = () => {
   // const accountAddress = publicKeyEd25519.toHex();
   // console.log("pk is: ", accountAddress);
 
-  const keyPairofContract = utils.getKeyPairOfContract(
-    constants.PATH_TO_SOURCE_KEYS
-  );
+  // const keyPairofContract = utils.getKeyPairOfContract(
+  //   constants.PATH_TO_SOURCE_KEYS
+  // );
 
-  const byteArr1 = new CLByteArray(
-    new Uint8Array([
-      21, 31, 41, 21, 31, 41, 21, 31, 41, 21, 31, 41, 21, 31, 41, 21, 31, 41,
-      21, 31, 41, 21, 31, 41, 21, 31, 41, 21, 31, 41, 31, 41,
-    ])
-  );
-  const myValue = new CLOptionType(new CLKey(byteArr1));
-  console.log("myValue type is : ", typeof myValue);
+  // const byteArr1 = new CLByteArray(
+  //   new Uint8Array([
+  //     21, 31, 41, 21, 31, 41, 21, 31, 41, 21, 31, 41, 21, 31, 41, 21, 31, 41,
+  //     21, 31, 41, 21, 31, 41, 21, 31, 41, 21, 31, 41, 31, 41,
+  //   ])
+  // );
+  // const myValue = new CLOptionType(new CLKey(byteArr1));
+  // console.log("myValue type is : ", typeof myValue);
 
   // let deploy = DeployUtil.makeDeploy(
   //   new DeployUtil.DeployParams(
@@ -144,6 +149,13 @@ const main = () => {
   // );
 
   // console.log("deploy is: ", deploy);
+
+  //  const hexString = '010e31a03ea026a8e375653573e0120c8cb96699e6c9721ae1ea98f896e6576ac3';
+
+  // const hex = Uint8Array.from(Buffer.from(hexString, 'hex'));
+  // const myHash = new CLAccountHash(hex);
+  // const myKey = new CLKey(myHash);
+  // console.log("mykey:",myKey)
 };
 
 main();

@@ -32,5 +32,9 @@ const main = async () => {
   // console.log("publicKey is: ", publicKey)
   // console.log("accountHex is: ",accountHex)
 
+  // const publicKeyObj = CLPublicKey.fromHex("016e2e0fbe966e1bba69e4ba0c501687458615dbcd8d7f2dc76406d896bb6acae1");
+  // const balance = (await client.balanceOfByPublicKey(publicKeyObj)).toNumber()
+  // console.log("balance is: ",balance)
+
 }
 main();

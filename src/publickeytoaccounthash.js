@@ -14,7 +14,12 @@ const main = () => {
 
   //d9758b25962f4cba82ba0047389af97a70acb7df43b391f9ffb293801bea5061
   const result = Buffer.from(CLPublicKey.fromHex(hexString).toAccountHash()).toString('hex')
-  console.log("result:",result)
+  console.log("result:", result)
+  
+  //to accounthash
+  const result3 = CLPublicKey.fromHex(hexString).toAccountHash()
+  console.log("result3:",result3)
+
 
 };
 
