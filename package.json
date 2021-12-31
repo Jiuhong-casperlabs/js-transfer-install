@@ -29,8 +29,10 @@
     "lockedgco": "node -r esm -e 'require(\"./src/calllockedgroup_access_only.js\")'",
     "keys": "node -r esm -e 'require(\"./src/generatekeys.js\")'",
     "installwasm": "node -r esm -e 'require(\"./src/install.js\")'",
-    "mintcask": "node -r esm -e 'require(\"./src/call_cask_token.js\")'",
-    "installcask": "node -r esm -e 'require(\"./src/install_cask_token.js\")'"
+    "mintcask": "node -r esm -e 'require(\"./src/cask_mint_token.js\")'",
+    "mintercask": "node -r esm -e 'require(\"./src/cask_grant_minter.js\")'",
+    "admincask": "node -r esm -e 'require(\"./src/cask_grant_admin.js\")'",
+    "installcask": "node -r esm -e 'require(\"./src/cask_install.js\")'"
   },
   "author": "",
   "license": "ISC",

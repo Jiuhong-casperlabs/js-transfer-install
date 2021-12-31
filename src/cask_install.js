@@ -30,7 +30,7 @@ const TOKEN_contract_name = new CLString('CVCV');
 
 
 //**************************** for accounthash start*******************************/
-const hexString1 = '0184bb74956e70397dbc3e403e9589f8b63db74c47c908447ec78037aa50fad2ff';
+const hexString1 = '010e31a03ea026a8e375653573e0120c8cb96699e6c9721ae1ea98f896e6576ac3';
 
 const myHash1 = new CLAccountHash(CLPublicKey.fromHex(hexString1).toAccountHash());
 
