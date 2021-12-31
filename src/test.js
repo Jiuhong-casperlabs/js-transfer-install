@@ -29,133 +29,75 @@ import * as constants from "../constants";
 
 const AMOUNT_TO_TRANSFER = 2500000000;
 
+const mintNFT = async (minter, asset_id, meta_data, commisions) => {
+  console.log(casperUtils.createRecipientAddress(minter))
+  let deployParams = new DeployUtil.DeployParams(adminKeyPair.publicKey, networkName, gasPrice, ttl);
+  console.log(deployParams)
+  let args = RuntimeArgs.fromMap({
+      recipient: casperUtils.createRecipientAddress(minter),
+      token_ids: new CLString(asset_id),
+      token_metas: casperUtils.toCLMap(meta_data),
+      token_commisions: casperUtils.toCLMap(commisions)
+  });
+
+  console.log(args)
+  let session = DeployUtil.ExecutableDeployItem
+  .newStoredContractByHash(casperUtils.contractHashToByteArray(NFTDeployHash), "mint", args );
+  console.log(session)
+  const payment = DeployUtil.standardPayment(200);
+  console.log(payment)
+  const deploy = DeployUtil.makeDeploy(deployParams, session, payment);
+  console.log(deploy)
+  const signedDeploy = DeployUtil.signDeploy(deploy, adminKeyPair);
+  return await casperClient.putDeploy(signedDeploy);
+}
+
+toCLMap : (map) => {
+  const clMap = CLValueBuilder.map([
+    CLTypeBuilder.string(),
+    CLTypeBuilder.string(),
+  ]);
+  for (const [key, value] of Array.from(map.entries())) {
+    clMap.set(CLValueBuilder.string(key), CLValueBuilder.string(value));
+  }
+  return clMap;
+}
+// Create Recipient Address
+createRecipientAddress : (recipient) => {
+  if (recipient instanceof CLPublicKey) {
+    return new CLKey(new CLAccountHash(recipient.toAccountHash()));
+  } else {
+    return new CLKey(new CLAccountHash(CLPublicKey.fromHex(recipient).toAccountHash()));
+  }
+}
+
 const main = () => {
-  // let casperClient= new CasperClient(
-  //   'http://192.168.2.166:40101/rpc'
-  // );
-
-  // const edKeyPair = casperClient.newKeyPair(Keys.SignatureAlgorithm.Secp256K1);
-  // const publicKey = edKeyPair.publicKey.value();
-  // const privateKey = edKeyPair.privateKey;
-
-  // const convertFromPrivateKey = casperClient.privateToPublicKey(
-  //   privateKey,
-  //   Keys.SignatureAlgorithm.Ed25519
-  // );
-  // const ttt =  Buffer.from(convertFromPrivateKey).toString("hex");
-  // const ttt2 = Buffer.from(privateKey).toString("hex");
-
-  // console.log("public key string: ",ttt);
-  // console.log("public key string length: ",ttt.length);
-
-  // console.log("private key string:",ttt2)
-  // console.log("private key length:",ttt2.length)
-
-  // const hexString = '010e31a03ea026a8e375653573e0120c8cb96699e6c9721ae1ea98f896e6576ac3';
-
-  // const hex = Uint8Array.from(Buffer.from(hexString, 'hex'));
-  // console.log("hex:",hex)
-
-  // const result = CLPublicKey.fromHex(hexString).toAccountHashStr()
-  // console.log("result:",result)
-  // const myType = new CLOptionType(new CLBoolType());
-  // const mySomeOpt = new CLOption(Some(new CLString("String")));
-  // const myKey = new CLString("ABC");
-  // const myVal = new CLI32(123);
-  // const myMap = new CLMap([[myKey, myVal]]);
-
-  // const myString = new CLString("hello");
-  // const myList = new CLList([myString]);
-  // const optionlist = new CLOption(Some(new CLList([new CLString("hello")])));
-
-  const keyPairofTarget = utils.getKeyPairOfContract(
-    constants.PATH_TO_TRAGET_KEYS
+  let casperClient= new CasperClient(
+    'http://88.99.167.167:7777/rpc'
   );
 
-  const byteArr = new CLByteArray(
-    new Uint8Array(keyPairofTarget.accountHash())
-  );
+  console.log(casperUtils.createRecipientAddress(minter))
 
-  console.log("keyPairofTarget.accountHash():", keyPairofTarget.accountHash())
-  console.log("byteArr:",byteArr)
+   let deployParams = new DeployUtil.DeployParams(adminKeyPair.publicKey, networkName, gasPrice, ttl);
+    console.log(deployParams)
+    let args = RuntimeArgs.fromMap({
+        recipient: casperUtils.createRecipientAddress(minter),
+        token_ids: new CLString(asset_id),
+        token_metas: casperUtils.toCLMap(meta_data),
+        token_commisions: casperUtils.toCLMap(commisions)
+    });
 
-  // const myAccountKey = new CLKey(
-  //   new CLByteArray(new Uint8Array(keyPairofTarget.accountHash()))
-  // );
+    console.log(args)
+    let session = DeployUtil.ExecutableDeployItem
+    .newStoredContractByHash(casperUtils.contractHashToByteArray(NFTDeployHash), "mint", args );
+    console.log(session)
+    const payment = DeployUtil.standardPayment(200);
+    console.log(payment)
+    const deploy = DeployUtil.makeDeploy(deployParams, session, payment);
+    console.log(deploy)
+    const signedDeploy = DeployUtil.signDeploy(deploy, adminKeyPair);
+    return await casperClient.putDeploy(signedDeploy);
 
-  // const count = new CLU32(1);
-
-  // const recipient = new CLKey(new CLByteArray(keyPairofTarget.accountHash()));
-  // const recipient2 = new CLKey(
-  //   new CLByteArray(new Uint8Array(keyPairofTarget.accountHash()))
-  // );
-
-  // // const map1 = CLValueBuilder.map(["aaa", "bbb"]);
-  // // const ttt = CLValueBuilder.option(Some(true));
-
-  // // const myNoneOpt = new CLOption(None, new CLBoolType());
-  // console.log("recipient2:", recipient2);
-  // console.log("hello");
-
-  // // let token_ids = CLValueBuilder.option("SJH", CLTypeBuilder.bool);
-  // // console.log(token_ids);
-
-  //     const rawEd25519Account = Uint8Array.from([
-  // 154, 211, 137, 116, 146, 249, 164, 57,
-  // 9,  35,  64, 255,  83, 105, 131, 86,
-  // 169, 250, 100, 248,  12,  68, 201,  17,
-  // 43,  62, 151,  55, 158,  87, 186, 148
-  // ]);
-
-  // const publicKeyEd25519 = new CLPublicKey(
-  // rawEd25519Account,
-  // CLPublicKeyTag.ED25519
-  // );
-
-  // const accountAddress = publicKeyEd25519.toHex();
-  // console.log("pk is: ", accountAddress);
-
-  // const keyPairofContract = utils.getKeyPairOfContract(
-  //   constants.PATH_TO_SOURCE_KEYS
-  // );
-
-  // const byteArr1 = new CLByteArray(
-  //   new Uint8Array([
-  //     21, 31, 41, 21, 31, 41, 21, 31, 41, 21, 31, 41, 21, 31, 41, 21, 31, 41,
-  //     21, 31, 41, 21, 31, 41, 21, 31, 41, 21, 31, 41, 31, 41,
-  //   ])
-  // );
-  // const myValue = new CLOptionType(new CLKey(byteArr1));
-  // console.log("myValue type is : ", typeof myValue);
-
-  // let deploy = DeployUtil.makeDeploy(
-  //   new DeployUtil.DeployParams(
-  //     keyPairofContract.publicKey,
-  //     constants.DEPLOY_CHAIN_NAME,
-  //     constants.DEPLOY_GAS_PRICE,
-  //     constants.DEPLOY_TTL_MS
-  //   ),
-  //   DeployUtil.ExecutableDeployItem.newStoredContractByHash(
-  //     contractHashAsByteArray,
-  //     "store_byte_array",
-  //     RuntimeArgs.fromMap({
-  //       value: myValue,
-  //       name: new CLString("name"),
-  //     })
-  //   ),
-  //   DeployUtil.standardPayment(
-  //     constants.DEPLOY_GAS_PAYMENT_FOR_SESSION_TRANSFER
-  //   )
-  // );
-
-  // console.log("deploy is: ", deploy);
-
-  //  const hexString = '010e31a03ea026a8e375653573e0120c8cb96699e6c9721ae1ea98f896e6576ac3';
-
-  // const hex = Uint8Array.from(Buffer.from(hexString, 'hex'));
-  // const myHash = new CLAccountHash(hex);
-  // const myKey = new CLKey(myHash);
-  // console.log("mykey:",myKey)
 };
 
 main();
