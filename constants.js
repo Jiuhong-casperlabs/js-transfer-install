@@ -40,16 +40,19 @@ export const PATH_TO_CONTRACT_ERC_20 =
   `${process.env.HOME}/learning/js/kvstorage/wasm/erc20.wasm`;
 
 // Path to an ERC20 samrt contract wasm file.
-export const PATH_TO_LOCKED =
-  `${process.env.HOME}/casperecosystem/uref-sharing-example/target/wasm32-unknown-unknown/release/locked.wasm`;
+export const PATH_TO_LOCKED = `${process.env.HOME}/casperecosystem/uref-sharing-example/target/wasm32-unknown-unknown/release/locked.wasm`;
 
-  export const PATH_TO_LOCKED1 =
-  `${process.env.HOME}/rust/urefshare_working/target/wasm32-unknown-unknown/release/locked.wasm`;
+export const PATH_TO_LOCKED1 = `${process.env.HOME}/rust/urefshare_working/target/wasm32-unknown-unknown/release/locked.wasm`;
 
 // Path to an CASK samrt contract wasm file.
 export const PATH_TO_CONTRACT_CASK =
-process.env.PATH_TO_CONTRACT_CASK ||
+  process.env.PATH_TO_CONTRACT_CASK ||
   `${process.env.HOME}/caspereco/CaskNFT/target/wasm32-unknown-unknown/release/cask-token.wasm`;
+
+// Path to an AUCTION samrt contract wasm file.
+export const PATH_TO_CONTRACT_AUCTION =
+  process.env.PATH_TO_CONTRACT_AUCTION ||
+  `${process.env.HOME}/caspereco/casper-private-auction/target/wasm32-unknown-unknown/release/casper-private-auction-installer.wasm`;
 
 // Name of target chain.
 export const DEPLOY_CHAIN_NAME =

@@ -8,7 +8,8 @@ import {
   CLKey,
   CLAccountHash,
   CLString,
-  CLOption
+  CLPublicKey,
+  CLOption,
 } from "casper-js-sdk";
 import * as utils from "../utils";
 import { Some, None } from "ts-results";
@@ -23,10 +24,6 @@ const main = async () => {
   //Step 2: Set contract operator key pair
   const keyPairofContract = utils.getKeyPairOfContract(
     constants.PATH_TO_SOURCE_KEYS
-  );
-  //Step 2.1: Set transfer target key pair
-  const keyPairofTarget = utils.getKeyPairOfContract(
-    constants.PATH_TO_TRAGET_KEYS
   );
 
   //Step3: Query node for global state root hash
@@ -43,18 +40,22 @@ const main = async () => {
     ...Buffer.from(contractHash.slice(5), "hex"),
   ];
 
-  const hash = new CLAccountHash(Uint8Array.from(Array(32).fill(42)));
-  const myKey1 = new CLKey(hash);
+  const hexString =
+    "010e31a03ea026a8e375653573e0120c8cb96699e6c9721ae1ea98f896e6576ac3";
+  const hash = CLPublicKey.fromHex(hexString).toAccountHash();
 
-  const a = new CLString('hello');
+  const accounthash = new CLAccountHash(hash);
+  const recipient = new CLKey(accounthash);
+
+  const a = new CLString("orange");
   const myList = new CLList([a]);
   const token_ids = new CLOption(Some(myList));
 
-  const myKey = new CLString('hello');
-  const myVal = new CLString('world');
+  const myKey = new CLString("ice");
+  const myVal = new CLString("cream");
   const temp = new CLMap([[myKey, myVal]]);
   const token_metas = new CLList([temp]);
-  const token_commissions= new CLList([temp]);
+  const token_commissions = new CLList([temp]);
 
   //Step 5: Invoke contract transfer endpoint.
 
@@ -70,10 +71,10 @@ const main = async () => {
       contractHashAsByteArray,
       "mint",
       RuntimeArgs.fromMap({
-        recipient: myKey1,
+        recipient: recipient,
         token_ids: token_ids,
         token_metas: token_metas,
-        token_commissions:token_commissions,
+        token_commissions: token_commissions,
       })
     ),
     DeployUtil.standardPayment(
