@@ -5,9 +5,11 @@ import {
   CLValueBuilder,
   CLTypeBuilder,
   CLString,
+  CLValue,
   CLI32,
   CLMap,
   CLU32,
+  CLU512,
   CLAccountHash,
   Keys,
 } from "casper-js-sdk";
@@ -83,28 +85,31 @@ createRecipientAddress: (recipient) => {
 };
 
 const main = () => {
-  const a = new CLValueBuilder.u512(1);
-  const c = new CLOption(Some(a));
-  // const b = new CLOption(new CLString("hello"));
-  const starting_price = new CLOption(Some(new CLValueBuilder.u512(1)));
-  const start_time = new CLU64("2641199115000");
+  // const a = new CLValueBuilder.u512(1);
+  // const c = new CLOption(Some(a));
+  // // const b = new CLOption(new CLString("hello"));
+  // const starting_price = new CLOption(Some(new CLValueBuilder.u512(1)));
+  // const start_time = new CLU64("2641199115000");
+
+  // const result = new CLOption(Some(CLValue.u512(1)));
+  let value = new CLU512(12345);
 
   //****************************start_time u64*********************/
 
   //****************************cancellation_time u64*********************/
 
-  const cancellation_time = new CLU64("2641199315000");
+  // const cancellation_time = new CLU64("2641199315000");
 
-  //****************************cancellation_time u64*********************/
+  // //****************************cancellation_time u64*********************/
 
-  //****************************end_time u64*********************/
+  // //****************************end_time u64*********************/
 
-  const end_time = new CLU64("2641299315000");
-  console.log(cancellation_time >= start_time);
-  console.log(cancellation_time);
-  console.log(start_time);
-  console.log(start_time <= cancellation_time);
-  console.log(cancellation_time <= end_time);
+  // const end_time = new CLU64("2641299315000");
+  // console.log(cancellation_time >= start_time);
+  // console.log(cancellation_time);
+  // console.log(start_time);
+  // console.log(start_time <= cancellation_time);
+  // console.log(cancellation_time <= end_time);
   // start <= cancel && cancel <= end;
 
   // let casperClient= new CasperClient(

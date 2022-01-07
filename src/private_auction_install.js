@@ -7,7 +7,6 @@ import {
   DeployUtil,
   RuntimeArgs,
   CLString,
-  CLMap,
   CLByteArray,
   CLAccountHash,
   CLPublicKey,
@@ -15,8 +14,8 @@ import {
   CLList,
   CLOption,
   CLU64,
+  CLU512,
   CLBoolType,
-  CLValueBuilder,
 } from "casper-js-sdk";
 import * as constants from "../constants";
 import * as utils from "../utils";
@@ -76,7 +75,7 @@ const starting_price = new CLOption(None, new CLBoolType());
 //****************************reserve_price  <U512>*********************/
 
 // const starting_price = new CLOption(new CLValueBuilder.u512(1));
-const reserve_price = new CLValueBuilder.u512(10);
+const reserve_price = new CLU512(10);
 
 //****************************reserve_price  <U512>*********************
 
