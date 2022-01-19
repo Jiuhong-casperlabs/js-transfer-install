@@ -1,3 +1,6 @@
+// Path to borrow contract
+export const PATH_TO_CONTRACT_BORROW = `${process.env.HOME}/rust/eip3156-1/target/wasm32-unknown-unknown/release/br-contract.wasm`;
+
 // Path to folder containing keys with which to operate smart contract.
 export const PATH_TO_CONTRACT_KEYS = `${process.env.NCTL}/assets/net-1/faucet`;
 // export const PATH_TO_CONTRACT_KEYS =  `/home/jiuhong/nctl/casper-node/utils/nctl/assets/net-1/faucet`;

@@ -137,6 +137,12 @@ const main = () => {
   //   console.log(deploy)
   //   const signedDeploy = DeployUtil.signDeploy(deploy, adminKeyPair);
   //   return await casperClient.putDeploy(signedDeploy);
+
+  const publicKey = CLPublicKey.fromHex(
+    "0203e3B838e415E74D2314F7a7F03308A5CdB53a738E47187c10a56EDd790FC821b9"
+  );
+
+  console.log("publickey is: ", publicKey);
 };
 
 main();

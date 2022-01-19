@@ -1,6 +1,5 @@
 import * as constants from "../constants";
-import { CasperClient,CLPublicKey,CLPublicKeyTag } from "casper-js-sdk";
-
+import { CasperClient, CLPublicKey, CLPublicKeyTag } from "casper-js-sdk";
 
 const main = async () => {
   const client = new CasperClient(constants.DEPLOY_NODE_ADDRESS);
@@ -12,18 +11,18 @@ const main = async () => {
   //   169, 250, 100, 248, 12, 68, 201, 17,
   //   43, 62, 151, 55, 158, 87, 186, 148
   // ]);
-    
+
   // const publicKeyEd25519 = new CLPublicKey(
   //   rawEd25519Account,
   //   CLPublicKeyTag.ED25519
   // );
-  
+
   // const aa = await client.balanceOfByPublicKey(publicKeyEd25519);
   // console.log(aa.toNumber());
 
   // method 2
   const publicKey = CLPublicKey.fromHex(
-    '0152836c51eac04205bb7febe9d92da50758178b0bf388bd03e1da13147b99e2c5'
+    "0152836c51eac04205bb7febe9d92da50758178b0bf388bd03e1da13147b99e2c5"
   );
 
   const aa = await client.balanceOfByPublicKey(publicKey);
@@ -35,6 +34,5 @@ const main = async () => {
   // const publicKeyObj = CLPublicKey.fromHex("016e2e0fbe966e1bba69e4ba0c501687458615dbcd8d7f2dc76406d896bb6acae1");
   // const balance = (await client.balanceOfByPublicKey(publicKeyObj)).toNumber()
   // console.log("balance is: ",balance)
-
-}
+};
 main();
