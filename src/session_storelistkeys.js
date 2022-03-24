@@ -33,7 +33,7 @@ const main = async () => {
     client,
     stateRootHash,
     keyPairofContract,
-    "mykv"
+    "listkeys"
     // "kvstorage_contract"
     // "counter"
   );
@@ -46,22 +46,35 @@ const main = async () => {
   // const myKey1 = new CLKey(byteArr1);
 
 
+  // const hash = new CLAccountHash(Uint8Array.from(Array(32).fill(42)));
+  // const myKey1 = new CLKey(hash);
+
+  // const urefAddr =
+  //     '2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a';
+  // const uref = new CLURef(
+  //   decodeBase16(urefAddr),
+  //   AccessRights.READ_ADD_WRITE
+  // );
+  // const myKey2 = new CLKey(uref);
+
+  // const byteArr3 = new CLByteArray(new Uint8Array([21, 31, 41,21, 31, 41,21, 31, 41,21, 31, 41,21, 31, 41,21, 31, 41,21, 31, 41,21, 31, 41,21, 31, 41,21, 31, 41,31, 41,]));
+  // const myKey3 = new CLKey(byteArr3);
+
+  // const myList = new CLList([myKey1, myKey2, myKey3])
+
   const hash = new CLAccountHash(Uint8Array.from(Array(32).fill(42)));
   const myKey1 = new CLKey(hash);
-
   const urefAddr =
-      '2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a';
-  const uref = new CLURef(
-    decodeBase16(urefAddr),
-    AccessRights.READ_ADD_WRITE
-  );
-  const myKey2 = new CLKey(uref);
-
-  const byteArr3 = new CLByteArray(new Uint8Array([21, 31, 41,21, 31, 41,21, 31, 41,21, 31, 41,21, 31, 41,21, 31, 41,21, 31, 41,21, 31, 41,21, 31, 41,21, 31, 41,31, 41,]));
-  const myKey3 = new CLKey(byteArr3);
-
+                        '2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a';
+                    const uref = new CLURef(
+                        decodeBase16(urefAddr),
+                        AccessRights.READ_ADD_WRITE
+                    );
+                    const myKey2 = new CLKey(uref);
+                    const byteArr3 = new CLByteArray(new Uint8Array([21, 31, 41, 21, 31, 41, 21, 31, 41, 21, 31, 41, 21, 31, 41, 21, 31, 41, 21, 31, 41, 21, 31, 41, 21, 31, 41, 21, 31, 41, 31, 41,]));
+                    const myKey3 = new CLKey(byteArr3);
   const myList = new CLList([myKey1, myKey2, myKey3])
-
+  
 
   let deploy = DeployUtil.makeDeploy(
     new DeployUtil.DeployParams(
@@ -72,11 +85,10 @@ const main = async () => {
     ),
     DeployUtil.ExecutableDeployItem.newStoredContractByHash(
       contractHashAsByteArray,
-      "store_list_keys",
+      "test",
       // "counter_inc",
       RuntimeArgs.fromMap({
-        name: new CLString('storelistkeys3'),
-        value: myList,
+        hello: myList,
       })
     ),
     DeployUtil.standardPayment(

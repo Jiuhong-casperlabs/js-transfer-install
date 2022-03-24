@@ -20,33 +20,15 @@ const main = async () => {
 
   //Step 2: Set contract operator key pair
   const keyPairofContract = utils.getKeyPairOfContract(
-    constants.PATH_TO_KV_KEYS
+    constants.PATH_TO_SOURCE_KEYS
   );
 
-  //Step3: Query node for global state root hash
-  const stateRootHash = await utils.getStateRootHash(client);
-
-  //Step4: Query node for contract hash
-  const contractHash = await utils.getAccountNamedKeyValue(
-    client,
-    stateRootHash,
-    keyPairofContract,
-    "mykv_contract1"
-  );
+  const constracthash_str = "hash-8a86d5078527567014dd78f7d3a670b062ac2dc0fbcf142ddd6551d85c61b907";
   const contractHashAsByteArray = [
-    ...Buffer.from(contractHash.slice(5), "hex"),
+    ...Buffer.from(constracthash_str.slice(5), "hex"),
   ];
 
-
-  const myValue = new CLByteArray(new Uint8Array([1, 2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32]));
-
-
-  // const arr8 = new Uint8Array([21, 31]);
-  //   const myHash = new CLAccountHash(arr8);
-    // const myValue = CLValueBuilder.key(new CLByteArray(new Uint8Array([21, 31])));
-    // const hash = new CLAccountHash(Uint8Array.from(Array(32).fill(42)));
-    // const myValue = new CLKey(hash);
-
+  const targetcontract = new CLString("contract-9e91c68f5e1b8c020a056f037dc669dc1d5a385ff7bf7594587fd2cefca8ff71");
 
   let deploy = DeployUtil.makeDeploy(
     new DeployUtil.DeployParams(
@@ -57,10 +39,9 @@ const main = async () => {
     ),
     DeployUtil.ExecutableDeployItem.newStoredContractByHash(
       contractHashAsByteArray,
-      "store_byte_array",
+      "callcontract",
       RuntimeArgs.fromMap({
-        value: myValue,
-        name: new CLString('name'),
+        "targethash":targetcontract
       })
     ),
     DeployUtil.standardPayment(
@@ -68,16 +49,15 @@ const main = async () => {
     )
   );
 
-  console.log("deploy is: ",deploy)
-
+  // console.log("deploy is before sign: ",deploy)
   //Step 5.2 Sign deploy.
   deploy = client.signDeploy(deploy, keyPairofContract);
 
+  // console.log("deploy is after sign: ",deploy)
   //Step 5.3 Dispatch deploy to node.
   let deployHash = await client.putDeploy(deploy);
 
-  console.log(`store_key ${myValue} 
-   deploy hash = ${deployHash}`);
+  console.log(`deploy hash = ${deployHash}`);
 };
 
 main();

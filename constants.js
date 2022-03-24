@@ -1,3 +1,6 @@
+// Path to caller contract
+export const PATH_TO_CALLERCONTRACT = `${process.env.HOME}/mywork/callstack/target/wasm32-unknown-unknown/release/callercontract.wasm`;
+
 // Path to borrow contract
 export const PATH_TO_CONTRACT_BORROW = `${process.env.HOME}/rust/eip3156-1/target/wasm32-unknown-unknown/release/br-contract.wasm`;
 
@@ -11,13 +14,13 @@ export const PATH_TO_FAUCET_KEYS =
   `${process.env.NCTL}/assets/net-1/faucet`;
 
 // Path to source keys
-export const PATH_TO_SOURCE_KEYS = `${process.env.HOME}/keys/test99`;
+export const PATH_TO_SOURCE_KEYS = `${process.env.HOME}/keys/test77`;
 
 //Path to target keys
 export const PATH_TO_TRAGET_KEYS = `${process.env.HOME}/keys/test98`;
 
 //Path to test11 which has KVstorage contract installed
-export const PATH_TO_KV_KEYS = `${process.env.HOME}/keys/test99`;
+export const PATH_TO_KV_KEYS = `${process.env.HOME}/keys/test77`;
 export const PATH_TO_CALLLOCKED = `${process.env.HOME}/keys/test98`;
 export const PATH_LIST_KEY98 = `${process.env.HOME}/keys/test98`;
 export const PATH_LIST_KEY11 = `${process.env.HOME}/keys/test11`;

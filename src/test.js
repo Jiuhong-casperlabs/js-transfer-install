@@ -12,20 +12,10 @@ import {
   CLU512,
   CLAccountHash,
   Keys,
-} from "casper-js-sdk";
-import {
-  CLValueParsers,
-  CLBool,
-  CLList,
-  CLOption,
-  CLBoolType,
-  CLOptionType,
-  CLByteArray,
   CLKey,
   CLPublicKey,
-  CLU64,
-  CLPublicKeyTag,
 } from "casper-js-sdk";
+
 import * as utils from "../utils";
 import { Some, None } from "ts-results";
 import * as constants from "../constants";
@@ -94,6 +84,18 @@ const main = () => {
   // const result = new CLOption(Some(CLValue.u512(1)));
   let value = new CLU512(12345);
 
+  // const arr8 = new Uint8Array([21, 31]);
+  // const myHash = new CLAccountHash(arr8);
+  // let result = myHash.value()
+  // console.log("result is: ", result)
+  
+  const hexString = "010e31a03ea026a8e375653573e0120c8cb96699e6c9721ae1ea98f896e6576ac3"
+  const hash = CLPublicKey.fromHex(hexString).toAccountHash()
+  const accounthash = new CLAccountHash(hash);
+  let result = accounthash.value()
+  console.log("result is: ", result)
+
+
   //****************************start_time u64*********************/
 
   //****************************cancellation_time u64*********************/
@@ -138,11 +140,11 @@ const main = () => {
   //   const signedDeploy = DeployUtil.signDeploy(deploy, adminKeyPair);
   //   return await casperClient.putDeploy(signedDeploy);
 
-  const publicKey = CLPublicKey.fromHex(
-    "0203e3B838e415E74D2314F7a7F03308A5CdB53a738E47187c10a56EDd790FC821b9"
-  );
+  // const publicKey = CLPublicKey.fromHex(
+  //   "0203e3B838e415E74D2314F7a7F03308A5CdB53a738E47187c10a56EDd790FC821b9"
+  // );
 
-  console.log("publickey is: ", publicKey);
+  // console.log("publickey is: ", publicKey);
 };
 
 main();
