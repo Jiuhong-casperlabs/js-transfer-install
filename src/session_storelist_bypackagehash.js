@@ -18,23 +18,10 @@ const main = async () => {
     constants.PATH_TO_KV_KEYS
   );
 
-  //Step3: Query node for global state root hash
-  const stateRootHash = await utils.getStateRootHash(client);
-
-  //Step4: Query node for contract hash
-  const contractHash = await utils.getAccountNamedKeyValue(
-    client,
-    stateRootHash,
-    keyPairofContract,
-    "kvstorage_contract"
-  );
-  const contractHashAsByteArray = [
-    ...Buffer.from(contractHash.slice(5), "hex"),
+  const contractPackageHash = "hash-f57c1cb4edf0cb71d76a2f629fb69e00d12332750ce89ce0d27f26cdf6245e81"
+  const contractPackageHashAsByteArray = [
+    ...Buffer.from(contractPackageHash.slice(5), "hex"),
   ];
-
-  //Step 5: Invoke contract transfer endpoint.
-
-  //Step 5.1 Set deploy
   
   const myList = new CLList([new CLU8(1), new CLU8(2), new CLU8(3)])
 
@@ -45,8 +32,9 @@ const main = async () => {
       constants.DEPLOY_GAS_PRICE,
       constants.DEPLOY_TTL_MS
     ),
-    DeployUtil.ExecutableDeployItem.newStoredContractByHash(
-      contractHashAsByteArray,
+    DeployUtil.ExecutableDeployItem.newStoredVersionContractByHash(
+      contractPackageHashAsByteArray,
+      null,
       "store_list_of_bytes",
       RuntimeArgs.fromMap({
         value: myList,

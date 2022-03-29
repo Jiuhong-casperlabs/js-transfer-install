@@ -9,7 +9,7 @@
     "sessiontransfer": "node -r esm -e 'require(\"./src/session_transfer.js\")'",
     "sessionstoretuple": "node -r esm -e 'require(\"./src/session_storetuple.js\")'",
     "storebyte": "node -r esm -e 'require(\"./src/session_storebytearray.js\")'",
-    "storelist": "node -r esm -e 'require(\"./src/session_storelist.js\")'",
+    "storelist": "node -r esm -e 'require(\"./src/session_storelist_bypackagehash.js\")'",
     "storelistkeys": "node -r esm -e 'require(\"./src/session_storelistkeys.js\")'",
     "storeu32": "node -r esm -e 'require(\"./src/session_storeu32.js\")'",
     "storelistpks": "node -r esm -e 'require(\"./src/session_storelistpks.js\")'",
