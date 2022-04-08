@@ -1,9 +1,4 @@
-
-  
-import { Keys,CLPublicKey,CLString,CLKey,CLU256, CLAccountHash,CLValueParsers } from "casper-js-sdk";
-import * as constants from "../constants";
-import fs from "fs";
-import path from "path";
+import { CLPublicKey,CLKey,CLU256, CLAccountHash,CLValueParsers } from "casper-js-sdk";
 import blake from "blakejs";
 import { concat } from "@ethersproject/bytes";
 /**
