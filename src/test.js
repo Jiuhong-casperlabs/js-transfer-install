@@ -82,18 +82,19 @@ const main = () => {
   // const start_time = new CLU64("2641199115000");
 
   // const result = new CLOption(Some(CLValue.u512(1)));
-  let value = new CLU512(12345);
+  let value = new CLU512("100000000000000000000000000000000000000000000000000000000");
+  console.log("value is", value)
 
   // const arr8 = new Uint8Array([21, 31]);
   // const myHash = new CLAccountHash(arr8);
   // let result = myHash.value()
   // console.log("result is: ", result)
   
-  const hexString = "010e31a03ea026a8e375653573e0120c8cb96699e6c9721ae1ea98f896e6576ac3"
-  const hash = CLPublicKey.fromHex(hexString).toAccountHash()
-  const accounthash = new CLAccountHash(hash);
-  let result = accounthash.value()
-  console.log("result is: ", result)
+  // const hexString = "010e31a03ea026a8e375653573e0120c8cb96699e6c9721ae1ea98f896e6576ac3"
+  // const hash = CLPublicKey.fromHex(hexString).toAccountHash()
+  // const accounthash = new CLAccountHash(hash);
+  // let result = accounthash.value()
+  // console.log("result is: ", result)
 
 
   //****************************start_time u64*********************/

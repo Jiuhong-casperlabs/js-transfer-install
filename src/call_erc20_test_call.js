@@ -23,17 +23,29 @@ const main = async () => {
     constants.PATH_TO_SOURCE_KEYS
   );
 
-  const constracthash_str = "hash-37aa68014aea8bd97ce0a93e476ae51ccb7ad37eeab8f14df294b51f95238645";
+  const constracthash_str = "hash-c9afc7c6af893614f81bb5a668e029c9161c24c33f8b475c7ea951f345a96e5d";
   const contractHashAsByteArray = [
     ...Buffer.from(constracthash_str.slice(5), "hex"),
   ];
 
 
-  const hash1 = "8e5c039cecd50b920b8f51c80183a738cae248cc04f1e899efcc89d21f6dbacc"
+  // const hash1 = "8e5c039cecd50b920b8f51c80183a738cae248cc04f1e899efcc89d21f6dbacc"
+  const hash1 = "03a36a4a822baffe14fa84828b1f7c1bc30651361bec074a96f78f2407a30dc8";
   const hex = new CLByteArray(Uint8Array.from(Buffer.from(hash1, 'hex')));
  
   const targetcontract = new CLString("contract-9e91c68f5e1b8c020a056f037dc669dc1d5a385ff7bf7594587fd2cefca8ff71");
 
+  //**************************** for accounthash start*******************************/
+const hexString1 =
+"010e31a03ea026a8e375653573e0120c8cb96699e6c9721ae1ea98f896e6576ac3";
+
+
+const myHash1 = new CLAccountHash(
+CLPublicKey.fromHex(hexString1).toAccountHash()
+);
+
+  const address = new CLKey(myHash1);
+  
   let deploy = DeployUtil.makeDeploy(
     new DeployUtil.DeployParams(
       keyPairofContract.publicKey,
@@ -43,9 +55,10 @@ const main = async () => {
     ),
     DeployUtil.ExecutableDeployItem.newStoredContractByHash(
       contractHashAsByteArray,
-      "check_total_supply",
+      "check_balance_of",
       RuntimeArgs.fromMap({
-        "token_contract":hex
+        "token_contract": hex,
+        "address": address
       })
     ),
     DeployUtil.standardPayment(
