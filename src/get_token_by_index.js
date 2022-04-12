@@ -1,4 +1,4 @@
-import { CLPublicKey,CLKey,CLU256, CLAccountHash,CLValueParsers } from "casper-js-sdk";
+import { CLPublicKey,CLKey,CLU256, CLAccountHash,CLValueParsers, CLString } from "casper-js-sdk";
 import blake from "blakejs";
 import { concat } from "@ethersproject/bytes";
 /**
@@ -18,7 +18,7 @@ import { concat } from "@ethersproject/bytes";
 const main = async () => {
 
     // public key of receiver
-    const public_key = "0152836c51eac04205bb7febe9d92da50758178b0bf388bd03e1da13147b99e2c5";
+    const public_key = "0203b4fb8f135bbfee4a3e26071624f0883229c6138c16bbbcebbba5381885e599ce";
     
     const myHash = new CLAccountHash(CLPublicKey.fromHex(public_key).toAccountHash());
 
@@ -26,9 +26,12 @@ const main = async () => {
 
     // index
     const index = new CLU256(0)
-
-    const dictionary_item_key  = keyAndValueToHex(key, index)
-    console.log("dictionary_item_key is: ",dictionary_item_key )
+    const dictionary_item_key_for_tokenid = keyAndValueToHex(key, index)
+    console.log("dictionary_item_key_for_tokenid is: ", dictionary_item_key_for_tokenid)
+    
+    const value = new CLString("ac74d3d56735f2ebe9bb7f8b08e12baf7dd456711397d0995f5f8c9eddfe71c4");
+    const dictionary_item_key_for_index  = keyAndValueToHex(key, value)
+    console.log("dictionary_item_key_for_index is: ",dictionary_item_key_for_index )
 
 };
 
