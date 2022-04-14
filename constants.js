@@ -28,7 +28,7 @@ export const PATH_LIST_KEY11 = `${process.env.HOME}/keys/test11`;
 export const PATH_TO_BALANCE = `${process.env.HOME}/keys/test30`;
 
 //Path to test11 which has KVstorage contract installed
-export const PATH_TO_CEP47_KEYS = `${process.env.HOME}/keys/test99`;
+export const PATH_TO_CEP47_KEYS = `${process.env.HOME}/keys/test1`;
 
 // Path to folder containing keys with which to act as test users.
 export const PATH_TO_USERS =

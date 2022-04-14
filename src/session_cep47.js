@@ -9,6 +9,7 @@ import {
   CLByteArray,
   CLKey,
   CLU32,
+  CLU256,
 } from "casper-js-sdk";
 import { Some, None } from "ts-results";
 import * as utils from "../utils";
@@ -36,15 +37,20 @@ const main = async () => {
     client,
     stateRootHash,
     keyPairofContract,
-    "jiuhong_contract"
+    "my_contract_contract_hash"
   );
   const contractHashAsByteArray = [
     ...Buffer.from(contractHash.slice(5), "hex"),
   ];
 
-  //Step 5: Invoke contract transfer endpoint.
 
-  //Step 5.1 Set deploy
+
+  const token_ids = new CLList([new CLU256(1), new CLU256(2), new CLU256(3)])
+
+  const token_meta1 = new CLMap([[new CLString("a"), new CLString("aa")]]);
+  const token_meta2 = new CLMap([[new CLString("b"), new CLString("bb")]]);
+  const token_meta3 = new CLMap([[new CLString("c"), new CLString("cc")]]);
+  const token_metas = new CLList([token_meta1,token_meta2,token_meta3]);
 
   let deploy = DeployUtil.makeDeploy(
     new DeployUtil.DeployParams(
@@ -55,14 +61,14 @@ const main = async () => {
     ),
     DeployUtil.ExecutableDeployItem.newStoredContractByHash(
       contractHashAsByteArray,
-      "mint_one",
+      "mint",
       RuntimeArgs.fromMap({
         recipient: new CLKey(
           new CLByteArray(new Uint8Array(keyPairofTarget.accountHash()))
         ),
-        token_ids: new CLOption(Some(new CLString("SJH"))),
+        token_ids: token_ids,
         // token_ids: new CLOption(Some(new CLList([new CLString("SJH")]))),
-        token_meta: new CLMap([[new CLString("aaa"), new CLString("bbb")]]),
+        token_metas: token_metas,
         // token_meta: new CLMap([[new CLString(""), new CLString("")]]),
         // count: new CLU32(1),
       })
