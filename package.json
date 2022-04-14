@@ -36,7 +36,9 @@
     "installcask": "node -r esm -e 'require(\"./src/cask_install.js\")'",
     "installauction": "node -r esm -e 'require(\"./src/private_auction_install.js\")'",
     "call_erc20_test_call": "node -r esm -e 'require(\"./src/call_erc20_test_call.js\")'",
-    "getokenbyindex": "node -r esm -e 'require(\"./src/get_token_by_index.js\")'"
+    "getokenbyindex": "node -r esm -e 'require(\"./src/get_token_by_index.js\")'",
+    "CLAccountHashfromstr": "node -r esm -e 'require(\"./src/CLAccountHashfromstr.js\")'",
+    "borrow_contract_install": "node -r esm -e 'require(\"./src/borrow_contract_install.js\")'"
   },
   "author": "",
   "license": "ISC",
