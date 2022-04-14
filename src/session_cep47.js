@@ -67,10 +67,7 @@ const main = async () => {
           new CLByteArray(new Uint8Array(keyPairofTarget.accountHash()))
         ),
         token_ids: token_ids,
-        // token_ids: new CLOption(Some(new CLList([new CLString("SJH")]))),
         token_metas: token_metas,
-        // token_meta: new CLMap([[new CLString(""), new CLString("")]]),
-        // count: new CLU32(1),
       })
     ),
     DeployUtil.standardPayment(
