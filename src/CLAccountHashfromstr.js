@@ -25,27 +25,29 @@ const main = async () => {
 
     //  CLAccountHash | CLPublicKey
     const hexString1 =
-  "0203b4fb8f135bbfee4a3e26071624f0883229c6138c16bbbcebbba5381885e599ce";
+      "0203b4fb8f135bbfee4a3e26071624f0883229c6138c16bbbcebbba5381885e599ce";
+  
+  console.log("pk is:", CLPublicKey.fromHex(hexString1))
 
-    const myHash1 = new CLAccountHash(
-        CLPublicKey.fromHex(hexString1).toAccountHash());
+    // const myHash1 = new CLAccountHash(
+    //     CLPublicKey.fromHex(hexString1).toAccountHash());
           
-    const myhash2 = CLPublicKey.fromHex(hexString1)
+    // const myhash2 = CLPublicKey.fromHex(hexString1)
     
-    getTokenByIndex(myHash1, 0)
-    getTokenByIndex(myhash2,0)
+    // getTokenByIndex(myHash1, 0)
+    // getTokenByIndex(myhash2,0)
     
-    // CLAccountHash from string
-    const json = {
-        bytes:
-          '4d9ba81c3928306d30c2200b0374c6f09ac2723ac599c46409a0f750c1c85334',  // accounthash
-        cl_type: { ByteArray: 32 }
-    };
-    const data = CLValueParsers.fromJSON(json).unwrap().data
+    // // CLAccountHash from string
+    // const json = {
+    //     bytes:
+    //       '4d9ba81c3928306d30c2200b0374c6f09ac2723ac599c46409a0f750c1c85334',  // accounthash
+    //     cl_type: { ByteArray: 32 }
+    // };
+    // const data = CLValueParsers.fromJSON(json).unwrap().data
 
-    let myhash3 = new CLAccountHash(data);
+    // let myhash3 = new CLAccountHash(data);
     
-    getTokenByIndex(myhash3, 0)
+    // getTokenByIndex(myhash3, 0)
 };
 
 main();

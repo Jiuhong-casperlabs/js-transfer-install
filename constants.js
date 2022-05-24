@@ -3,6 +3,7 @@ export const PATH_TO_CALLERCONTRACT = `${process.env.HOME}/mywork/callstack/targ
 
 // Path to borrow contract
 export const PATH_TO_CONTRACT_BORROW = `${process.env.HOME}/rust/test27/contract/target/wasm32-unknown-unknown/release/contract.wasm`;
+export const PATH_TO_CONTRACT_ACCOUNT_ACCESS = `${process.env.HOME}/rust/test53/contract/target/wasm32-unknown-unknown/release/contract.wasm`;
 
 // Path to folder containing keys with which to operate smart contract.
 export const PATH_TO_CONTRACT_KEYS = `${process.env.NCTL}/assets/net-1/faucet`;
@@ -14,7 +15,7 @@ export const PATH_TO_FAUCET_KEYS =
   `${process.env.NCTL}/assets/net-1/faucet`;
 
 // Path to source keys
-export const PATH_TO_SOURCE_KEYS = `${process.env.HOME}/keys/test77`;
+export const PATH_TO_SOURCE_KEYS = `${process.env.HOME}/keys/test1`;
 
 //Path to target keys
 export const PATH_TO_TRAGET_KEYS = `${process.env.HOME}/keys/test98`;
@@ -67,7 +68,7 @@ export const DEPLOY_CHAIN_NAME =
 
 // Gas payment to be offered.
 export const DEPLOY_GAS_PAYMENT_FOR_INSTALL =
-  process.env.CSPR_INTS_DEPLOY_GAS_PAYMENT || 200000000000;
+  process.env.CSPR_INTS_DEPLOY_GAS_PAYMENT || 50000000000;
 
 // Gas payment for native transfers to be offered.
 export const DEPLOY_GAS_PAYMENT_FOR_NATIVE_TRANSFER =

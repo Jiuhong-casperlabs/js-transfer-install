@@ -38,7 +38,10 @@
     "call_erc20_test_call": "node -r esm -e 'require(\"./src/call_erc20_test_call.js\")'",
     "getokenbyindex": "node -r esm -e 'require(\"./src/get_token_by_index.js\")'",
     "CLAccountHashfromstr": "node -r esm -e 'require(\"./src/CLAccountHashfromstr.js\")'",
-    "borrow_contract_install": "node -r esm -e 'require(\"./src/borrow_contract_install.js\")'"
+    "borrow_contract_install": "node -r esm -e 'require(\"./src/borrow_contract_install.js\")'",
+    "account_access_deploy": "node -r esm -e 'require(\"./src/account_access_deploy.js\")'",
+    "getblock": "node -r esm -e 'require(\"./src/getblock.js\")'",
+    "createKey": "node -r esm -e 'require(\"./src/creatItemkeyERC20.js\")'"
   },
   "author": "",
   "license": "ISC",
@@ -46,7 +49,8 @@
     "@ethersproject/bytes": "^5.6.1",
     "blakejs": "^1.2.1",
     "casper-js-client-helper": "^1.0.0",
-    "casper-js-sdk": "^2.5.0",
+    "casper-js-sdk": "^2.9.1",
+    "eccrypto": "^1.1.6",
     "esm": "^3.2.25",
     "lodash": "^4.17.21"
   }

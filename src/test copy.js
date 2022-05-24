@@ -100,7 +100,7 @@ const main = () => {
   // console.log("recipient2:", recipient2);
   // console.log("hello");
 
-  // // let token_ids = CLValueBuilder.option("SJH", CLTypeBuilder.bool);
+  let token_ids = CLValueBuilder.option("SJH", CLTypeBuilder.bool);
   // // console.log(token_ids);
 
   //     const rawEd25519Account = Uint8Array.from([
