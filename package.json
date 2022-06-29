@@ -41,7 +41,9 @@
     "borrow_contract_install": "node -r esm -e 'require(\"./src/borrow_contract_install.js\")'",
     "account_access_deploy": "node -r esm -e 'require(\"./src/account_access_deploy.js\")'",
     "getblock": "node -r esm -e 'require(\"./src/getblock.js\")'",
-    "createKey": "node -r esm -e 'require(\"./src/creatItemkeyERC20.js\")'"
+    "createKey": "node -r esm -e 'require(\"./src/creatItemkeyERC20.js\")'",
+    "ido": "node -r esm -e 'require(\"./src/casper-ido-test.js\")'",
+    "storecontracts": "node -r esm -e 'require(\"./src/session_storecontracts.js\")'"
   },
   "author": "",
   "license": "ISC",

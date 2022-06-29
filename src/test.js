@@ -14,7 +14,8 @@ import {
   Keys,
   CLKey,
   CLPublicKey,
-  formatMessageWithHeaders, signRawMessage, verifyMessageSignature,Ed25519
+  formatMessageWithHeaders, signRawMessage, verifyMessageSignature, Ed25519,
+  ContractHash
 } from "casper-js-sdk";
 
 import * as utils from "../utils";

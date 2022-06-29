@@ -5,6 +5,8 @@ export const PATH_TO_CALLERCONTRACT = `${process.env.HOME}/mywork/callstack/targ
 export const PATH_TO_CONTRACT_BORROW = `${process.env.HOME}/rust/test27/contract/target/wasm32-unknown-unknown/release/contract.wasm`;
 export const PATH_TO_CONTRACT_ACCOUNT_ACCESS = `${process.env.HOME}/rust/test53/contract/target/wasm32-unknown-unknown/release/contract.wasm`;
 
+export const PATH_TO_CONTRACT_CASPER_IDO = `${process.env.HOME}/test/test1/casperpad-ido/target/wasm32-unknown-unknown/release/casper_ido_contract.wasm`;
+
 // Path to folder containing keys with which to operate smart contract.
 export const PATH_TO_CONTRACT_KEYS = `${process.env.NCTL}/assets/net-1/faucet`;
 // export const PATH_TO_CONTRACT_KEYS =  `/home/jiuhong/nctl/casper-node/utils/nctl/assets/net-1/faucet`;
@@ -42,10 +44,13 @@ export const PATH_TO_VALIDATORS =
   `${process.env.NCTL}/assets/net-1/nodes`;
 
 // Path to an ERC20 samrt contract wasm file.
-export const PATH_TO_CONTRACT_ERC_20 =
-  process.env.PATH_TO_CONTRACT_ERC_20 ||
-  `${process.env.HOME}/learning/js/kvstorage/wasm/erc20.wasm`;
+export const PATH_TO_CONTRACTS =
+  process.env.PATH_TO_CONTRACTS ||
+  `${process.env.HOME}/mywork/contractsworkspace/target/wasm32-unknown-unknown/release/storelistofcontracts.wasm`;
 
+  export const PATH_TO_CONTRACT_ERC_20 =
+  process.env.PATH_TO_CONTRACT_ERC_20 ||
+  `${process.env.HOME}/learning/js/kvstorage/wasm/erc20.wasm`; 
 // Path to an ERC20 samrt contract wasm file.
 export const PATH_TO_LOCKED = `${process.env.HOME}/casperecosystem/uref-sharing-example/target/wasm32-unknown-unknown/release/locked.wasm`;
 
@@ -68,7 +73,7 @@ export const DEPLOY_CHAIN_NAME =
 
 // Gas payment to be offered.
 export const DEPLOY_GAS_PAYMENT_FOR_INSTALL =
-  process.env.CSPR_INTS_DEPLOY_GAS_PAYMENT || 50000000000;
+  process.env.CSPR_INTS_DEPLOY_GAS_PAYMENT || 5000000000;
 
 // Gas payment for native transfers to be offered.
 export const DEPLOY_GAS_PAYMENT_FOR_NATIVE_TRANSFER =
