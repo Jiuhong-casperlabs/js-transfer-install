@@ -43,10 +43,10 @@ const main = async () => {
     DeployUtil.ExecutableDeployItem.newModuleBytes(
       utils.getBinary(PATH_TO_CONTRACT),
       RuntimeArgs.fromMap({
-        token_decimals: CLValueBuilder.u8(TOKEN_DECIMALS),
-        token_name: CLValueBuilder.string(TOKEN_NAME),
-        token_symbol: CLValueBuilder.string(TOKEN_SYMBOL),
-        token_total_supply: CLValueBuilder.u256(TOKEN_SUPPLY),
+        decimals: CLValueBuilder.u8(TOKEN_DECIMALS),
+        name: CLValueBuilder.string(TOKEN_NAME),
+        symbol: CLValueBuilder.string(TOKEN_SYMBOL),
+        total_supply: CLValueBuilder.u256(TOKEN_SUPPLY),
       })
     ),
     DeployUtil.standardPayment(constants.DEPLOY_GAS_PAYMENT_FOR_INSTALL)

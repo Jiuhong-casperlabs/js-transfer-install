@@ -29,7 +29,7 @@
     "calllocked": "node -r esm -e 'require(\"./src/calllockedget_access.js\")'",
     "lockedgco": "node -r esm -e 'require(\"./src/calllockedgroup_access_only.js\")'",
     "keys": "node -r esm -e 'require(\"./src/generatekeys.js\")'",
-    "installwasm": "node -r esm -e 'require(\"./src/install.js\")'",
+    "installerc20": "node -r esm -e 'require(\"./src/installerc20.js\")'",
     "mintcask": "node -r esm -e 'require(\"./src/cask_mint_token.js\")'",
     "mintercask": "node -r esm -e 'require(\"./src/cask_grant_minter.js\")'",
     "admincask": "node -r esm -e 'require(\"./src/cask_grant_admin.js\")'",
@@ -43,7 +43,9 @@
     "getblock": "node -r esm -e 'require(\"./src/getblock.js\")'",
     "createKey": "node -r esm -e 'require(\"./src/creatItemkeyERC20.js\")'",
     "ido": "node -r esm -e 'require(\"./src/casper-ido-test.js\")'",
-    "storecontracts": "node -r esm -e 'require(\"./src/session_storecontracts.js\")'"
+    "storecontracts": "node -r esm -e 'require(\"./src/session_storecontracts.js\")'",
+    "store_contract": "node -r esm -e 'require(\"./src/storecontract.js\")'",
+    "storeresult": "node -r esm -e 'require(\"./src/session_storeresult.js\")'"
   },
   "author": "",
   "license": "ISC",

@@ -16,35 +16,31 @@ const main = async () => {
 
   //Step 5.1 Set deploy
   
-  const myList = new CLList([new CLU8(1), new CLU8(2), new CLU8(3)])
 
-  const PATH_TO_CONTRACTS = "/home/jh/mywork/contractsworkspace/target/wasm32-unknown-unknown/release/storelistofcontracts.wasm";
+  const PATH_TO_CONTRACTS = "/home/jh/rust/test63/contract/target/wasm32-unknown-unknown/release/contract.wasm";
 
   const hash1 = "09d429a0e282d55a0d0daa56f5e117f928bf107e27373152757307ada3f999d7"
-  const hex1 = new CLByteArray(Uint8Array.from(Buffer.from(hash1, 'hex')));
-  const hex2 = new CLByteArray(Uint8Array.from(Buffer.from(hash1, 'hex')));
+  const contracthash = new CLByteArray(Uint8Array.from(Buffer.from(hash1, 'hex')));
 
-  const myList1 = new CLList([hex1, hex2])
-
-  const client = new CasperClient(constants.DEPLOY_NODE_ADDRESS);
+  const client = new CasperClient("http://localhost:11101/rpc");
 
   // Step 2: Set contract operator key pair.
   const keyPairOfContract = utils.getKeyPairOfContract(
-    constants.PATH_TO_SOURCE_KEYS
+    "/home/jh/casper-node/utils/nctl/assets/net-1/faucet"
   );
 
   // Step 3: Set contract installation deploy (unsigned).
   let deploy = DeployUtil.makeDeploy(
     new DeployUtil.DeployParams(
       keyPairOfContract.publicKey,
-      constants.DEPLOY_CHAIN_NAME,
+      "casper-net-1",
       constants.DEPLOY_GAS_PRICE,
       constants.DEPLOY_TTL_MS
     ),
     DeployUtil.ExecutableDeployItem.newModuleBytes(
       utils.getBinary(PATH_TO_CONTRACTS),
       RuntimeArgs.fromMap({
-        contracts: myList1,
+        "mycontract": contracthash,
       })
     ),
     DeployUtil.standardPayment(constants.DEPLOY_GAS_PAYMENT_FOR_INSTALL)
@@ -57,8 +53,7 @@ const main = async () => {
   //Step 5.3 Dispatch deploy to node.
   let deployHash = await client.putDeploy(deploy);
 
-  console.log(`store_tuple2 ${myList} 
-   deploy hash = ${deployHash}`);
+  console.log(`deploy hash = ${deployHash}`);
 };
 
 main();

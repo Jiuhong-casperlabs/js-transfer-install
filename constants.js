@@ -18,6 +18,7 @@ export const PATH_TO_FAUCET_KEYS =
 
 // Path to source keys
 export const PATH_TO_SOURCE_KEYS = `${process.env.HOME}/keys/test1`;
+// export const PATH_TO_SOURCE_KEYS = `/home/jh/casper-node/utils/nctl/assets/net-1/faucet`;
 
 //Path to target keys
 export const PATH_TO_TRAGET_KEYS = `${process.env.HOME}/keys/test98`;
@@ -46,11 +47,11 @@ export const PATH_TO_VALIDATORS =
 // Path to an ERC20 samrt contract wasm file.
 export const PATH_TO_CONTRACTS =
   process.env.PATH_TO_CONTRACTS ||
-  `${process.env.HOME}/mywork/contractsworkspace/target/wasm32-unknown-unknown/release/storelistofcontracts.wasm`;
+  `${process.env.HOME}/mywork/contractsworkspace/target/wasm32-unknown-unknown/release/storecontract.wasm`;
 
   export const PATH_TO_CONTRACT_ERC_20 =
   process.env.PATH_TO_CONTRACT_ERC_20 ||
-  `${process.env.HOME}/learning/js/kvstorage/wasm/erc20.wasm`; 
+  `/home/jh/caspereco/erc20/target/wasm32-unknown-unknown/release/erc20_token.wasm`; 
 // Path to an ERC20 samrt contract wasm file.
 export const PATH_TO_LOCKED = `${process.env.HOME}/casperecosystem/uref-sharing-example/target/wasm32-unknown-unknown/release/locked.wasm`;
 
@@ -90,7 +91,8 @@ export const DEPLOY_GAS_PRICE = process.env.CSPR_INTS_DEPLOY_GAS_PRICE
 
 // Address of target node.
 export const DEPLOY_NODE_ADDRESS =
-  process.env.CSPR_INTS_DEPLOY_NODE_ADDRESS || "http://3.208.91.63:7777/rpc";
+  // process.env.CSPR_INTS_DEPLOY_NODE_ADDRESS || "http://localhost:11101/rpc";
+  process.env.CSPR_INTS_DEPLOY_NODE_ADDRESS || "http://16.162.124.124:7777/rpc";
 
 // Time interval in milliseconds after which deploy will not be processed by a node.
 export const DEPLOY_TTL_MS = process.env.CSPR_INTS_DEPLOY_TTL_MS || 1800000;
