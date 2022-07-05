@@ -26,18 +26,18 @@ const main = async () => {
 
   const myList1 = new CLList([hex1, hex2])
 
-  const client = new CasperClient(constants.DEPLOY_NODE_ADDRESS);
+  const client = new CasperClient("http://localhost:11101/rpc");
 
   // Step 2: Set contract operator key pair.
   const keyPairOfContract = utils.getKeyPairOfContract(
-    constants.PATH_TO_SOURCE_KEYS
+    "/home/jh/casper-node/utils/nctl/assets/net-1/faucet"
   );
 
   // Step 3: Set contract installation deploy (unsigned).
   let deploy = DeployUtil.makeDeploy(
     new DeployUtil.DeployParams(
       keyPairOfContract.publicKey,
-      constants.DEPLOY_CHAIN_NAME,
+      "casper-net-1",
       constants.DEPLOY_GAS_PRICE,
       constants.DEPLOY_TTL_MS
     ),

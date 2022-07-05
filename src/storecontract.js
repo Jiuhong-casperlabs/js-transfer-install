@@ -17,7 +17,9 @@ const main = async () => {
   //Step 5.1 Set deploy
   
 
-  const PATH_TO_CONTRACTS = "/home/jh/rust/test63/contract/target/wasm32-unknown-unknown/release/contract.wasm";
+  // const PATH_TO_CONTRACTS = "/home/jh/rust/test63/contract/target/wasm32-unknown-unknown/release/contract.wasm";
+  const PATH_TO_CONTRACTS = "/home/jh/mywork/contractsworkspace/target/wasm32-unknown-unknown/release/storecontract.wasm";
+
 
   const hash1 = "09d429a0e282d55a0d0daa56f5e117f928bf107e27373152757307ada3f999d7"
   const contracthash = new CLByteArray(Uint8Array.from(Buffer.from(hash1, 'hex')));
