@@ -25,18 +25,18 @@ const TOKEN_SUPPLY = 1e15;
  */
 const main = async () => {
   // Step 1: Set casper node client.
-  const client = new CasperClient(constants.DEPLOY_NODE_ADDRESS);
+  const client = new CasperClient("http://localhost:11101/rpc");
 
   // Step 2: Set contract operator key pair.
   const keyPairOfContract = utils.getKeyPairOfContract(
-    constants.PATH_TO_SOURCE_KEYS
+    "/home/jh/casper-node/utils/nctl/assets/net-1/faucet"
   );
 
   // Step 3: Set contract installation deploy (unsigned).
   let deploy = DeployUtil.makeDeploy(
     new DeployUtil.DeployParams(
       keyPairOfContract.publicKey,
-      constants.DEPLOY_CHAIN_NAME,
+      "casper-net-1",
       constants.DEPLOY_GAS_PRICE,
       constants.DEPLOY_TTL_MS
     ),
@@ -49,7 +49,7 @@ const main = async () => {
         total_supply: CLValueBuilder.u256(TOKEN_SUPPLY),
       })
     ),
-    DeployUtil.standardPayment(constants.DEPLOY_GAS_PAYMENT_FOR_INSTALL)
+    DeployUtil.standardPayment(200000000000)
   );
 
   // Step 4: Sign deploy.

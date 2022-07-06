@@ -45,7 +45,8 @@
     "ido": "node -r esm -e 'require(\"./src/casper-ido-test.js\")'",
     "storecontracts": "node -r esm -e 'require(\"./src/session_storecontracts.js\")'",
     "store_contract": "node -r esm -e 'require(\"./src/storecontract.js\")'",
-    "storeresult": "node -r esm -e 'require(\"./src/session_storeresult.js\")'"
+    "storeresult": "node -r esm -e 'require(\"./src/session_storeresult.js\")'",
+    "querycontractnamedkey": "node -r esm -e 'require(\"./src/querycontractnamedkey.js\")'"
   },
   "author": "",
   "license": "ISC",
