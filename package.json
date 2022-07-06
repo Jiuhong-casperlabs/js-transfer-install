@@ -46,7 +46,8 @@
     "storecontracts": "node -r esm -e 'require(\"./src/session_storecontracts.js\")'",
     "store_contract": "node -r esm -e 'require(\"./src/storecontract.js\")'",
     "storeresult": "node -r esm -e 'require(\"./src/session_storeresult.js\")'",
-    "querycontractnamedkey": "node -r esm -e 'require(\"./src/querycontractnamedkey.js\")'"
+    "querycontractnamedkey": "node -r esm -e 'require(\"./src/querycontractnamedkey.js\")'",
+    "getStateKeyValue": "node -r esm -e 'require(\"./src/getStateKeyValue.js\")'"
   },
   "author": "",
   "license": "ISC",
