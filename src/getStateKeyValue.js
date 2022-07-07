@@ -11,15 +11,14 @@ const main = async () => {
 
   const stateRootHash = await utils.getStateRootHash(client);
 
-  const statekey = "hash-1bf0161b5e5676024cba265c164a5a5f8eb90a5eee9aea701fa009076ec51da4"
-  const statePath = "name"
+  const statekey = "hash-3ed9e9188eec90d313a270b81a5ee414f6ecaa9ab9dc8581362f52b73a8655a0"
+  const statePath = "myaccount"
 
   
-  const result1 = await client.nodeClient.getBlockState(stateRootHash, statekey, [
+  const result = await client.nodeClient.getBlockState(stateRootHash, statekey, [
     statePath,
   ]);
-  console.log("CLValue is ", result1.CLValue)
-  console.log("data is ", result1.CLValue.data.toString() )
+  console.log("result is ", result.Account)
 
 };
 
