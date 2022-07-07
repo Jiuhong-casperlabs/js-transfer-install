@@ -48,7 +48,8 @@
     "storeresult": "node -r esm -e 'require(\"./src/session_storeresult.js\")'",
     "querycontractnamedkey": "node -r esm -e 'require(\"./src/querycontractnamedkey.js\")'",
     "getStateKeyValue": "node -r esm -e 'require(\"./src/getStateKeyValue.js\")'",
-    "installcontract": "node -r esm -e 'require(\"./src/installcontract.js\")'"
+    "installcontract": "node -r esm -e 'require(\"./src/installcontract.js\")'",
+    "querycontractdic": "node -r esm -e 'require(\"./src/querycontractdic.js\")'"
   },
   "author": "",
   "license": "ISC",
