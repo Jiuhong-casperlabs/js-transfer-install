@@ -59,5 +59,3 @@ const main = async () => {
 };
 
 main();
-
-//https://testnet.cspr.live/deploy/516e5d8bbfc28ecf40e117fba2b0c153a44db2c778e04ce75bd044e2180f5394
