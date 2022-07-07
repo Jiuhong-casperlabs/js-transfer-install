@@ -18,7 +18,7 @@ const main = async () => {
   const result = await client.nodeClient.getBlockState(stateRootHash, statekey, [
     statePath,
   ]);
-  console.log("result is ", result.Account)
+  console.log("accountHash is ", result.Account.accountHash())
 
   const statekey1 = "account-hash-9f2d00edfce09a6743061b4b557049eb735040cc57ad2d924ad85220cbef77aa" //account hash
   const statePath1 = "mycontracthash"
@@ -27,7 +27,7 @@ const main = async () => {
   const result1 = await client.nodeClient.getBlockState(stateRootHash, statekey1, [
     statePath1,
   ]);
-  console.log("result is ", result1.Contract)
+  console.log("Contract is ", result1.Contract)
 
 };
 
