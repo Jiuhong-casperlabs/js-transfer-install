@@ -11,10 +11,16 @@ const main = async () => {
   const { Contract } = Contracts;
   
   const contractClient = new Contract(client);
-  const contract_hash = "hash-1bf0161b5e5676024cba265c164a5a5f8eb90a5eee9aea701fa009076ec51da4" // contract hash
+  const contract_hash = "hash-48131468bea504ba4c055ecd81f1c810f96a52a9d6a524f4e0ee7596552cca05" // contract hash
   contractClient.setContractHash(contract_hash)
-  const result = await contractClient.queryContractData(["name"])     //named key
-  console.log("result is ",result.toString())
+  const addresses = await contractClient.queryContractData(["all_pairs"])     //named key
+
+
+    const mappedAddresses = addresses.map((address) =>
+      Buffer.from(addresses[0].data.value()).toString('hex')
+    );
+
+  console.log("mappedAddresses are ", mappedAddresses);
 
 };
 
