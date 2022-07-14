@@ -17,7 +17,7 @@ const main = async () => {
 
 
     const mappedAddresses = addresses.map((address) =>
-      Buffer.from(addresses[0].data.value()).toString('hex')
+      Buffer.from(address.data.value()).toString('hex')
     );
 
   console.log("mappedAddresses are ", mappedAddresses);
@@ -25,3 +25,28 @@ const main = async () => {
 };
 
 main();
+
+// blockchain
+// "stored_value": {
+//             "CLValue": {
+//                 "cl_type": {
+//                     "List": "Key"
+//                 },
+//                 "bytes": "02000000010402030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f20011402030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f20",
+//                 "parsed": [
+//                     {
+//                         "Hash": "hash-0402030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f20"
+//                     },
+//                     {
+//                         "Hash": "hash-1402030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f20"
+//                     }
+//                 ]
+//             }
+//         },
+
+// js result
+// mappedAddresses are  [
+//   '0402030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f20',
+//   '1402030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f20'
+// ]
+
