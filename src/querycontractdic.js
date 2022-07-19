@@ -24,7 +24,7 @@ const main = async () => {
   
   const result2 = await contractClient.queryContractDictionary("my_dicname", "U256Key")
 
-  console.log("result2 is ", result2.data.toString())
+  console.log("result2 is ", result2.data)
 
 };
 

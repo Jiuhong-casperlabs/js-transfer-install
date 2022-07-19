@@ -92,7 +92,7 @@ export const DEPLOY_GAS_PRICE = process.env.CSPR_INTS_DEPLOY_GAS_PRICE
 // Address of target node.
 export const DEPLOY_NODE_ADDRESS =
   // process.env.CSPR_INTS_DEPLOY_NODE_ADDRESS || "http://localhost:11101/rpc";
-  process.env.CSPR_INTS_DEPLOY_NODE_ADDRESS || "http://16.162.124.124:7777/rpc";
+  process.env.CSPR_INTS_DEPLOY_NODE_ADDRESS || "http://3.208.91.63:7777/rpc";
 
 // Time interval in milliseconds after which deploy will not be processed by a node.
 export const DEPLOY_TTL_MS = process.env.CSPR_INTS_DEPLOY_TTL_MS || 1800000;
