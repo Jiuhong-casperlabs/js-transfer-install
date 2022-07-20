@@ -50,12 +50,15 @@
     "getStateKeyValue": "node -r esm -e 'require(\"./src/getStateKeyValue.js\")'",
     "installcontract": "node -r esm -e 'require(\"./src/installcontract.js\")'",
     "querycontractdic": "node -r esm -e 'require(\"./src/querycontractdic.js\")'",
-    "storeaccounthash": "node -r esm -e 'require(\"./src/storeaccounthash.js\")'"
+    "storeaccounthash": "node -r esm -e 'require(\"./src/storeaccounthash.js\")'",
+    "send-transfer": "node -r esm -e 'require(\"./src/send-transfer.js\")'",
+    "create-account": "node -r esm -e 'require(\"./src/create-account.js\")'"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@ethersproject/bytes": "^5.6.1",
+    "axios": "^0.27.2",
     "blakejs": "^1.2.1",
     "casper-js-client-helper": "^1.0.0",
     "casper-js-sdk": "^2.9.1",
