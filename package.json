@@ -52,7 +52,9 @@
     "querycontractdic": "node -r esm -e 'require(\"./src/querycontractdic.js\")'",
     "storeaccounthash": "node -r esm -e 'require(\"./src/storeaccounthash.js\")'",
     "send-transfer": "node -r esm -e 'require(\"./src/send-transfer.js\")'",
-    "create-account": "node -r esm -e 'require(\"./src/create-account.js\")'"
+    "create-account": "node -r esm -e 'require(\"./src/create-account.js\")'",
+    "delegate": "node -r esm -e 'require(\"./src/delegate.js\")'",
+    "undelegate": "node -r esm -e 'require(\"./src/undelegate.js\")'"
   },
   "author": "",
   "license": "ISC",
