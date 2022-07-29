@@ -5,24 +5,25 @@ import {
   CLList,
   CLU8,
   CLString,
-  CLByteArray
+  CLByteArray,
 } from "casper-js-sdk";
 import * as utils from "../utils";
 import * as constants from "../constants";
 
 const main = async () => {
-
   //Step 5: Invoke contract transfer endpoint.
 
   //Step 5.1 Set deploy
-  
 
   // const PATH_TO_CONTRACTS = "/home/jh/rust/test63/contract/target/wasm32-unknown-unknown/release/contract.wasm";
-  const PATH_TO_CONTRACTS = "/home/jh/mywork/contractsworkspace/target/wasm32-unknown-unknown/release/storecontract.wasm";
+  const PATH_TO_CONTRACTS =
+    "/home/jh/mywork/contractsworkspace/target/wasm32-unknown-unknown/release/storecontract.wasm";
 
-
-  const hash1 = "09d429a0e282d55a0d0daa56f5e117f928bf107e27373152757307ada3f999d7"
-  const contracthash = new CLByteArray(Uint8Array.from(Buffer.from(hash1, 'hex')));
+  const hash1 =
+    "09d429a0e282d55a0d0daa56f5e117f928bf107e27373152757307ada3f999d7";
+  const contracthash = new CLByteArray(
+    Uint8Array.from(Buffer.from(hash1, "hex"))
+  );
 
   const client = new CasperClient("http://localhost:11101/rpc");
 
@@ -42,12 +43,11 @@ const main = async () => {
     DeployUtil.ExecutableDeployItem.newModuleBytes(
       utils.getBinary(PATH_TO_CONTRACTS),
       RuntimeArgs.fromMap({
-        "mycontract": contracthash,
+        mycontract: contracthash,
       })
     ),
     DeployUtil.standardPayment(constants.DEPLOY_GAS_PAYMENT_FOR_INSTALL)
   );
-
 
   //Step 5.2 Sign deploy.
   deploy = client.signDeploy(deploy, keyPairOfContract);

@@ -9,7 +9,7 @@ import {
   CLByteArray,
   CLKey,
   CLAccountHash,
-  CLValueBuilder
+  CLValueBuilder,
 } from "casper-js-sdk";
 import * as utils from "../utils";
 import * as constants from "../constants";
@@ -38,9 +38,13 @@ const main = async () => {
     ...Buffer.from(contractHash.slice(5), "hex"),
   ];
 
-
-  const byteArr1 = new CLByteArray(new Uint8Array([21, 31, 41,21, 31, 41,21, 31, 41,21, 31, 41,21, 31, 41,21, 31, 41,21, 31, 41,21, 31, 41,21, 31, 41,21, 31, 41,31, 41,]));
-  console.log("byteArr1 length: ",byteArr1.data.length);
+  const byteArr1 = new CLByteArray(
+    new Uint8Array([
+      21, 31, 41, 21, 31, 41, 21, 31, 41, 21, 31, 41, 21, 31, 41, 21, 31, 41,
+      21, 31, 41, 21, 31, 41, 21, 31, 41, 21, 31, 41, 31, 41,
+    ])
+  );
+  console.log("byteArr1 length: ", byteArr1.data.length);
   const myValue = new CLKey(byteArr1);
 
   let deploy = DeployUtil.makeDeploy(

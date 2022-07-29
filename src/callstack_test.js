@@ -9,7 +9,7 @@ import {
   CLByteArray,
   CLKey,
   CLAccountHash,
-  CLValueBuilder
+  CLValueBuilder,
 } from "casper-js-sdk";
 import * as utils from "../utils";
 import * as constants from "../constants";
@@ -23,12 +23,15 @@ const main = async () => {
     constants.PATH_TO_SOURCE_KEYS
   );
 
-  const constracthash_str = "hash-8a86d5078527567014dd78f7d3a670b062ac2dc0fbcf142ddd6551d85c61b907";
+  const constracthash_str =
+    "hash-8a86d5078527567014dd78f7d3a670b062ac2dc0fbcf142ddd6551d85c61b907";
   const contractHashAsByteArray = [
     ...Buffer.from(constracthash_str.slice(5), "hex"),
   ];
 
-  const targetcontract = new CLString("contract-9e91c68f5e1b8c020a056f037dc669dc1d5a385ff7bf7594587fd2cefca8ff71");
+  const targetcontract = new CLString(
+    "contract-9e91c68f5e1b8c020a056f037dc669dc1d5a385ff7bf7594587fd2cefca8ff71"
+  );
 
   let deploy = DeployUtil.makeDeploy(
     new DeployUtil.DeployParams(
@@ -41,7 +44,7 @@ const main = async () => {
       contractHashAsByteArray,
       "callcontract",
       RuntimeArgs.fromMap({
-        "targethash":targetcontract
+        targethash: targetcontract,
       })
     ),
     DeployUtil.standardPayment(

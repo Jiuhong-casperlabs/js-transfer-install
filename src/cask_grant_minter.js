@@ -9,7 +9,7 @@ import {
   CLPublicKey,
   CLAccountHash,
   CLString,
-  CLOption
+  CLOption,
 } from "casper-js-sdk";
 import * as utils from "../utils";
 import { Some, None } from "ts-results";
@@ -44,8 +44,9 @@ const main = async () => {
     ...Buffer.from(contractHash.slice(5), "hex"),
   ];
 
-  const hexString = "010e31a03ea026a8e375653573e0120c8cb96699e6c9721ae1ea98f896e6576ac3"
-  const hash = CLPublicKey.fromHex(hexString).toAccountHash()
+  const hexString =
+    "010e31a03ea026a8e375653573e0120c8cb96699e6c9721ae1ea98f896e6576ac3";
+  const hash = CLPublicKey.fromHex(hexString).toAccountHash();
 
   const accounthash = new CLAccountHash(hash);
   const minter = new CLKey(accounthash);

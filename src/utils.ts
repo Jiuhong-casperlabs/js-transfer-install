@@ -49,4 +49,3 @@ export const getDeploy = async (NODE_URL: string, deployHash: string) => {
   }
   throw Error("Timeout after " + i + "s. Something's wrong");
 };
-

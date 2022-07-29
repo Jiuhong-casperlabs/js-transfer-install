@@ -46,9 +46,9 @@ const lockCSPR = async (
     cb: (deployHash) =>
       this.addPendingDeploy(LockUnlockEvents.LockCSPR, deployHash),
     ttl,
-    dependencies
+    dependencies,
   });
-}
+};
 
 const main = async () => {
   //Step 1: Set casper node client

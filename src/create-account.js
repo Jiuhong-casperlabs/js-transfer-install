@@ -21,8 +21,14 @@ const createAccountKeys = () => {
     const tempDir = fs.mkdirSync(folder);
   }
 
-  fs.writeFileSync(folder + "/" + accountAddress + "_public.pem", publicKeyInPem);
-  fs.writeFileSync(folder + "/" + accountAddress + "_private.pem", privateKeyInPem);
+  fs.writeFileSync(
+    folder + "/" + accountAddress + "_public.pem",
+    publicKeyInPem
+  );
+  fs.writeFileSync(
+    folder + "/" + accountAddress + "_private.pem",
+    privateKeyInPem
+  );
 
   return accountAddress;
 };

@@ -12,7 +12,7 @@ import {
   CLAccountHash,
   CLURef,
   AccessRights,
-  decodeBase16
+  decodeBase16,
 } from "casper-js-sdk";
 import * as utils from "../utils";
 import * as constants from "../constants";
@@ -42,31 +42,28 @@ const main = async () => {
     ...Buffer.from(contractHash.slice(5), "hex"),
   ];
 
-
   // const byteArr1 = new CLByteArray(new Uint8Array([21, 31]));
   // const myKey1 = new CLKey(byteArr1);
 
   const rawEd25519Account = Uint8Array.from([
-  154, 211, 137, 116, 146, 249, 164, 57,
-  9,  35,  64, 255,  83, 105, 131, 86,
-  169, 250, 100, 248,  12,  68, 201,  17,
-  43,  62, 151,  55, 158,  87, 186, 148
+    154, 211, 137, 116, 146, 249, 164, 57, 9, 35, 64, 255, 83, 105, 131, 86,
+    169, 250, 100, 248, 12, 68, 201, 17, 43, 62, 151, 55, 158, 87, 186, 148,
   ]);
-  
+
   const publicKeyEd25519 = new CLPublicKey(
-  rawEd25519Account,
-  CLPublicKeyTag.ED25519
+    rawEd25519Account,
+    CLPublicKeyTag.ED25519
   );
-  
+
   const publickKey98 = utils.getKeyPairOfContract(
     constants.PATH_LIST_KEY98
-    ).publicKey;
-  
+  ).publicKey;
+
   const publickKey11 = utils.getKeyPairOfContract(
-       constants.PATH_LIST_KEY11
-     ).publicKey;
- 
-  const myList = new CLList([publicKeyEd25519, publickKey98, publickKey11])
+    constants.PATH_LIST_KEY11
+  ).publicKey;
+
+  const myList = new CLList([publicKeyEd25519, publickKey98, publickKey11]);
 
   let deploy = DeployUtil.makeDeploy(
     new DeployUtil.DeployParams(
@@ -80,7 +77,7 @@ const main = async () => {
       "store_list_publickeys",
       // "counter_inc",
       RuntimeArgs.fromMap({
-        name: new CLString('storelistpublickeys3'),
+        name: new CLString("storelistpublickeys3"),
         value: myList,
       })
     ),

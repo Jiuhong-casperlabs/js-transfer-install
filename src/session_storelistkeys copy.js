@@ -11,7 +11,7 @@ import {
   CLAccountHash,
   CLURef,
   AccessRights,
-  decodeBase16
+  decodeBase16,
 } from "casper-js-sdk";
 import * as utils from "../utils";
 import * as constants from "../constants";
@@ -41,10 +41,8 @@ const main = async () => {
     ...Buffer.from(contractHash.slice(5), "hex"),
   ];
 
-
   // const byteArr1 = new CLByteArray(new Uint8Array([21, 31]));
   // const myKey1 = new CLKey(byteArr1);
-
 
   // const hash = new CLAccountHash(Uint8Array.from(Array(32).fill(42)));
   // const myKey1 = new CLKey(hash);
@@ -65,16 +63,17 @@ const main = async () => {
   const hash = new CLAccountHash(Uint8Array.from(Array(32).fill(42)));
   const myKey1 = new CLKey(hash);
   const urefAddr =
-                        '2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a';
-                    const uref = new CLURef(
-                        decodeBase16(urefAddr),
-                        AccessRights.READ_ADD_WRITE
-                    );
-                    const myKey2 = new CLKey(uref);
-                    const byteArr3 = new CLByteArray(new Uint8Array([21, 31, 41, 21, 31, 41, 21, 31, 41, 21, 31, 41, 21, 31, 41, 21, 31, 41, 21, 31, 41, 21, 31, 41, 21, 31, 41, 21, 31, 41, 31, 41,]));
-                    const myKey3 = new CLKey(byteArr3);
-  const myList = new CLList([myKey1, myKey2, myKey3])
-  
+    "2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a";
+  const uref = new CLURef(decodeBase16(urefAddr), AccessRights.READ_ADD_WRITE);
+  const myKey2 = new CLKey(uref);
+  const byteArr3 = new CLByteArray(
+    new Uint8Array([
+      21, 31, 41, 21, 31, 41, 21, 31, 41, 21, 31, 41, 21, 31, 41, 21, 31, 41,
+      21, 31, 41, 21, 31, 41, 21, 31, 41, 21, 31, 41, 31, 41,
+    ])
+  );
+  const myKey3 = new CLKey(byteArr3);
+  const myList = new CLList([myKey1, myKey2, myKey3]);
 
   let deploy = DeployUtil.makeDeploy(
     new DeployUtil.DeployParams(

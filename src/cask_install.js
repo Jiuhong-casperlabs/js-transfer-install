@@ -11,7 +11,7 @@ import {
   CLByteArray,
   CLAccountHash,
   CLPublicKey,
-  CLKey
+  CLKey,
 } from "casper-js-sdk";
 import * as constants from "../constants";
 import * as utils from "../utils";
@@ -20,30 +20,32 @@ import * as utils from "../utils";
 const PATH_TO_CONTRACT = constants.PATH_TO_CONTRACT_CASK;
 
 // Token parameters.
-const TOKEN_NAME = new CLString('Cask Token');
-const TOKEN_SYMBOL =  new CLString('CASK');
-const myKey = new CLString('hello');
-const myVal = new CLString('world');
+const TOKEN_NAME = new CLString("Cask Token");
+const TOKEN_SYMBOL = new CLString("CASK");
+const myKey = new CLString("hello");
+const myVal = new CLString("world");
 const TOKEN_META = new CLMap([[myKey, myVal]]);
-const TOKEN_contract_name = new CLString('CVCV');
-
-
+const TOKEN_contract_name = new CLString("CVCV");
 
 //**************************** for accounthash start*******************************/
-const hexString1 = '010e31a03ea026a8e375653573e0120c8cb96699e6c9721ae1ea98f896e6576ac3';
+const hexString1 =
+  "010e31a03ea026a8e375653573e0120c8cb96699e6c9721ae1ea98f896e6576ac3";
 
-const myHash1 = new CLAccountHash(CLPublicKey.fromHex(hexString1).toAccountHash());
+const myHash1 = new CLAccountHash(
+  CLPublicKey.fromHex(hexString1).toAccountHash()
+);
 
 const TOKEN_ADMIN = new CLKey(myHash1);
 
 //**************************** for accounthash end*******************************/
 
 //**************************** for kyc_package_has start*******************************/
-const hexString2 = '2cf005e094132CdF34B6CeA904Ce1F7A4Cfa4F4b532fcc47710FF04473E11087';
+const hexString2 =
+  "2cf005e094132CdF34B6CeA904Ce1F7A4Cfa4F4b532fcc47710FF04473E11087";
 
-const hex2 = Uint8Array.from(Buffer.from(hexString2, 'hex'));
+const hex2 = Uint8Array.from(Buffer.from(hexString2, "hex"));
 
-const TOKEN_kyc_package_hash = new CLKey(new CLByteArray(hex2))
+const TOKEN_kyc_package_hash = new CLKey(new CLByteArray(hex2));
 //**************************** for kyc_package_has end*******************************/
 
 /**
@@ -69,12 +71,12 @@ const main = async () => {
     DeployUtil.ExecutableDeployItem.newModuleBytes(
       utils.getBinary(PATH_TO_CONTRACT),
       RuntimeArgs.fromMap({
-        "name": TOKEN_NAME,
-        "symbol": TOKEN_SYMBOL,
-        "meta": TOKEN_META,
-        "admin": TOKEN_ADMIN,
-        "kyc_package_hash": TOKEN_kyc_package_hash,
-        "contract_name":TOKEN_contract_name
+        name: TOKEN_NAME,
+        symbol: TOKEN_SYMBOL,
+        meta: TOKEN_META,
+        admin: TOKEN_ADMIN,
+        kyc_package_hash: TOKEN_kyc_package_hash,
+        contract_name: TOKEN_contract_name,
       })
     ),
     DeployUtil.standardPayment(constants.DEPLOY_GAS_PAYMENT_FOR_INSTALL)

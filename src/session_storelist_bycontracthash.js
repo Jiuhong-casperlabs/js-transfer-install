@@ -4,7 +4,7 @@ import {
   RuntimeArgs,
   CLList,
   CLU8,
-  CLString
+  CLString,
 } from "casper-js-sdk";
 import * as utils from "../utils";
 import * as constants from "../constants";
@@ -32,12 +32,11 @@ const main = async () => {
     ...Buffer.from(contractHash.slice(5), "hex"),
   ];
 
-
   //Step 5: Invoke contract transfer endpoint.
 
   //Step 5.1 Set deploy
-  
-  const myList = new CLList([new CLU8(1), new CLU8(2), new CLU8(3)])
+
+  const myList = new CLList([new CLU8(1), new CLU8(2), new CLU8(3)]);
 
   let deploy = DeployUtil.makeDeploy(
     new DeployUtil.DeployParams(
@@ -51,14 +50,13 @@ const main = async () => {
       "store_list_of_bytes",
       RuntimeArgs.fromMap({
         value: myList,
-        name: new CLString('name'),
+        name: new CLString("name"),
       })
     ),
     DeployUtil.standardPayment(
       constants.DEPLOY_GAS_PAYMENT_FOR_SESSION_TRANSFER
     )
   );
- 
 
   //Step 5.2 Sign deploy.
   deploy = client.signDeploy(deploy, keyPairofContract);

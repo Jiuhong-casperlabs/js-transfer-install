@@ -46,8 +46,12 @@ const main = async () => {
 
   //Step 5.1 Set deploy
 
-  const myList = new CLList([new CLString("A3"), new CLString("B3"), new CLString("C3")])
-  
+  const myList = new CLList([
+    new CLString("A3"),
+    new CLString("B3"),
+    new CLString("C3"),
+  ]);
+
   let deploy = DeployUtil.makeDeploy(
     new DeployUtil.DeployParams(
       keyPairofContract.publicKey,

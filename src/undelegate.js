@@ -10,9 +10,11 @@ import * as constants from "../constants";
 
 const AMOUNT_TO_DELEGATE = 500000000000;
 const DEPLOY_GAS_PAYMENT = 100000000000;
-const PATH_TO_CONTRACT = "/home/jh/casper-node/target/wasm32-unknown-unknown/release/undelegate.wasm";
-const PATH_TO_DELEGATOR_KEY = "/home/jh/casper-node/utils/nctl/assets/net-1/users/user-10";
-const DEPLOY_NODE_ADDRESS = "http://localhost:11101/rpc"
+const PATH_TO_CONTRACT =
+  "/home/jh/casper-node/target/wasm32-unknown-unknown/release/undelegate.wasm";
+const PATH_TO_DELEGATOR_KEY =
+  "/home/jh/casper-node/utils/nctl/assets/net-1/users/user-10";
+const DEPLOY_NODE_ADDRESS = "http://localhost:11101/rpc";
 
 const main = async () => {
   //Step 1: Set casper node client
@@ -46,7 +48,6 @@ const main = async () => {
 
   // Step 3.2: Sign deploy.
   deploy = client.signDeploy(deploy, keyPairOfDelegator);
-
 
   //Step 5.3 Dispatch deploy to node.
   let deployHash = await client.putDeploy(deploy);

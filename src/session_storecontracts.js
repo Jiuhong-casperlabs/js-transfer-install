@@ -5,26 +5,27 @@ import {
   CLList,
   CLU8,
   CLString,
-  CLByteArray
+  CLByteArray,
 } from "casper-js-sdk";
 import * as utils from "../utils";
 import * as constants from "../constants";
 
 const main = async () => {
-
   //Step 5: Invoke contract transfer endpoint.
 
   //Step 5.1 Set deploy
-  
-  const myList = new CLList([new CLU8(1), new CLU8(2), new CLU8(3)])
 
-  const PATH_TO_CONTRACTS = "/home/jh/mywork/contractsworkspace/target/wasm32-unknown-unknown/release/storelistofcontracts.wasm";
+  const myList = new CLList([new CLU8(1), new CLU8(2), new CLU8(3)]);
 
-  const hash1 = "09d429a0e282d55a0d0daa56f5e117f928bf107e27373152757307ada3f999d7"
-  const hex1 = new CLByteArray(Uint8Array.from(Buffer.from(hash1, 'hex')));
-  const hex2 = new CLByteArray(Uint8Array.from(Buffer.from(hash1, 'hex')));
+  const PATH_TO_CONTRACTS =
+    "/home/jh/mywork/contractsworkspace/target/wasm32-unknown-unknown/release/storelistofcontracts.wasm";
 
-  const myList1 = new CLList([hex1, hex2])
+  const hash1 =
+    "09d429a0e282d55a0d0daa56f5e117f928bf107e27373152757307ada3f999d7";
+  const hex1 = new CLByteArray(Uint8Array.from(Buffer.from(hash1, "hex")));
+  const hex2 = new CLByteArray(Uint8Array.from(Buffer.from(hash1, "hex")));
+
+  const myList1 = new CLList([hex1, hex2]);
 
   const client = new CasperClient("http://localhost:11101/rpc");
 
@@ -49,7 +50,6 @@ const main = async () => {
     ),
     DeployUtil.standardPayment(constants.DEPLOY_GAS_PAYMENT_FOR_INSTALL)
   );
-
 
   //Step 5.2 Sign deploy.
   deploy = client.signDeploy(deploy, keyPairOfContract);

@@ -8,12 +8,11 @@ import {
   CLU8Type,
   CLBool,
   CLResult,
-  CLStringType
-
+  CLStringType,
 } from "casper-js-sdk";
 import * as utils from "../utils";
 import * as constants from "../constants";
-import { Ok, Err } from 'ts-results';
+import { Ok, Err } from "ts-results";
 
 const main = async () => {
   //Step 1: Set casper node client
@@ -37,14 +36,18 @@ const main = async () => {
   //   "kvstorage_contract"
   // );
 
-  const contractHash = "hash-d8afDa72C273c06427c03b6FEC5fB87BD3033FaAA72270902775CFf9Aa843350";
+  const contractHash =
+    "hash-d8afDa72C273c06427c03b6FEC5fB87BD3033FaAA72270902775CFf9Aa843350";
   const contractHashAsByteArray = [
     ...Buffer.from(contractHash.slice(5), "hex"),
   ];
 
   const myTypes = { ok: new CLStringType(), err: new CLStringType() };
   const myOkRes = new CLResult(Ok(new CLString("helloworld")), myTypes);
-  const myErrRes = new CLResult(Err(new CLString("errorabouthelloworld")), myTypes);
+  const myErrRes = new CLResult(
+    Err(new CLString("errorabouthelloworld")),
+    myTypes
+  );
 
   let deploy = DeployUtil.makeDeploy(
     new DeployUtil.DeployParams(
@@ -57,7 +60,7 @@ const main = async () => {
       contractHashAsByteArray,
       "store_result",
       RuntimeArgs.fromMap({
-        name: new CLString('name'),
+        name: new CLString("name"),
         value: myOkRes,
       })
     ),

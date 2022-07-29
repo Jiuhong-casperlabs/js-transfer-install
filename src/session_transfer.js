@@ -73,9 +73,9 @@ const main = async () => {
   //Step 5.2 Sign deploy.
   deploy = client.signDeploy(deploy, keyPairofContract);
 
-  console.log("=====content for putdeploy============")
+  console.log("=====content for putdeploy============");
   console.log("content for putdeploy is, ", JSON.stringify(deploy));
-  console.log("=====content for putdeploy============")
+  console.log("=====content for putdeploy============");
 
   //Step 5.3 Dispatch deploy to node.
   let deployHash = await client.putDeploy(deploy);

@@ -9,7 +9,7 @@ import {
   CLByteArray,
   CLKey,
   CLAccountHash,
-  CLValueBuilder
+  CLValueBuilder,
 } from "casper-js-sdk";
 import * as utils from "../utils";
 import * as constants from "../constants";
@@ -39,9 +39,13 @@ const main = async () => {
     ...Buffer.from(contractHash.slice(5), "hex"),
   ];
 
-
-  const byteArr1 = new CLByteArray(new Uint8Array([21, 31, 41,21, 31, 41,21, 31, 41,21, 31, 41,21, 31, 41,21, 31, 41,21, 31, 41,21, 31, 41,21, 31, 41,21, 31, 41,31, 41,]));
-  console.log("byteArr1 length: ",byteArr1.data.length);
+  const byteArr1 = new CLByteArray(
+    new Uint8Array([
+      21, 31, 41, 21, 31, 41, 21, 31, 41, 21, 31, 41, 21, 31, 41, 21, 31, 41,
+      21, 31, 41, 21, 31, 41, 21, 31, 41, 21, 31, 41, 31, 41,
+    ])
+  );
+  console.log("byteArr1 length: ", byteArr1.data.length);
   const myValue = new CLKey(byteArr1);
 
   let deploy = DeployUtil.makeDeploy(
@@ -56,7 +60,7 @@ const main = async () => {
       "store_key",
       RuntimeArgs.fromMap({
         value: myValue,
-        name: new CLString('name'),
+        name: new CLString("name"),
       })
     ),
     DeployUtil.standardPayment(
@@ -64,11 +68,11 @@ const main = async () => {
     )
   );
 
-  console.log("deploy is before sign: ",deploy)
+  console.log("deploy is before sign: ", deploy);
   //Step 5.2 Sign deploy.
   deploy = client.signDeploy(deploy, keyPairofContract);
 
-  console.log("deploy is after sign: ",deploy)
+  console.log("deploy is after sign: ", deploy);
   //Step 5.3 Dispatch deploy to node.
   let deployHash = await client.putDeploy(deploy);
 

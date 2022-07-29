@@ -6,7 +6,7 @@ import {
   CLU8,
   CLURef,
   CLByteArray,
-  CLString
+  CLString,
 } from "casper-js-sdk";
 import * as utils from "../utils";
 import * as constants from "../constants";
@@ -20,14 +20,13 @@ const main = async () => {
     constants.PATH_TO_CALLLOCKED
   );
 
+  const hash1 =
+    "3880439f6910501f14b0492540559c9207354502ae9b52a51553641cb3617d3f";
+  const hex = new CLByteArray(Uint8Array.from(Buffer.from(hash1, "hex")));
 
-  const hash1 = "3880439f6910501f14b0492540559c9207354502ae9b52a51553641cb3617d3f"
-  const hex = new CLByteArray(Uint8Array.from(Buffer.from(hash1, 'hex')));
-
-
-  const hash = "49a096d9937bb1f18563177c2f7d6d38d0727b9db1041ec79da6299f119b3b86"
-  const contracthash = Uint8Array.from(Buffer.from(hash, 'hex'));
-
+  const hash =
+    "49a096d9937bb1f18563177c2f7d6d38d0727b9db1041ec79da6299f119b3b86";
+  const contracthash = Uint8Array.from(Buffer.from(hash, "hex"));
 
   let deploy = DeployUtil.makeDeploy(
     new DeployUtil.DeployParams(

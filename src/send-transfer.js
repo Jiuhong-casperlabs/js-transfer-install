@@ -3,20 +3,25 @@ const path = require("path");
 const axios = require("axios");
 const casperClientSDK = require("casper-js-sdk");
 
-const { Keys, CasperClient, CLPublicKey, DeployUtil } = require("casper-js-sdk");
+const {
+  Keys,
+  CasperClient,
+  CLPublicKey,
+  DeployUtil,
+} = require("casper-js-sdk");
 
-const RPC_API = 'http://3.208.91.63:7777/rpc';
-const STATUS_API = 'http://3.208.91.63:8888';
+const RPC_API = "http://3.208.91.63:7777/rpc";
+const STATUS_API = "http://3.208.91.63:8888";
 
 const sendTransfer = async ({ from, to, amount }) => {
   const casperClient = new CasperClient(RPC_API);
 
-  const folder = path.join('./', 'casper_keys');
+  const folder = path.join("./", "casper_keys");
   // read keys from structure created in #Generating keys
   const signKeyPair = Keys.Ed25519.parseKeyFiles(
-      folder + '/' + from + '_public.pem',
-      folder + '/' + from + '_private.pem'
-    );
+    folder + "/" + from + "_public.pem",
+    folder + "/" + from + "_private.pem"
+  );
 
   // networkName can be taken from the status api
   const response = await axios.get(STATUS_API + "/status");
@@ -56,17 +61,15 @@ const sendTransfer = async ({ from, to, amount }) => {
   const deploy = DeployUtil.makeDeploy(deployParams, session, payment);
   const signedDeploy = DeployUtil.signDeploy(deploy, signKeyPair);
 
-  // we are sending the signed deploy 
+  // we are sending the signed deploy
   return await casperClient.putDeploy(signedDeploy);
 };
 
-sendTransfer(
-  {
-    // Put here the account-address of account that is a sender. Note that it needs to have balance > 2.5CSPR
-    from: "<account-address>",
-    // Put here the account-address of the receiver account. In fact this account dont need to exist, if key is proper, it will be created when deploy will be send.
-    to: "<account-address>",
-    // Minimal amount is 2.5CSPR so 2.5 * 10000 (1CSPR = 10.000 motes)
-    amount: 25000000000,
-  }
-);
+sendTransfer({
+  // Put here the account-address of account that is a sender. Note that it needs to have balance > 2.5CSPR
+  from: "<account-address>",
+  // Put here the account-address of the receiver account. In fact this account dont need to exist, if key is proper, it will be created when deploy will be send.
+  to: "<account-address>",
+  // Minimal amount is 2.5CSPR so 2.5 * 10000 (1CSPR = 10.000 motes)
+  amount: 25000000000,
+});

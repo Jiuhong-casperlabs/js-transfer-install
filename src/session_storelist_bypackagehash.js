@@ -4,7 +4,7 @@ import {
   RuntimeArgs,
   CLList,
   CLU8,
-  CLString
+  CLString,
 } from "casper-js-sdk";
 import * as utils from "../utils";
 import * as constants from "../constants";
@@ -18,12 +18,13 @@ const main = async () => {
     constants.PATH_TO_KV_KEYS
   );
 
-  const contractPackageHash = "hash-f57c1cb4edf0cb71d76a2f629fb69e00d12332750ce89ce0d27f26cdf6245e81"
+  const contractPackageHash =
+    "hash-f57c1cb4edf0cb71d76a2f629fb69e00d12332750ce89ce0d27f26cdf6245e81";
   const contractPackageHashAsByteArray = [
     ...Buffer.from(contractPackageHash.slice(5), "hex"),
   ];
-  
-  const myList = new CLList([new CLU8(1), new CLU8(2), new CLU8(3)])
+
+  const myList = new CLList([new CLU8(1), new CLU8(2), new CLU8(3)]);
 
   let deploy = DeployUtil.makeDeploy(
     new DeployUtil.DeployParams(
@@ -38,7 +39,7 @@ const main = async () => {
       "store_list_of_bytes",
       RuntimeArgs.fromMap({
         value: myList,
-        name: new CLString('name'),
+        name: new CLString("name"),
       })
     ),
     DeployUtil.standardPayment(

@@ -7,13 +7,13 @@ import {
   CLString,
   CLKey,
   CLByteArray,
-  CLValue
+  CLValue,
 } from "casper-js-sdk";
 import * as constants from "../constants";
 import * as utils from "../utils";
 
 // Path to contract to be installed.
-const PATH_TO_CONTRACT = constants.PATH_TO_LOCKED
+const PATH_TO_CONTRACT = constants.PATH_TO_LOCKED;
 
 /**
  * Demonstration entry point.
@@ -29,16 +29,17 @@ const main = async () => {
 
   const publickKey98 = utils.getKeyPairOfContract(
     constants.PATH_LIST_KEY98
-    ).publicKey;
-  
-  const publickKey11 = utils.getKeyPairOfContract(
-       constants.PATH_LIST_KEY11
-     ).publicKey;
- 
-  const myList = new CLList([publickKey98, publickKey11])
+  ).publicKey;
 
-    const hash = "3880439f6910501f14b0492540559c9207354502ae9b52a51553641cb3617d3f"
-  const hex = new CLByteArray(Uint8Array.from(Buffer.from(hash, 'hex')));
+  const publickKey11 = utils.getKeyPairOfContract(
+    constants.PATH_LIST_KEY11
+  ).publicKey;
+
+  const myList = new CLList([publickKey98, publickKey11]);
+
+  const hash =
+    "3880439f6910501f14b0492540559c9207354502ae9b52a51553641cb3617d3f";
+  const hex = new CLByteArray(Uint8Array.from(Buffer.from(hash, "hex")));
 
   // Step 3: Set contract installation deploy (unsigned).
   let deploy = DeployUtil.makeDeploy(
@@ -64,7 +65,7 @@ const main = async () => {
   // Step 5: Dispatch deploy to node.
   const deployHash = await client.putDeploy(deploy);
 
- console.log(`deploy hash = ${deployHash}`);
+  console.log(`deploy hash = ${deployHash}`);
 };
 
 main();

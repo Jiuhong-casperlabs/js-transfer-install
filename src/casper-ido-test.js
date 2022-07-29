@@ -12,7 +12,7 @@ import {
   CLAccountHash,
   CLPublicKey,
   CLList,
-  CLKey
+  CLKey,
 } from "casper-js-sdk";
 import * as constants from "../constants";
 import * as utils from "../utils";
@@ -32,17 +32,15 @@ const pk2 = CLPublicKey.fromHex(pk2String2);
 
 const ACCOUNT_PUBKEYS = new CLList([pk1, pk2]);
 
-  //**************************** for accounthash start*******************************/
-  const hexString1 =
+//**************************** for accounthash start*******************************/
+const hexString1 =
   "010e31a03ea026a8e375653573e0120c8cb96699e6c9721ae1ea98f896e6576ac3";
-  
-  
-  const myHash1 = new CLAccountHash(
+
+const myHash1 = new CLAccountHash(
   CLPublicKey.fromHex(hexString1).toAccountHash()
-  );
-  
+);
+
 const address = new CLKey(myHash1);
-    
 
 /**
  * Demonstration entry point.
@@ -58,7 +56,7 @@ const main = async () => {
 
   // let contract_name: String = runtime::get_named_arg("contract_name");
   // let default_treasury_wallet: Address = runtime:: get_named_arg("default_treasury_wallet");
-  
+
   // Step 3: Set contract installation deploy (unsigned).
   let deploy = DeployUtil.makeDeploy(
     new DeployUtil.DeployParams(
@@ -71,7 +69,7 @@ const main = async () => {
       utils.getBinary(PATH_TO_CONTRACT),
       RuntimeArgs.fromMap({
         contract_name: new CLString("casperidotest"),
-        default_treasury_wallet: address
+        default_treasury_wallet: address,
       })
     ),
     DeployUtil.standardPayment(constants.DEPLOY_GAS_PAYMENT_FOR_INSTALL)

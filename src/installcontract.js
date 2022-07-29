@@ -1,21 +1,15 @@
-import {
-  DeployUtil,
-  CasperClient,
-  RuntimeArgs,
-} from "casper-js-sdk";
+import { DeployUtil, CasperClient, RuntimeArgs } from "casper-js-sdk";
 import * as utils from "../utils";
 import * as constants from "../constants";
 
 const main = async () => {
-
   //Step 5: Invoke contract transfer endpoint.
 
   //Step 5.1 Set deploy
-  
 
   // const PATH_TO_CONTRACTS = "/home/jh/rust/test63/contract/target/wasm32-unknown-unknown/release/contract.wasm";
-  const PATH_TO_CONTRACTS = "/home/jh/rust/test72/contract/target/wasm32-unknown-unknown/release/contract.wasm";
-
+  const PATH_TO_CONTRACTS =
+    "/home/jh/rust/test72/contract/target/wasm32-unknown-unknown/release/contract.wasm";
 
   const client = new CasperClient("http://localhost:11101/rpc");
   // const client = new CasperClient("http://16.162.124.124:7777/rpc");
@@ -43,7 +37,6 @@ const main = async () => {
     ),
     DeployUtil.standardPayment(10000000000)
   );
-
 
   //Step 5.2 Sign deploy.
   deploy = client.signDeploy(deploy, keyPairOfContract);

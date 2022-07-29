@@ -43,14 +43,12 @@ const main = async () => {
     ...Buffer.from(contractHash.slice(5), "hex"),
   ];
 
-
-
-  const token_ids = new CLList([new CLU256(1), new CLU256(2), new CLU256(3)])
+  const token_ids = new CLList([new CLU256(1), new CLU256(2), new CLU256(3)]);
 
   const token_meta1 = new CLMap([[new CLString("a"), new CLString("aa")]]);
   const token_meta2 = new CLMap([[new CLString("b"), new CLString("bb")]]);
   const token_meta3 = new CLMap([[new CLString("c"), new CLString("cc")]]);
-  const token_metas = new CLList([token_meta1,token_meta2,token_meta3]);
+  const token_metas = new CLList([token_meta1, token_meta2, token_meta3]);
 
   let deploy = DeployUtil.makeDeploy(
     new DeployUtil.DeployParams(

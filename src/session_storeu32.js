@@ -3,7 +3,7 @@ import {
   CasperClient,
   RuntimeArgs,
   CLString,
-  CLU32
+  CLU32,
 } from "casper-js-sdk";
 import * as utils from "../utils";
 import * as constants from "../constants";
