@@ -87,8 +87,7 @@ export const getBinary = (pathToBinary) => {
  * @return {Array} An assymmetric key pair.
  */
 export const getKeyPairOfContract = (pathToFaucet) => {
-  return Keys.Ed25519.parseKeyFiles(
-    `${pathToFaucet}/public_key.pem`,
+  return Keys.Ed25519.loadKeyPairFromPrivateFile(
     `${pathToFaucet}/secret_key.pem`
   );
 };
