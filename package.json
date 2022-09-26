@@ -55,7 +55,9 @@
     "create-account": "node -r esm -e 'require(\"./src/create-account.js\")'",
     "delegate": "node -r esm -e 'require(\"./src/delegate.js\")'",
     "undelegate": "node -r esm -e 'require(\"./src/undelegate.js\")'",
-    "sign&verify": "node -r esm -e 'require(\"./src/sign&verify.js\")'"
+    "sign&verify": "node -r esm -e 'require(\"./src/sign&verify.js\")'",
+    "listenums": "node -r esm -e 'require(\"./src/session_storelistenums.js\")'",
+    "bodyhash": "node -r esm -e 'require(\"./src/bodyhash.js\")'"
   },
   "author": "",
   "license": "ISC",

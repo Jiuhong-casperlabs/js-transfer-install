@@ -21,10 +21,10 @@ export const PATH_TO_SOURCE_KEYS = `${process.env.HOME}/keys/test1`;
 // export const PATH_TO_SOURCE_KEYS = `/home/jh/casper-node/utils/nctl/assets/net-1/faucet`;
 
 //Path to target keys
-export const PATH_TO_TRAGET_KEYS = `${process.env.HOME}/keys/test98`;
+export const PATH_TO_TRAGET_KEYS = `${process.env.HOME}/keys/test2`;
 
 //Path to test11 which has KVstorage contract installed
-export const PATH_TO_KV_KEYS = `${process.env.HOME}/keys/test99`;
+export const PATH_TO_KV_KEYS = `${process.env.HOME}/keys/test1`;
 export const PATH_TO_CALLLOCKED = `${process.env.HOME}/keys/test98`;
 export const PATH_LIST_KEY98 = `${process.env.HOME}/keys/test98`;
 export const PATH_LIST_KEY11 = `${process.env.HOME}/keys/test11`;
