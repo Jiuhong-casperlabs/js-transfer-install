@@ -5,12 +5,13 @@ const main = async () => {
   
   const body_Uint8Array = Uint8Array.from(Buffer.from(body_serialization, 'hex'));
   console.log("body_Uint8Array is ",body_Uint8Array)
-  
+
   const bodyHash = blake.blake2b(body_Uint8Array, null, 32);
   console.log("bodyHash_Uint8Array is ",bodyHash)
 
   const backToHexString = Buffer.from(bodyHash).toString('hex');
   console.log("bodyHash_HexString is ",backToHexString)
+  // result: 4811966d37fe5674a8af4001884ea0d9042d1c06668da0c963769c3a01ebd08f
 
 };
 main();
