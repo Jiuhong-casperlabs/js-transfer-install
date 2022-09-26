@@ -5,6 +5,7 @@ const main = async () => {
   
   const body_Uint8Array = Uint8Array.from(Buffer.from(body_serialization, 'hex'));
   console.log("body_Uint8Array is ",body_Uint8Array)
+  
   const bodyHash = blake.blake2b(body_Uint8Array, null, 32);
   console.log("bodyHash_Uint8Array is ",bodyHash)
 
