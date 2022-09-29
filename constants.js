@@ -17,12 +17,15 @@ export const PATH_TO_FAUCET_KEYS =
   `${process.env.NCTL}/assets/net-1/faucet`;
 
 // Path to source keys
-export const PATH_TO_SOURCE_KEYS = `${process.env.HOME}/keys/test1`;
+export const PATH_TO_SOURCE_KEYS = `${process.env.HOME}/casper-node/utils/nctl/assets/net-1/users/user-1`;
 // export const PATH_TO_SOURCE_KEYS = `/home/jh/casper-node/utils/nctl/assets/net-1/faucet`;
 
 //Path to target keys
 export const PATH_TO_TRAGET_KEYS = `${process.env.HOME}/keys/test98`;
 
+// path to signing keys
+export const PATH_TO_SIGN_KEY1 = `${process.env.HOME}/keys/test1`;
+export const PATH_TO_SIGN_KEY2 = `${process.env.HOME}/keys/test2`;
 //Path to test11 which has KVstorage contract installed
 export const PATH_TO_KV_KEYS = `${process.env.HOME}/keys/test99`;
 export const PATH_TO_CALLLOCKED = `${process.env.HOME}/keys/test98`;
@@ -49,9 +52,9 @@ export const PATH_TO_CONTRACTS =
   process.env.PATH_TO_CONTRACTS ||
   `${process.env.HOME}/mywork/contractsworkspace/target/wasm32-unknown-unknown/release/storecontract.wasm`;
 
-  export const PATH_TO_CONTRACT_ERC_20 =
+export const PATH_TO_CONTRACT_ERC_20 =
   process.env.PATH_TO_CONTRACT_ERC_20 ||
-  `/home/jh/caspereco/erc20/target/wasm32-unknown-unknown/release/erc20_token.wasm`; 
+  `/home/jh/caspereco/erc20/target/wasm32-unknown-unknown/release/erc20_token.wasm`;
 // Path to an ERC20 samrt contract wasm file.
 export const PATH_TO_LOCKED = `${process.env.HOME}/casperecosystem/uref-sharing-example/target/wasm32-unknown-unknown/release/locked.wasm`;
 
@@ -91,8 +94,8 @@ export const DEPLOY_GAS_PRICE = process.env.CSPR_INTS_DEPLOY_GAS_PRICE
 
 // Address of target node.
 export const DEPLOY_NODE_ADDRESS =
-  // process.env.CSPR_INTS_DEPLOY_NODE_ADDRESS || "http://localhost:11101/rpc";
-  process.env.CSPR_INTS_DEPLOY_NODE_ADDRESS || "http://3.208.91.63:7777/rpc";
+  process.env.CSPR_INTS_DEPLOY_NODE_ADDRESS || "http://localhost:11101/rpc";
+// process.env.CSPR_INTS_DEPLOY_NODE_ADDRESS || "http://3.208.91.63:7777/rpc";
 
 // Time interval in milliseconds after which deploy will not be processed by a node.
 export const DEPLOY_TTL_MS = process.env.CSPR_INTS_DEPLOY_TTL_MS || 1800000;
