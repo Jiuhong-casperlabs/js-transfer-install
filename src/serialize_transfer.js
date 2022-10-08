@@ -78,15 +78,14 @@ const main = async () => {
     },
   }).unwrap();
 
+  let deploy_serialize = Buffer.from(DeployUtil.deployToBytes(deploy)).toString(
+    "hex"
+  );
+  console.log("deploy_serialize  is \n", deploy_serialize);
+
   let session_serialize = Buffer.from(deploy.session.toBytes().val).toString(
     "hex"
   );
-
-  let result_serialize = Buffer.from(DeployUtil.deployToBytes(deploy)).toString(
-    "hex"
-  );
-  console.log("result_serialize  is \n", result_serialize);
-
   console.log("session_serialize  is \n", session_serialize);
 };
 
