@@ -41,6 +41,9 @@ const main = async () => {
   let client = new CasperServiceByJsonRPC("http://3.139.47.90:7777/rpc");
   let result = await client.getBlockInfoByHeight(2000);
   console.log("result is: ", result);
+
+  let result2 = await client.getLatestBlockInfo();
+  console.log("result2 is ", result2);
 };
 
 main();
