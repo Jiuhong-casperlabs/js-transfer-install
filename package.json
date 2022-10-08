@@ -56,8 +56,13 @@
     "delegate": "node -r esm -e 'require(\"./src/delegate.js\")'",
     "undelegate": "node -r esm -e 'require(\"./src/undelegate.js\")'",
     "sign&verify": "node -r esm -e 'require(\"./src/sign&verify.js\")'",
+<<<<<<< HEAD
     "multitransfer": "node -r esm -e 'require(\"./src/muti_keys_transfer.js\")'",
     "multiinstallerc20": "node -r esm -e 'require(\"./src/multi_installerc20.js\")'"
+=======
+    "listenums": "node -r esm -e 'require(\"./src/session_storelistenums.js\")'",
+    "bodyhash": "node -r esm -e 'require(\"./src/bodyhash.js\")'"
+>>>>>>> c08fa35c99f58f2bfd6f4b25b39c8167707bc8a1
   },
   "author": "",
   "license": "ISC",
