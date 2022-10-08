@@ -17,11 +17,13 @@ export const PATH_TO_FAUCET_KEYS =
   `${process.env.NCTL}/assets/net-1/faucet`;
 
 // Path to source keys
+// export const PATH_TO_SOURCE_KEYS = `${process.env.HOME}/casper-node/utils/nctl/assets/net-1/users/user-1`;
 export const PATH_TO_SOURCE_KEYS = `${process.env.HOME}/casper-node/utils/nctl/assets/net-1/users/user-1`;
 // export const PATH_TO_SOURCE_KEYS = `/home/jh/casper-node/utils/nctl/assets/net-1/faucet`;
 
 //Path to target keys
-export const PATH_TO_TRAGET_KEYS = `${process.env.HOME}/keys/test2`;
+// export const PATH_TO_TRAGET_KEYS = `${process.env.HOME}/keys/test2`;
+export const PATH_TO_TRAGET_KEYS = `${process.env.HOME}/casper-node/utils/nctl/assets/net-1/users/user-2`;
 
 // path to signing keys
 export const PATH_TO_SIGN_KEY1 = `${process.env.HOME}/keys/test1`;
@@ -72,8 +74,8 @@ export const PATH_TO_CONTRACT_AUCTION =
 
 // Name of target chain.
 export const DEPLOY_CHAIN_NAME =
-  // process.env.CSPR_INTS_DEPLOY_CHAIN_NAME || "casper-net-1";
-  process.env.CSPR_INTS_DEPLOY_CHAIN_NAME || "casper-test";
+  process.env.CSPR_INTS_DEPLOY_CHAIN_NAME || "casper-net-1";
+// process.env.CSPR_INTS_DEPLOY_CHAIN_NAME || "casper-test";
 
 // Gas payment to be offered.
 export const DEPLOY_GAS_PAYMENT_FOR_INSTALL =

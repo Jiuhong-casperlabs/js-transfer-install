@@ -59,7 +59,8 @@
     "multitransfer": "node -r esm -e 'require(\"./src/muti_keys_transfer.js\")'",
     "multiinstallerc20": "node -r esm -e 'require(\"./src/multi_installerc20.js\")'",
     "listenums": "node -r esm -e 'require(\"./src/session_storelistenums.js\")'",
-    "bodyhash": "node -r esm -e 'require(\"./src/bodyhash.js\")'"
+    "bodyhash": "node -r esm -e 'require(\"./src/bodyhash.js\")'",
+    "serialize_transfer": "node -r esm -e 'require(\"./src/serialize_transfer.js\")'"
   },
   "author": "",
   "license": "ISC",
