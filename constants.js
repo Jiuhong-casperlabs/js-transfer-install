@@ -4,6 +4,7 @@ export const PATH_TO_CALLERCONTRACT = `${process.env.HOME}/mywork/callstack/targ
 // Path to borrow contract
 export const PATH_TO_CONTRACT_BORROW = `${process.env.HOME}/rust/test27/contract/target/wasm32-unknown-unknown/release/contract.wasm`;
 export const PATH_TO_CONTRACT_ACCOUNT_ACCESS = `${process.env.HOME}/rust/test53/contract/target/wasm32-unknown-unknown/release/contract.wasm`;
+export const PATH_TO_STORE_KEYS = `${process.env.HOME}/rust/test53/contract/target/wasm32-unknown-unknown/release/contract.wasm`;
 
 export const PATH_TO_CONTRACT_CASPER_IDO = `${process.env.HOME}/test/test1/casperpad-ido/target/wasm32-unknown-unknown/release/casper_ido_contract.wasm`;
 
@@ -18,8 +19,9 @@ export const PATH_TO_FAUCET_KEYS =
 
 // Path to source keys
 // export const PATH_TO_SOURCE_KEYS = `${process.env.HOME}/casper-node/utils/nctl/assets/net-1/users/user-1`;
-export const PATH_TO_SOURCE_KEYS = `${process.env.HOME}/casper-node/utils/nctl/assets/net-1/users/user-1`;
+// export const PATH_TO_SOURCE_KEYS = `${process.env.HOME}/casper-node/utils/nctl/assets/net-1/users/user-1`;
 // export const PATH_TO_SOURCE_KEYS = `/home/jh/casper-node/utils/nctl/assets/net-1/faucet`;
+export const PATH_TO_SOURCE_KEYS = `${process.env.HOME}/keys/test2`;
 
 //Path to target keys
 // export const PATH_TO_TRAGET_KEYS = `${process.env.HOME}/keys/test2`;
@@ -96,8 +98,8 @@ export const DEPLOY_GAS_PRICE = process.env.CSPR_INTS_DEPLOY_GAS_PRICE
 
 // Address of target node.
 export const DEPLOY_NODE_ADDRESS =
-  process.env.CSPR_INTS_DEPLOY_NODE_ADDRESS || "http://localhost:11101/rpc";
-// process.env.CSPR_INTS_DEPLOY_NODE_ADDRESS || "http://3.208.91.63:7777/rpc";
+  // process.env.CSPR_INTS_DEPLOY_NODE_ADDRESS || "http://localhost:11101/rpc";
+  process.env.CSPR_INTS_DEPLOY_NODE_ADDRESS || "http://3.208.91.63:7777/rpc";
 
 // Time interval in milliseconds after which deploy will not be processed by a node.
 export const DEPLOY_TTL_MS = process.env.CSPR_INTS_DEPLOY_TTL_MS || 1800000;

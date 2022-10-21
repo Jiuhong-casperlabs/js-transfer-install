@@ -38,7 +38,11 @@ const ACCOUNT_PUBKEYS = new CLList([pk1, pk2]);
 const main = async () => {
   // Step 1: Set casper node client.
 
-  let client = new CasperServiceByJsonRPC("http://3.139.47.90:7777/rpc");
+  // let client = new CasperServiceByJsonRPC("http://3.139.47.90:7777/rpc");
+  let client = new CasperServiceByJsonRPC(
+    "https://node-clarity-testnet.make.services/rpc"
+  );
+  //
   let result = await client.getBlockInfoByHeight(2000);
   console.log("result is: ", result);
 
