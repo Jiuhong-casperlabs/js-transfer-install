@@ -92,6 +92,12 @@ export const getKeyPairOfContract = (pathToFaucet) => {
   );
 };
 
+export const getSecp256k1KeyPairOfContract = (pathToFaucet) => {
+  return Keys.Secp256K1.loadKeyPairFromPrivateFile(
+    `${pathToFaucet}/secret_key.pem`
+  );
+};
+
 /**
  * Returns a set ECC key pairs - one for each NCTL delegator account.
  * @param {String} pathToUsers - Path to NCTL user directories.
