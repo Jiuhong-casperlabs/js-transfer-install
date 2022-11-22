@@ -57,7 +57,8 @@
     "undelegate": "node -r esm -e 'require(\"./src/undelegate.js\")'",
     "sign&verify": "node -r esm -e 'require(\"./src/sign&verify.js\")'",
     "listenums": "node -r esm -e 'require(\"./src/session_storelistenums.js\")'",
-    "bodyhash": "node -r esm -e 'require(\"./src/bodyhash.js\")'"
+    "bodyhash": "node -r esm -e 'require(\"./src/bodyhash.js\")'",
+    "getauction":"node -r esm -e 'require(\"./src/get_auction.js\")'"
   },
   "author": "",
   "license": "ISC",
