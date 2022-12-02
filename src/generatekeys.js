@@ -1,4 +1,5 @@
 import { Keys } from "casper-js-sdk";
+import * as utils from "../utils";
 import * as constants from "../constants";
 import fs from "fs";
 import path from "path";
@@ -8,7 +9,9 @@ import path from "path";
  */
 const main = async () => {
   // Generating keys
-  const edKeyPair = Keys.Ed25519.new();
+  // const edKeyPair = Keys.Ed25519.new(); //generate new pair of keys
+  const edKeyPair = utils.getKeyPairOfContract(constants.PATH_TO_SOURCE_KEYS); // load existing pair of keys
+
   const { publicKey, privateKey } = edKeyPair;
 
   // Get account-address from public key

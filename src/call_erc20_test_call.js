@@ -2,14 +2,10 @@ import {
   DeployUtil,
   CasperClient,
   RuntimeArgs,
-  CLList,
-  CLU8,
-  CLString,
   CLPublicKey,
   CLByteArray,
   CLKey,
   CLAccountHash,
-  CLValueBuilder,
 } from "casper-js-sdk";
 import * as utils from "../utils";
 import * as constants from "../constants";
@@ -33,10 +29,6 @@ const main = async () => {
   const hash1 =
     "03a36a4a822baffe14fa84828b1f7c1bc30651361bec074a96f78f2407a30dc8";
   const hex = new CLByteArray(Uint8Array.from(Buffer.from(hash1, "hex")));
-
-  const targetcontract = new CLString(
-    "contract-9e91c68f5e1b8c020a056f037dc669dc1d5a385ff7bf7594587fd2cefca8ff71"
-  );
 
   //**************************** for accounthash start*******************************/
   const hexString1 =
