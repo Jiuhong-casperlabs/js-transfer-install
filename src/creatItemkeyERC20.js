@@ -4,7 +4,11 @@ import {
   CLKey,
   CLAccountHash,
 } from "casper-js-sdk";
+<<<<<<< HEAD
 import blake from "blakejs";
+=======
+
+>>>>>>> 8c805686b0aad5fb33ffdb03065f32bfbe1cefec
 // recipient as CLPublicKey
 const createRecipientAddress = (recipient) => {
   return new CLKey(new CLAccountHash(recipient.toAccountHash()));

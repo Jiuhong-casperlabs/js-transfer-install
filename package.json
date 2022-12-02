@@ -60,10 +60,18 @@
     "multiinstallerc20": "node -r esm -e 'require(\"./src/multi_installerc20.js\")'",
     "listenums": "node -r esm -e 'require(\"./src/session_storelistenums.js\")'",
     "bodyhash": "node -r esm -e 'require(\"./src/bodyhash.js\")'",
+<<<<<<< HEAD
+    "getauction":"node -r esm -e 'require(\"./src/get_auction.js\")'"
+=======
     "serialize_transfer": "node -r esm -e 'require(\"./src/serialize_transfer.js\")'",
     "setsignature": "node -r esm -e 'require(\"./src/setsignature.js\")'",
+<<<<<<< HEAD
     "storepks": "node -r esm -e 'require(\"./src/storepks.js\")'",
     "balanceerc20": "node -r esm -e 'require(\"./src/query_balance_erc20.js\")'"
+=======
+    "storepks": "node -r esm -e 'require(\"./src/storepks.js\")'"
+>>>>>>> e7eb92b4c833e43628cc8a790278a06c732cef4c
+>>>>>>> 8c805686b0aad5fb33ffdb03065f32bfbe1cefec
   },
   "author": "",
   "license": "ISC",
