@@ -60,6 +60,7 @@ export const PATH_TO_CONTRACTS =
 export const PATH_TO_CONTRACT_ERC_20 =
   process.env.PATH_TO_CONTRACT_ERC_20 ||
   `/home/jh/caspereco/erc20/target/wasm32-unknown-unknown/release/erc20_token.wasm`;
+// `/home/jh/caspereco/casper-nft-cep47/target/wasm32-unknown-unknown/release/cep47-token.wasm`;
 // Path to an ERC20 samrt contract wasm file.
 export const PATH_TO_LOCKED = `${process.env.HOME}/casperecosystem/uref-sharing-example/target/wasm32-unknown-unknown/release/locked.wasm`;
 
@@ -102,6 +103,6 @@ export const DEPLOY_NODE_ADDRESS =
   // process.env.CSPR_INTS_DEPLOY_NODE_ADDRESS || "http://localhost:11101/rpc";
   // process.env.CSPR_INTS_DEPLOY_NODE_ADDRESS || "http://3.208.91.63:7777/rpc";
   process.env.CSPR_INTS_DEPLOY_NODE_ADDRESS || "http://3.14.161.135:7777/rpc";
-  
+
 // Time interval in milliseconds after which deploy will not be processed by a node.
 export const DEPLOY_TTL_MS = process.env.CSPR_INTS_DEPLOY_TTL_MS || 1800000;

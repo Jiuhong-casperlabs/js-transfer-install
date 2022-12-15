@@ -7,6 +7,8 @@ import {
   CLValueBuilder,
   DeployUtil,
   RuntimeArgs,
+  CLString,
+  CLMap,
 } from "casper-js-sdk";
 import * as constants from "../constants";
 import * as utils from "../utils";
@@ -15,29 +17,29 @@ import * as utils from "../utils";
 const PATH_TO_CONTRACT = constants.PATH_TO_CONTRACT_ERC_20;
 
 // Token parameters.
-const TOKEN_NAME = "Acme Token";
-const TOKEN_SYMBOL = "ACME";
-const TOKEN_DECIMALS = 11;
-const TOKEN_SUPPLY = 1e15;
+
+const TOKEN_NAME = "cep01";
+const TOKEN_SYMBOL = "CEP-1";
+const CONTRACT_NAME = "myceptest011";
 
 /**
  * Demonstration entry point.
  */
 const main = async () => {
   // Step 1: Set casper node client.
-  const client = new CasperClient("http://94.130.10.55:7777/rpc");
+  const client = new CasperClient(" http://94.130.10.55:7777/rpc");
 
   // Step 2: Set contract operator key pair.
-  // const keyPairOfContract = utils.getKeyPairOfContract(
-  //   "/home/jh/casper-node/utils/nctl/assets/net-1/faucet"
-  // );
   const keyPairOfContract = utils.getKeyPairOfContract("/home/jh/keys/test1");
+
+  const myKey = new CLString("ice");
+  const myVal = new CLString("cream");
+  const meta = new CLMap([[myKey, myVal]]);
 
   // Step 3: Set contract installation deploy (unsigned).
   let deploy = DeployUtil.makeDeploy(
     new DeployUtil.DeployParams(
       keyPairOfContract.publicKey,
-      // "casper-net-1",
       "casper-test",
       constants.DEPLOY_GAS_PRICE,
       constants.DEPLOY_TTL_MS
@@ -45,13 +47,17 @@ const main = async () => {
     DeployUtil.ExecutableDeployItem.newModuleBytes(
       utils.getBinary(PATH_TO_CONTRACT),
       RuntimeArgs.fromMap({
-        decimals: CLValueBuilder.u8(TOKEN_DECIMALS),
+        // let name: String = runtime::get_named_arg("name");
+        // let symbol: String = runtime::get_named_arg("symbol");
+        // let meta: Meta = runtime::get_named_arg("meta");
+        // let contract_name: String = runtime::get_named_arg("contract_name");
         name: CLValueBuilder.string(TOKEN_NAME),
         symbol: CLValueBuilder.string(TOKEN_SYMBOL),
-        total_supply: CLValueBuilder.u256(TOKEN_SUPPLY),
+        meta: meta,
+        contract_name: CLValueBuilder.string(CONTRACT_NAME),
       })
     ),
-    DeployUtil.standardPayment(200000000000)
+    DeployUtil.standardPayment(2)
   );
 
   // Step 4: Sign deploy.
@@ -71,19 +77,7 @@ const main = async () => {
 const logDetails = (deployHash) => {
   console.log(`
 ---------------------------------------------------------------------
-installed contract -> ERC20
-... account = ${constants.PATH_TO_SOURCE_KEYS}
-... deploy chain = ${constants.DEPLOY_CHAIN_NAME}
-... deploy dispatch node = ${constants.DEPLOY_NODE_ADDRESS}
-... deploy gas payment = ${constants.DEPLOY_GAS_PAYMENT_FOR_INSTALL}
-... deploy gas price = ${constants.DEPLOY_GAS_PRICE}
-contract constructor args:
-... token symbol = ${TOKEN_SYMBOL}
-... token name = ${TOKEN_NAME}
-... token supply = ${TOKEN_SUPPLY}
-... token decimals = ${TOKEN_DECIMALS}
-contract installation details:
-... path = ${PATH_TO_CONTRACT}
+installed contract -> CEP47
 ... deploy hash = ${deployHash}
 ---------------------------------------------------------------------
     `);
