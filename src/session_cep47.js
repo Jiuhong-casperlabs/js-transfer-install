@@ -10,6 +10,8 @@ import {
   CLKey,
   CLU32,
   CLU256,
+  CLPublicKey,
+  CLAccountHash
 } from "casper-js-sdk";
 import { Some, None } from "ts-results";
 import * as utils from "../utils";
@@ -50,6 +52,13 @@ const main = async () => {
   const token_meta3 = new CLMap([[new CLString("c"), new CLString("cc")]]);
   const token_metas = new CLList([token_meta1, token_meta2, token_meta3]);
 
+  const hexString =
+  "010e31a03ea026a8e375653573e0120c8cb96699e6c9721ae1ea98f896e6576ac3";
+  const hash = CLPublicKey.fromHex(hexString).toAccountHash();
+
+  const accounthash = new CLAccountHash(hash);
+  const receipient = new CLKey(accounthash);
+
   let deploy = DeployUtil.makeDeploy(
     new DeployUtil.DeployParams(
       keyPairofContract.publicKey,
@@ -61,9 +70,7 @@ const main = async () => {
       contractHashAsByteArray,
       "mint",
       RuntimeArgs.fromMap({
-        recipient: new CLKey(
-          new CLByteArray(new Uint8Array(keyPairofTarget.accountHash()))
-        ),
+        recipient: receipient,
         token_ids: token_ids,
         token_metas: token_metas,
       })
@@ -72,7 +79,9 @@ const main = async () => {
       constants.DEPLOY_GAS_PAYMENT_FOR_SESSION_TRANSFER
     )
   );
-
+  // recipient: new CLKey(
+  //   new CLByteArray(recipient)
+  // ),
   //Step 5.2 Sign deploy.
   deploy = client.signDeploy(deploy, keyPairofContract);
 
