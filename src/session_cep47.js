@@ -8,7 +8,7 @@ import {
   CLKey,
   CLU256,
   CLPublicKey,
-  CLAccountHash
+  CLAccountHash,
 } from "casper-js-sdk";
 import * as utils from "../utils";
 import * as constants from "../constants";
@@ -38,13 +38,15 @@ const main = async () => {
 
   const token_ids = new CLList([new CLU256(11)]);
 
-  
-  const token_meta1 = new CLMap([[new CLString("name"), new CLString("myNFT")],[new CLString("description"), new CLString("some text of myNFT")],[new CLString("image"), new CLString("some url")]]);
+  const token_meta1 = new CLMap([
+    [new CLString("name"), new CLString("myNFT")],
+    [new CLString("description"), new CLString("some text of myNFT")],
+    [new CLString("image"), new CLString("some url")],
+  ]);
   const token_metas = new CLList([token_meta1]);
 
-
   const hexString =
-  "010e31a03ea026a8e375653573e0120c8cb96699e6c9721ae1ea98f896e6576ac3";
+    "010e31a03ea026a8e375653573e0120c8cb96699e6c9721ae1ea98f896e6576ac3";
   const hash = CLPublicKey.fromHex(hexString).toAccountHash();
 
   const accounthash = new CLAccountHash(hash);
