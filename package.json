@@ -55,7 +55,7 @@
     "create-account": "node -r esm -e 'require(\"./src/create-account.js\")'",
     "delegate": "node -r esm -e 'require(\"./src/delegate.js\")'",
     "undelegate": "node -r esm -e 'require(\"./src/undelegate.js\")'",
-    "sign&verify": "node -r esm -e 'require(\"./src/sign&verify.js\")'",
+    "signverify": "node -r esm -e 'require(\"./src/sign&verify.js\")'",
     "multitransfer": "node -r esm -e 'require(\"./src/muti_keys_transfer.js\")'",
     "multiinstallerc20": "node -r esm -e 'require(\"./src/multi_installerc20.js\")'",
     "listenums": "node -r esm -e 'require(\"./src/session_storelistenums.js\")'",
