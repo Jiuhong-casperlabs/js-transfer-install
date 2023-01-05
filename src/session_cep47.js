@@ -36,21 +36,11 @@ const main = async () => {
     ...Buffer.from(contractHash.slice(5), "hex"),
   ];
 
-  const token_ids = new CLList([new CLU256(1), new CLU256(2), new CLU256(3)]);
+  const token_ids = new CLList([new CLU256(11)]);
 
-  const meta_data_json = {
-    name: "John Doe",
-    symbol: "abc",
-    token_uri: "https://www.barfoo.com",
-  };
-
-  const multiple_meta_data = new CLString(JSON.stringify(meta_data_json));
-
-
-  const token_meta1 = new CLMap([[new CLString("a"), new CLString("aa")]]);
-  const token_meta2 = new CLMap([[new CLString("b"), new CLString("bb")]]);
-  const token_meta3 = new CLMap([[new CLString("c"), multiple_meta_data]]);
-  const token_metas = new CLList([token_meta1, token_meta2, token_meta3]);
+  
+  const token_meta1 = new CLMap([[new CLString("name"), new CLString("myNFT")],[new CLString("description"), new CLString("some text of myNFT")],[new CLString("image"), new CLString("some url")]]);
+  const token_metas = new CLList([token_meta1]);
 
 
   const hexString =
@@ -87,7 +77,7 @@ const main = async () => {
 
   console.log(`mint_one -- deploy hash = ${deployHash}`);
 };
-2500000000
+
 main();
 
-//https://testnet.cspr.live/deploy/9d242efa3fab8b5191a2eabe8922da9d4fa9f9f94328efecb31fe6de09f57d15
+// casper-client get-deploy -n https://rpc.testnet.casperlabs.io/rpc e271fc14aaac23b91164d6f7a7a5039d48ca57cff46fee10106df8fc888b9428
