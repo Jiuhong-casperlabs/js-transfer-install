@@ -17,16 +17,16 @@ const main = async () => {
     statekey,
     [statePath]
   );
-  console.log("result is ", result);
   console.log("accountHash is ", result.Account.accountHash());
 
-  const statekey1 =
-    "uref-71f2b0883f2bcc40cb785cfdfdb26522789bcca102d45f22009dca7502fe6d6c-007"; //account hash
+  // number_of_minted_tokens uref
+  const number_of_minted_tokens_uref =
+    "uref-71f2b0883f2bcc40cb785cfdfdb26522789bcca102d45f22009dca7502fe6d6c-007";
 
   // const PATH_TO_CONTRACTS = "/home/jh/rust/test72/contract/target/wasm32-unknown-unknown/release/contract.wasm";
   const result1 = await client.nodeClient.getBlockState(
     stateRootHash,
-    statekey1
+    number_of_minted_tokens_uref
   );
   console.log("result is ", result1.CLValue.data.toString());
 };
