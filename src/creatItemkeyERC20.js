@@ -12,7 +12,7 @@ const createRecipientAddress = (recipient) => {
 
 const main = async () => {
   const pk1String1 =
-    "0152836c51eac04205bb7febe9d92da50758178b0bf388bd03e1da13147b99e2c5";
+    "017fbbccf39a639a1a5f469e3fb210d9f355b532bd786f945409f0fc9a8c6313b1";
   const account = CLPublicKey.fromHex(pk1String1);
 
   const key = createRecipientAddress(account);

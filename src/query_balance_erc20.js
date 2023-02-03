@@ -14,12 +14,12 @@ const main = async () => {
   const contractClient = new Contract(client);
   // contract hash
   const contract_hash =
-    "hash-4120116565bd608fae6a45078055f320a2f429f426c86797b072b4efd15b186a";
+    "hash-30362fcaef7c4c2ce67c35f6aee47cc7191fad4ee0ef551b239d9463375fdc7e";
   contractClient.setContractHash(contract_hash);
 
   // public key whose balance to be checked
   const pk1String1 =
-    "0125a6336791eba195c472a8b7dbcd256a6ecddf8863e586a3dfefe2581a5d672c";
+    "017fbbccf39a639a1a5f469e3fb210d9f355b532bd786f945409f0fc9a8c6313b1";
   const account = CLPublicKey.fromHex(pk1String1);
   const key = new CLKey(new CLAccountHash(account.toAccountHash()));
   console.log("key=>", key);
