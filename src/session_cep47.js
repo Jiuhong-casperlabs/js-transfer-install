@@ -2,14 +2,13 @@ import {
   DeployUtil,
   CasperClient,
   RuntimeArgs,
-  CLOption,
   CLMap,
   CLString,
   CLList,
-  CLByteArray,
   CLKey,
-  CLU32,
   CLU256,
+  CLPublicKey,
+  CLAccountHash,
 } from "casper-js-sdk";
 import * as utils from "../utils";
 import * as constants from "../constants";
@@ -22,10 +21,7 @@ const main = async () => {
   const keyPairofContract = utils.getKeyPairOfContract(
     constants.PATH_TO_CEP47_KEYS
   );
-  //Step 2.1: Set transfer target key pair
-  const keyPairofTarget = utils.getKeyPairOfContract(
-    constants.PATH_TO_TRAGET_KEYS
-  );
+
   //Step3: Query node for global state root hash
   const stateRootHash = await utils.getStateRootHash(client);
 
@@ -40,13 +36,21 @@ const main = async () => {
     ...Buffer.from(contractHash.slice(5), "hex"),
   ];
 
-  const token_ids = new CLList([new CLU256(1), new CLU256(2), new CLU256(3)]);
+  const token_ids = new CLList([new CLU256(11)]);
 
-  const token_meta1 = new CLMap([[new CLString("a"), new CLString("aa")]]);
-  const token_meta2 = new CLMap([[new CLString("b"), new CLString("bb")]]);
-  const token_meta3 = new CLMap([[new CLString("c"), new CLString("cc")]]);
-  const token_metas = new CLList([token_meta1, token_meta2, token_meta3]);
+  const token_meta1 = new CLMap([
+    [new CLString("name"), new CLString("myNFT")],
+    [new CLString("description"), new CLString("some text of myNFT")],
+    [new CLString("image"), new CLString("some url")],
+  ]);
+  const token_metas = new CLList([token_meta1]);
 
+  const hexString =
+    "010e31a03ea026a8e375653573e0120c8cb96699e6c9721ae1ea98f896e6576ac3";
+  const hash = CLPublicKey.fromHex(hexString).toAccountHash();
+
+  const accounthash = new CLAccountHash(hash);
+  const receipient = new CLKey(accounthash);
   let deploy = DeployUtil.makeDeploy(
     new DeployUtil.DeployParams(
       keyPairofContract.publicKey,
@@ -58,9 +62,7 @@ const main = async () => {
       contractHashAsByteArray,
       "mint",
       RuntimeArgs.fromMap({
-        recipient: new CLKey(
-          new CLByteArray(new Uint8Array(keyPairofTarget.accountHash()))
-        ),
+        recipient: receipient,
         token_ids: token_ids,
         token_metas: token_metas,
       })
@@ -69,7 +71,6 @@ const main = async () => {
       constants.DEPLOY_GAS_PAYMENT_FOR_SESSION_TRANSFER
     )
   );
-
   //Step 5.2 Sign deploy.
   deploy = client.signDeploy(deploy, keyPairofContract);
 
@@ -81,4 +82,4 @@ const main = async () => {
 
 main();
 
-//https://testnet.cspr.live/deploy/9d242efa3fab8b5191a2eabe8922da9d4fa9f9f94328efecb31fe6de09f57d15
+// casper-client get-deploy -n https://rpc.testnet.casperlabs.io/rpc e271fc14aaac23b91164d6f7a7a5039d48ca57cff46fee10106df8fc888b9428

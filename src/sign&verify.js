@@ -5,7 +5,7 @@ import {
   verifyMessageSignature,
 } from "casper-js-sdk";
 
-const tempDir = "/home/jh/keys/test1";
+const tempDir = "/Users/jh/keys/test1";
 const main = () => {
   let casperClient = new CasperClient("http://88.99.167.167:7777/rpc");
 
