@@ -14,8 +14,9 @@ const main = () => {
     Keys.SignatureAlgorithm.Ed25519
   );
 
-  const message = Buffer.from("hello world here");
+  const message = Buffer.from("123456");
   const signature = signKeyPair.sign(Buffer.from(message));
+  console.log("signature string is\n", Buffer.from(signature).toString("hex"));
   console.log("signature is", signature);
 
   const result = signKeyPair.verify(signature, message);

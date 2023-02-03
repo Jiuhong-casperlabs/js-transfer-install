@@ -39,9 +39,11 @@ const main = async () => {
 
   console.log("pk is:", CLPublicKey.fromHex(hexString1));
 
-  // const myHash1 = new CLAccountHash(
-  //     CLPublicKey.fromHex(hexString1).toAccountHash());
+  const myHash1 = new CLAccountHash(
+    CLPublicKey.fromHex(hexString1).toAccountHash()
+  );
 
+  console.log("myhash1:", myHash1.toString());
   // const myhash2 = CLPublicKey.fromHex(hexString1)
 
   // getTokenByIndex(myHash1, 0)

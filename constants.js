@@ -78,8 +78,8 @@ export const PATH_TO_CONTRACT_AUCTION =
 
 // Name of target chain.
 export const DEPLOY_CHAIN_NAME =
-  process.env.CSPR_INTS_DEPLOY_CHAIN_NAME || "casper-net-1";
-// process.env.CSPR_INTS_DEPLOY_CHAIN_NAME || "casper-test";
+  // process.env.CSPR_INTS_DEPLOY_CHAIN_NAME || "casper-net-1";
+  process.env.CSPR_INTS_DEPLOY_CHAIN_NAME || "casper-test";
 
 // Gas payment to be offered.
 export const DEPLOY_GAS_PAYMENT_FOR_INSTALL =
@@ -102,7 +102,7 @@ export const DEPLOY_GAS_PRICE = process.env.CSPR_INTS_DEPLOY_GAS_PRICE
 export const DEPLOY_NODE_ADDRESS =
   // process.env.CSPR_INTS_DEPLOY_NODE_ADDRESS || "http://localhost:11101/rpc";
   // process.env.CSPR_INTS_DEPLOY_NODE_ADDRESS || "http://3.208.91.63:7777/rpc";
-  process.env.CSPR_INTS_DEPLOY_NODE_ADDRESS || "http://3.14.161.135:7777/rpc";
+  process.env.CSPR_INTS_DEPLOY_NODE_ADDRESS || "http://94.130.10.55:7777/rpc";
 
 // Time interval in milliseconds after which deploy will not be processed by a node.
 export const DEPLOY_TTL_MS = process.env.CSPR_INTS_DEPLOY_TTL_MS || 1800000;

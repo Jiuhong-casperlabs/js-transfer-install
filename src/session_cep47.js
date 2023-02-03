@@ -11,11 +11,8 @@ import {
   CLU32,
   CLU256,
 } from "casper-js-sdk";
-import { Some, None } from "ts-results";
 import * as utils from "../utils";
 import * as constants from "../constants";
-
-const AMOUNT_TO_TRANSFER = 2500000000;
 
 const main = async () => {
   //Step 1: Set casper node client

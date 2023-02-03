@@ -10,6 +10,7 @@ import {
   CLKey,
   CLAccountHash,
   CLValueBuilder,
+  decodeBase16,
 } from "casper-js-sdk";
 import * as utils from "../utils";
 import * as constants from "../constants";
@@ -23,21 +24,9 @@ const main = async () => {
     constants.PATH_TO_KV_KEYS
   );
 
-  //Step3: Query node for global state root hash
-  const stateRootHash = await utils.getStateRootHash(client);
-
-  //Step4: Query node for contract hash
-  const contractHash = await utils.getAccountNamedKeyValue(
-    client,
-    stateRootHash,
-    keyPairofContract,
-    // "kvstorage_session"
-    // "counter"
-    "kvstorage_contract"
+  const contractHashAsByteArray = decodeBase16(
+    "d7f1479f51352eb51b83e5082f4549fc33c6dd49fe8b63471f881d14575eb12f"
   );
-  const contractHashAsByteArray = [
-    ...Buffer.from(contractHash.slice(5), "hex"),
-  ];
 
   const byteArr1 = new CLByteArray(
     new Uint8Array([
@@ -47,6 +36,12 @@ const main = async () => {
   );
   console.log("byteArr1 length: ", byteArr1.data.length);
   const myValue = new CLKey(byteArr1);
+
+  let wallet =
+    "01a018bf278f32fdb7b06226071ce399713ace78a28d43a346055060a660ba7aa9";
+  let keyvalue = CLValueBuilder.key(
+    CLValueBuilder.byteArray(CLPublicKey.fromHex(wallet).toAccountHash())
+  );
 
   let deploy = DeployUtil.makeDeploy(
     new DeployUtil.DeployParams(
@@ -61,6 +56,7 @@ const main = async () => {
       RuntimeArgs.fromMap({
         value: myValue,
         name: new CLString("name"),
+        keyvalue: keyvalue,
       })
     ),
     DeployUtil.standardPayment(

@@ -2,10 +2,8 @@ import {
   DeployUtil,
   CasperClient,
   RuntimeArgs,
-  CLList,
-  CLU8,
-  CLString,
-  CLByteArray,
+  CLValueBuilder,
+  CLPublicKey,
 } from "casper-js-sdk";
 import * as utils from "../utils";
 import * as constants from "../constants";
@@ -17,33 +15,38 @@ const main = async () => {
 
   // const PATH_TO_CONTRACTS = "/home/jh/rust/test63/contract/target/wasm32-unknown-unknown/release/contract.wasm";
   const PATH_TO_CONTRACTS =
-    "/home/jh/mywork/contractsworkspace/target/wasm32-unknown-unknown/release/storecontract.wasm";
+    "/home/jh/rust/test75/contract/target/wasm32-unknown-unknown/release/contract.wasm";
 
-  const hash1 =
-    "09d429a0e282d55a0d0daa56f5e117f928bf107e27373152757307ada3f999d7";
-  const contracthash = new CLByteArray(
-    Uint8Array.from(Buffer.from(hash1, "hex"))
+  const wallet1str =
+    "0152836c51eac04205bb7febe9d92da50758178b0bf388bd03e1da13147b99e2c5";
+  const wallet1 = CLValueBuilder.key(
+    CLValueBuilder.byteArray(CLPublicKey.fromHex(wallet1str).toAccountHash())
   );
 
-  const client = new CasperClient("http://localhost:11101/rpc");
+  const wallet2 = CLValueBuilder.byteArray(
+    CLPublicKey.fromHex(wallet1str).toAccountHash()
+  );
+
+  const client = new CasperClient(constants.DEPLOY_NODE_ADDRESS);
 
   // Step 2: Set contract operator key pair.
   const keyPairOfContract = utils.getKeyPairOfContract(
-    "/home/jh/casper-node/utils/nctl/assets/net-1/faucet"
+    constants.PATH_TO_CEP47_KEYS
   );
 
   // Step 3: Set contract installation deploy (unsigned).
   let deploy = DeployUtil.makeDeploy(
     new DeployUtil.DeployParams(
       keyPairOfContract.publicKey,
-      "casper-net-1",
+      "casper-test",
       constants.DEPLOY_GAS_PRICE,
       constants.DEPLOY_TTL_MS
     ),
     DeployUtil.ExecutableDeployItem.newModuleBytes(
       utils.getBinary(PATH_TO_CONTRACTS),
       RuntimeArgs.fromMap({
-        mycontract: contracthash,
+        wallet1: wallet1,
+        wallet2: wallet2,
       })
     ),
     DeployUtil.standardPayment(constants.DEPLOY_GAS_PAYMENT_FOR_INSTALL)
