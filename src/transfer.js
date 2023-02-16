@@ -3,7 +3,7 @@
  */
 
 import _ from "lodash";
-import { CasperClient, DeployUtil, CLU64 } from "casper-js-sdk";
+import { CasperClient, DeployUtil, CLPublicKey } from "casper-js-sdk";
 import * as constants from "../constants";
 import * as utils from "../utils";
 
@@ -17,10 +17,9 @@ const main = async () => {
   //step 2: Set source key pair
   //        Set target key pair
   const source = utils.getKeyPairOfContract(constants.PATH_TO_SOURCE_KEYS);
-  const target = utils.getKeyPairOfContract(constants.PATH_TO_TRAGET_KEYS);
-
-  console.log("source:", source.publicKey.data);
-  // console.log("targe:", target);
+  const hexString1 =
+    "02032f2eac2b4b5d5a4129612be91aca6a0adaf8e5785719519d8c7bcf6d0617a997";
+  const target_pk = CLPublicKey.fromHex(hexString1);
 
   //step 3: Invoke contract transfer endpoint
   //step 3.1 set deploy
@@ -33,7 +32,7 @@ const main = async () => {
     ),
     DeployUtil.ExecutableDeployItem.newTransfer(
       AMOUNT_TO_TRANSFER,
-      target.publicKey,
+      target_pk,
       null,
       _.random()
     ),
@@ -44,15 +43,13 @@ const main = async () => {
 
   //step 3.2 Sign Deploy
   deploy = client.signDeploy(deploy, source);
-  console.log("=====content for putdeploy============");
-  console.log("content for putdeploy is, ", JSON.stringify(deploy));
-  console.log("=====content for putdeploy============");
+  // console.log("=====content for putdeploy============");
+  // console.log("content for putdeploy is, ", JSON.stringify(deploy));
+  // console.log("=====content for putdeploy============");
   //ste 3.4 Dispatch deploy to node
   let deployHash = await client.putDeploy(deploy);
 
-  console.log(
-    `transferring ${AMOUNT_TO_TRANSFER} tokens -> user ${target} :: deploy hash = ${deployHash}`
-  );
+  console.log(` deploy hash = ${deployHash}`);
 };
 
 main();

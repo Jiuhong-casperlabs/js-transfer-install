@@ -67,7 +67,8 @@
     "balanceerc20": "node -r esm -e 'require(\"./src/query_balance_erc20.js\")'",
     "storepks": "node -r esm -e 'require(\"./src/storepks.js\")'",
     "installcep47": "node -r esm -e 'require(\"./src/installcep47.js\")'",
-    "dependency": "node -r esm -e 'require(\"./src/dependency.js\")'"
+    "dependency": "node -r esm -e 'require(\"./src/dependency.js\")'",
+    "kyc_install": "node -r esm -e 'require(\"./src/kyc_install.js\")'"
   },
   "author": "",
   "license": "ISC",

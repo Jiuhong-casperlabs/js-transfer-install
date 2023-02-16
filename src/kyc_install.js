@@ -17,17 +17,19 @@ import * as constants from "../constants";
 import * as utils from "../utils";
 
 // Path to contract to be installed.
-const PATH_TO_CONTRACT = constants.PATH_TO_CONTRACT_CASK;
+const PATH_TO_CONTRACT =
+  "/home/jh/caspereco/civic-contract/target/wasm32-unknown-unknown/release/civic-token.wasm";
 
 // Token parameters.
-const TOKEN_NAME = new CLString("Cask Token");
-const TOKEN_SYMBOL = new CLString("CASK");
+const TOKEN_NAME = new CLString("TREE Token");
+const TOKEN_SYMBOL = new CLString("TREE");
 const myKey = new CLString("hello");
 const myVal = new CLString("world");
 const TOKEN_META = new CLMap([[myKey, myVal]]);
-const TOKEN_contract_name = new CLString("CVCV");
+const TOKEN_contract_name = new CLString("KYC");
 
 //**************************** for accounthash start*******************************/
+// test1
 const hexString1 =
   "0152836c51eac04205bb7febe9d92da50758178b0bf388bd03e1da13147b99e2c5";
 
@@ -38,16 +40,6 @@ const myHash1 = new CLAccountHash(
 const TOKEN_ADMIN = new CLKey(myHash1);
 
 //**************************** for accounthash end*******************************/
-
-//**************************** for kyc_package_has start*******************************/
-const hexString2 =
-  "98639837ea364e730d90138f902fb22c8bcc525ddeb568c2f0e85bf9af4c32f2";
-
-const hex2 = Uint8Array.from(Buffer.from(hexString2, "hex"));
-
-const TOKEN_kyc_package_hash = new CLKey(new CLByteArray(hex2));
-//**************************** for kyc_package_has end*******************************/
-
 /**
  * Demonstration entry point.
  */
@@ -75,11 +67,10 @@ const main = async () => {
         symbol: TOKEN_SYMBOL,
         meta: TOKEN_META,
         admin: TOKEN_ADMIN,
-        kyc_package_hash: TOKEN_kyc_package_hash,
         contract_name: TOKEN_contract_name,
       })
     ),
-    DeployUtil.standardPayment(250000000000)
+    DeployUtil.standardPayment(300000000000)
   );
 
   // Step 4: Sign deploy.
@@ -103,7 +94,6 @@ installed contract -> CASK
 ... account = ${constants.PATH_TO_SOURCE_KEYS}
 ... deploy chain = ${constants.DEPLOY_CHAIN_NAME}
 ... deploy dispatch node = ${constants.DEPLOY_NODE_ADDRESS}
-... deploy gas payment = ${constants.DEPLOY_GAS_PAYMENT_FOR_INSTALL}
 ... deploy gas price = ${constants.DEPLOY_GAS_PRICE}
 contract installation details:
 ... path = ${PATH_TO_CONTRACT}

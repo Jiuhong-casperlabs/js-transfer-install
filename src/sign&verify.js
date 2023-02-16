@@ -5,7 +5,7 @@ import {
   verifyMessageSignature,
 } from "casper-js-sdk";
 
-const tempDir = "/Users/jh/keys/test1";
+const tempDir = "/home/jh/keys/test2";
 const main = () => {
   let casperClient = new CasperClient("http://88.99.167.167:7777/rpc");
 
@@ -14,7 +14,7 @@ const main = () => {
     Keys.SignatureAlgorithm.Ed25519
   );
 
-  const message = Buffer.from("123456");
+  const message = Buffer.from(",ki87ujm");
   const signature = signKeyPair.sign(Buffer.from(message));
   console.log("signature string is\n", Buffer.from(signature).toString("hex"));
   console.log("signature is", signature);
