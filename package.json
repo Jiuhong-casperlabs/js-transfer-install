@@ -70,7 +70,8 @@
     "installcep47": "node -r esm -e 'require(\"./src/installcep47.js\")'",
     "dependency": "node -r esm -e 'require(\"./src/dependency.js\")'",
     "kyc_install": "node -r esm -e 'require(\"./src/kyc_install.js\")'",
-    "get_uref": "node -r esm -e 'require(\"./src/get_uref.js\")'"
+    "get_uref": "node -r esm -e 'require(\"./src/get_uref.js\")'",
+    "gatekeeper": "node -r esm -e 'require(\"./src/gatekeeper.js\")'"
   },
   "author": "",
   "license": "ISC",
