@@ -1,0 +1,171 @@
+{
+  "id": -8127364554881610302,
+  "jsonrpc": "2.0",
+  "result": {
+    "api_version": "1.0.0",
+    "deploy": {
+      "approvals": [
+        {
+          "signature": "01f8625d3e9b2babc13d789438aced80dd55083f17203a6ba814264df881f0454bb883e90335abc82efe7b47fb4c843710f08b4f547c9f2953c9226f7c11f6db06",
+          "signer": "01553b2b5db0aa64b040642e0d622b28db58e36c8a05af334585208fab4221124b"
+        }
+      ],
+      "hash": "626d973a832fa0145dcf5f1d05d9ae5b5d34860689a824acc603689fe18cbb47",
+      "header": {
+        "account": "01553b2b5db0aa64b040642e0d622b28db58e36c8a05af334585208fab4221124b",
+        "body_hash": "097abd441ed230a762e8327618fd16254d0bdb09c48225ec3ad147219f0583c6",
+        "chain_name": "casper-net-1",
+        "dependencies": [],
+        "gas_price": 1,
+        "timestamp": "2023-02-19T11:11:23.881Z",
+        "ttl": "30m"
+      },
+      "payment": {
+        "ModuleBytes": {
+          "args": [
+            [
+              "amount",
+              {
+                "bytes": "04005ed0b2",
+                "cl_type": "U512",
+                "parsed": "3000000000"
+              }
+            ]
+          ],
+          "module_bytes": ""
+        }
+      },
+      "session": {
+        "StoredContractByHash": {
+          "args": [
+            [
+              "CLTypeURef_value",
+              {
+                "bytes": "010000000d00000048656c6c6f2c20576f726c642100",
+                "cl_type": {
+                  "Tuple3": [
+                    "U32",
+                    "String",
+                    "Bool"
+                  ]
+                },
+                "parsed": [
+                  1,
+                  "Hello, World!",
+                  false
+                ]
+              }
+            ]
+          ],
+          "entry_point": "store_map",
+          "hash": "c981fbb75fcc8c9f601f07ea20ee99ac4ff4ea3fbda9c068d18b0e9927fb904a"
+        }
+      }
+    },
+    "execution_results": [
+      {
+        "block_hash": "68fe8cd5958bf92853320e4c7d9a4f279de6b502a5566c3aedbb2466d0dfc1cc",
+        "result": {
+          "Failure": {
+            "cost": "107190",
+            "effect": {
+              "operations": [],
+              "transforms": [
+                {
+                  "key": "hash-cc7892a92bc15289277c2dfa351182363fc2cfe69ffa674b37305ea264b218db",
+                  "transform": "Identity"
+                },
+                {
+                  "key": "hash-9c427c25b2acb3cd01d7f880a643aa0e9c4e79e7294148bfbdae9105d322e7d2",
+                  "transform": "Identity"
+                },
+                {
+                  "key": "hash-9f54b038f01ed0b8d651db4548ae272cb49eeda4b7f9a00966a44704a29699f7",
+                  "transform": "Identity"
+                },
+                {
+                  "key": "hash-5819929e099aced159609bcbf0b30a778716cf7939a37b6021d39e5bc2feb087",
+                  "transform": "Identity"
+                },
+                {
+                  "key": "balance-e7f8d593c41835eff344d195d9f9ad64f054f1ef950a72b989183c929c0191ee",
+                  "transform": "Identity"
+                },
+                {
+                  "key": "balance-850a51c91c71bc37044267c5a90a819d8ab93b56f3e167521fd36838b2386889",
+                  "transform": "Identity"
+                },
+                {
+                  "key": "balance-e7f8d593c41835eff344d195d9f9ad64f054f1ef950a72b989183c929c0191ee",
+                  "transform": {
+                    "WriteCLValue": {
+                      "bytes": "0e003600f7eb5ac138938d44c64d31",
+                      "cl_type": "U512",
+                      "parsed": "999999999999999999999871000000000"
+                    }
+                  }
+                },
+                {
+                  "key": "balance-850a51c91c71bc37044267c5a90a819d8ab93b56f3e167521fd36838b2386889",
+                  "transform": {
+                    "AddUInt512": "3000000000"
+                  }
+                },
+                {
+                  "key": "hash-cc7892a92bc15289277c2dfa351182363fc2cfe69ffa674b37305ea264b218db",
+                  "transform": "Identity"
+                },
+                {
+                  "key": "hash-9c427c25b2acb3cd01d7f880a643aa0e9c4e79e7294148bfbdae9105d322e7d2",
+                  "transform": "Identity"
+                },
+                {
+                  "key": "balance-850a51c91c71bc37044267c5a90a819d8ab93b56f3e167521fd36838b2386889",
+                  "transform": "Identity"
+                },
+                {
+                  "key": "hash-cc7892a92bc15289277c2dfa351182363fc2cfe69ffa674b37305ea264b218db",
+                  "transform": "Identity"
+                },
+                {
+                  "key": "hash-9f54b038f01ed0b8d651db4548ae272cb49eeda4b7f9a00966a44704a29699f7",
+                  "transform": "Identity"
+                },
+                {
+                  "key": "hash-5819929e099aced159609bcbf0b30a778716cf7939a37b6021d39e5bc2feb087",
+                  "transform": "Identity"
+                },
+                {
+                  "key": "balance-850a51c91c71bc37044267c5a90a819d8ab93b56f3e167521fd36838b2386889",
+                  "transform": "Identity"
+                },
+                {
+                  "key": "balance-42586ff9bc1f718f11bd0abf206f07001b78db4ac32f112cb884ee506561567d",
+                  "transform": "Identity"
+                },
+                {
+                  "key": "balance-850a51c91c71bc37044267c5a90a819d8ab93b56f3e167521fd36838b2386889",
+                  "transform": {
+                    "WriteCLValue": {
+                      "bytes": "00",
+                      "cl_type": "U512",
+                      "parsed": "0"
+                    }
+                  }
+                },
+                {
+                  "key": "balance-42586ff9bc1f718f11bd0abf206f07001b78db4ac32f112cb884ee506561567d",
+                  "transform": {
+                    "AddUInt512": "3000000000"
+                  }
+                }
+              ]
+            },
+            "error_message": "ApiError::MissingArgument [2]",
+            "transfers": []
+          }
+        }
+      }
+    ]
+  }
+}

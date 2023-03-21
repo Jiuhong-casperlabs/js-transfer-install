@@ -3,7 +3,7 @@ import {
   Contracts,
   CLPublicKey,
   CLKey,
-  CLAccountHash,
+  CLByteArray,
   CLValueParsers,
 } from "casper-js-sdk";
 
@@ -14,16 +14,26 @@ const main = async () => {
   const contractClient = new Contract(client);
   // contract hash
   const contract_hash =
-    "hash-30362fcaef7c4c2ce67c35f6aee47cc7191fad4ee0ef551b239d9463375fdc7e";
+    "hash-ba950993182bbc4a73fbcc0183c43534bdf7fa9a862db5a847cc7d726e274d9e";
   contractClient.setContractHash(contract_hash);
 
+  // // public key whose balance to be checked
+  // const pk1String1 =
+  //   "017fbbccf39a639a1a5f469e3fb210d9f355b532bd786f945409f0fc9a8c6313b1";
+  // const account = CLPublicKey.fromHex(pk1String1);
+  // const key = new CLKey(new CLAccountHash(account.toAccountHash()));
+  // console.log("key=>", key);
+  // const keyBytes = CLValueParsers.toBytes(key).unwrap();
+  // const itemKey = Buffer.from(keyBytes).toString("base64");
   // public key whose balance to be checked
-  const pk1String1 =
-    "017fbbccf39a639a1a5f469e3fb210d9f355b532bd786f945409f0fc9a8c6313b1";
-  const account = CLPublicKey.fromHex(pk1String1);
-  const key = new CLKey(new CLAccountHash(account.toAccountHash()));
-  console.log("key=>", key);
-  const keyBytes = CLValueParsers.toBytes(key).unwrap();
+  const hexString2 =
+    "3bfdd9e022e160f8d6e05638ab4647a8c7983276f001ba08a33ab1828cfbefa4"; //bridge_package_has
+
+  const hex2 = Uint8Array.from(Buffer.from(hexString2, "hex"));
+
+  const bridge_package_hash = new CLKey(new CLByteArray(hex2));
+  console.log("bridge_package_hash=>", bridge_package_hash);
+  const keyBytes = CLValueParsers.toBytes(bridge_package_hash).unwrap();
   const itemKey = Buffer.from(keyBytes).toString("base64");
 
   console.log(itemKey);
