@@ -7,6 +7,7 @@ const main = async () => {
 
   const stateRootHash = await utils.getStateRootHash(client);
 
+  // contract hash
   const statekey =
     "hash-4b2ee4a94a483cab1f7abd2e0097e3a8f0f1a05e6f3ac3c7cf3c05c92cb0b02e";
 
