@@ -29,15 +29,13 @@ import { decodeBase16 } from "casper-js-sdk";
 
 const main = () => {
   let casperClient = new CasperClient("http://88.99.167.167:7777/rpc");
-  const a = decodeBase16(
-    "bd3d05495666e5e067be66047a058cb01fb28704831a2ec0c5a925524a6f1274"
-  );
+  const hexString1 =
+    "63b82f736afb9ae7177398ed8dd18cc662119d52ad0c509c3881d83b606d3b61";
 
-  let wallet =
-    "01a018bf278f32fdb7b06226071ce399713ace78a28d43a346055060a660ba7aa9";
-  let c = CLValueBuilder.key(
-    CLValueBuilder.byteArray(CLPublicKey.fromHex(wallet).toAccountHash())
-  );
+  const hex1 = Uint8Array.from(Buffer.from(hexString1, "hex"));
+
+  // const token_contract_hash = new CLKey(new CLByteArray(hex1));
+  const key_accounthash = new CLKey(new CLAccountHash(hex1));
 
   // const pk2String2 =
   //   "01bed05482905c4a7f47837aeffbde82df64abc1ab2b64519b638de81c8c7d4f58";
@@ -48,11 +46,11 @@ const main = () => {
   //   "0203da3025e1732280cc825a81bbaaaa2337991b37a84e53f4042c8d8236b6adb017";
   // const pk1 = CLPublicKey.fromHex(pk2String1);
   // console.log(pk1);
-  const edKeyPair = utils.getKeyPairOfContract(constants.PATH_TO_SOURCE_KEYS); // load existing pair of keys
+  // const edKeyPair = utils.getKeyPairOfContract(constants.PATH_TO_SOURCE_KEYS); // load existing pair of keys
 
-  const { publicKey, privateKey } = edKeyPair;
-  console.log(privateKey);
-  console.log(publicKey);
+  // const { publicKey, privateKey } = edKeyPair;
+  // console.log(privateKey);
+  // console.log(publicKey);
   // const keyPairOfContract = utils.getKeyPairOfContract(
   //   constants.PATH_TO_SOURCE_KEYS
   // );

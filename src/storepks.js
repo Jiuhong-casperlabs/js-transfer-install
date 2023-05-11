@@ -36,6 +36,14 @@ const myHash1 = new CLAccountHash(
 
 const key1 = new CLKey(myHash1);
 //
+const hexString =
+  "63b82f736afb9ae7177398ed8dd18cc662119d52ad0c509c3881d83b606d3b61";
+
+const hex1 = Uint8Array.from(Buffer.from(hexString, "hex"));
+
+// const token_contract_hash = new CLKey(new CLByteArray(hex1));
+const key_accounthash = new CLKey(new CLAccountHash(hex1));
+//
 const hexString2 =
   "02025977ea84931dc9fa09c0ecd899c8716162512d0b2384477a015803ab375a8615";
 
@@ -73,6 +81,7 @@ const main = async () => {
         pk2,
         key1: pk2,
         key2,
+        key_accounthash,
       })
     ),
     DeployUtil.standardPayment(constants.DEPLOY_GAS_PAYMENT_FOR_INSTALL)

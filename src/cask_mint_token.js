@@ -19,7 +19,7 @@ const AMOUNT_TO_TRANSFER = 2500000000;
 
 const main = async () => {
   //Step 1: Set casper node client
-  const client = new CasperClient(constants.DEPLOY_NODE_ADDRESS);
+  const client = new CasperClient("http://3.136.227.9:7777/rpc");
 
   //Step 2: Set contract operator key pair
   const keyPairofContract = utils.getKeyPairOfContract(
@@ -90,11 +90,12 @@ const main = async () => {
 
   //Step 5.2 Sign deploy.
   deploy = client.signDeploy(deploy, keyPairofContract);
+  console.log("deploy:", deploy);
 
   //Step 5.3 Dispatch deploy to node.
-  let deployHash = await client.putDeploy(deploy);
+  // let deployHash = await client.putDeploy(deploy);
 
-  console.log(`deploy hash = ${deployHash}`);
+  // console.log(`deploy hash = ${deployHash}`);
 };
 
 main();

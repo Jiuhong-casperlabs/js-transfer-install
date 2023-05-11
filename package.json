@@ -66,7 +66,6 @@
     "setsignature": "node -r esm -e 'require(\"./src/setsignature.js\")'",
     "storepks": "node -r esm -e 'require(\"./src/storepks.js\")'",
     "balanceerc20": "node -r esm -e 'require(\"./src/query_balance_erc20.js\")'",
-    "storepks": "node -r esm -e 'require(\"./src/storepks.js\")'",
     "installcep47": "node -r esm -e 'require(\"./src/installcep47.js\")'",
     "dependency": "node -r esm -e 'require(\"./src/dependency.js\")'",
     "kyc_install": "node -r esm -e 'require(\"./src/kyc_install.js\")'",
@@ -81,7 +80,7 @@
     "axios": "^0.27.2",
     "blakejs": "^1.2.1",
     "casper-js-client-helper": "^1.0.0",
-    "casper-js-sdk": "2.10",
+    "casper-js-sdk": "^2.12.1",
     "eccrypto": "^1.1.6",
     "esm": "^3.2.25",
     "lodash": "^4.17.21"

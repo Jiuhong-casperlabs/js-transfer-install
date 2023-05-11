@@ -39,13 +39,9 @@ const main = async () => {
     DeployUtil.standardPayment(constants.DEPLOY_GAS_PAYMENT_FOR_NATIVE_TRANSFER)
   );
 
-  console.log("deploy is ", Buffer.from(deploy.hash).toString("hex"));
-
   //step 3.2 Sign Deploy
   deploy = client.signDeploy(deploy, source);
-  // console.log("=====content for putdeploy============");
-  // console.log("content for putdeploy is, ", JSON.stringify(deploy));
-  // console.log("=====content for putdeploy============");
+
   //ste 3.4 Dispatch deploy to node
   let deployHash = await client.putDeploy(deploy);
 
