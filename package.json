@@ -71,7 +71,9 @@
     "kyc_install": "node -r esm -e 'require(\"./src/kyc_install.js\")'",
     "get_uref": "node -r esm -e 'require(\"./src/get_uref.js\")'",
     "gatekeeper": "node -r esm -e 'require(\"./src/gatekeeper.js\")'",
-    "getContract": "node -r esm -e 'require(\"./src/getContract.js\")'"
+    "getContract": "node -r esm -e 'require(\"./src/getContract.js\")'",
+    "call_bytearray": "node -r esm -e 'require(\"./src/call_bytearray.js\")'",
+    "call_init": "node -r esm -e 'require(\"./src/call_init.js\")'"
   },
   "author": "",
   "license": "ISC",
