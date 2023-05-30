@@ -24,6 +24,7 @@ const main = async () => {
   ];
 
   // const hash1 = "8e5c039cecd50b920b8f51c80183a738cae248cc04f1e899efcc89d21f6dbacc"
+  // 0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a
   const hash1 =
     "e8d77107262fc5ae787662dc418cf01f36394a4d4ec417230dcac66c4afb0744e4d7d120735c3be7517750f53f22ac60b9dee22b05ab9775cf7e15406e9cc708";
   const hex = new CLByteArray(Uint8Array.from(Buffer.from(hash1, "hex")));

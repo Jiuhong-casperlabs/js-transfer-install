@@ -28,18 +28,21 @@ const main = async () => {
     "e8d77107262fc5ae787662dc418cf01f36394a4d4ec417230dcac66c4afb0744e4d7d120735c3be7517750f53f22ac60b9dee22b05ab9775cf7e15406e9cc708";
   const hex = new CLByteArray(Uint8Array.from(Buffer.from(hash1, "hex")));
 
+  // 0707070707070707070707070707070707070707070707070707070707070707
   const group_key_str =
     "8cf71022d8a4240c486d8653fbf31de4b7748ef3c1477b728d3eb1e7d307f1b2";
   const group_key = new CLByteArray(
     Uint8Array.from(Buffer.from(group_key_str, "hex"))
   );
 
+  // 0808080808080808080808080808080808080808080808080808080808080808
   const fee_public_key_str =
     "0be6e84e1011ed08d58a0650043bb3ece261ec06e8a84c37984d187227438194";
   const fee_public_key = new CLByteArray(
     Uint8Array.from(Buffer.from(fee_public_key_str, "hex"))
   );
 
+  // 0909090909090909090909090909090909090909090909090909090909090909
   const whitecontract_str =
     "036d5da0cbd206615617d190ddb41d34abd6c51b1ef9273611ca7e5c463ceaf2";
   const whitecontract = new CLByteArray(

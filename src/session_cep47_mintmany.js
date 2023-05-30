@@ -67,7 +67,7 @@ const main = async () => {
           new CLByteArray(new Uint8Array(keyPairofTarget.accountHash()))
         ),
         token_ids: new CLOption(Some(myList)),
-        // token_ids: new CLOption(Some(new CLList([new CLString("SJH")]))),
+        token_ids: new CLList([new CLString("id1"), new CLString("id2")]),
         token_meta: new CLMap([[new CLString("meta1"), new CLString("meta2")]]),
         count: new CLU32(3),
         // token_meta: new CLMap([[new CLString(""), new CLString("")]]),
