@@ -6,6 +6,7 @@ import {
   CLList,
   CLString,
   CLValueBuilder,
+  CLByteArray,
 } from "casper-js-sdk";
 import * as utils from "../utils";
 import * as constants from "../constants";
@@ -25,6 +26,11 @@ const main = async () => {
     ...Buffer.from(constracthash_str.slice(5), "hex"),
   ];
 
+  const hexString2 =
+    "feed638f60f5a2840656d86e0e51dc62c092e79d980ba8dc281387dbb8f80c42";
+
+  const hex2 = Uint8Array.from(Buffer.from(hexString2, "hex"));
+
   const runtimeArgs = RuntimeArgs.fromMap({
     spender: CLValueBuilder.key(
       CLValueBuilder.byteArray(
@@ -33,6 +39,7 @@ const main = async () => {
         ).toAccountHash()
       )
     ),
+    new_one: CLValueBuilder.key(new CLByteArray(hex2)),
     token_ids: new CLList([
       new CLString("6d2a5d89-572e-4906-9e31-8a018591937e"),
     ]),
@@ -64,5 +71,3 @@ const main = async () => {
 };
 
 main();
-
-//https://testnet.cspr.live/deploy/ec84ef900e5906d4e7e37fa318022baac4a5fc76b39e5379b4769b31d778dfa3

@@ -12,6 +12,7 @@ import {
   CLAccountHash,
   CLPublicKey,
   CLKey,
+  CLValueBuilder,
 } from "casper-js-sdk";
 import * as constants from "../constants";
 import * as utils from "../utils";
@@ -46,6 +47,8 @@ const hexString2 =
 const hex2 = Uint8Array.from(Buffer.from(hexString2, "hex"));
 
 const TOKEN_kyc_package_hash = new CLKey(new CLByteArray(hex2));
+CLValueBuilder.key(new CLByteArray(hex2));
+let keyvalue = CLValueBuilder.key(CLValueBuilder.byteArray(hex2));
 //**************************** for kyc_package_has end*******************************/
 
 /**
