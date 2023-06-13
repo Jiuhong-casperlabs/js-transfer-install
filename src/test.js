@@ -1,19 +1,12 @@
-import {
-  DeployUtil,
-  CasperClient,
-  RuntimeArgs,
-  CLPublicKey,
-  CLList,
-  CLString,
-  CLValueBuilder,
-  CLByteArray,
-} from "casper-js-sdk";
+import { DeployUtil, CasperClient, RuntimeArgs, CLString } from "casper-js-sdk";
 import * as utils from "../utils";
 import * as constants from "../constants";
 
 const main = async () => {
   //Step 1: Set casper node client
-  const client = new CasperClient("https://rpc.testnet.casperlabs.io/rpc");
+  // const client = new CasperClient("https://rpc.testnet.casperlabs.io/rpc");
+  const client = new CasperClient("http://85.114.132.133:7777/rpc");
+  // const client = new CasperClient("http://159.69.76.171:7777/rpc");
 
   //Step 2: Set contract operator key pair
   const keyPairofContract = utils.getKeyPairOfContract(
@@ -26,23 +19,8 @@ const main = async () => {
     ...Buffer.from(constracthash_str.slice(5), "hex"),
   ];
 
-  const hexString2 =
-    "feed638f60f5a2840656d86e0e51dc62c092e79d980ba8dc281387dbb8f80c42";
-
-  const hex2 = Uint8Array.from(Buffer.from(hexString2, "hex"));
-
   const runtimeArgs = RuntimeArgs.fromMap({
-    spender: CLValueBuilder.key(
-      CLValueBuilder.byteArray(
-        CLPublicKey.fromHex(
-          "012daabbb1808d7abf39bbdb05b9c8996c62b6debaf2605eeb6f206024051831c5"
-        ).toAccountHash()
-      )
-    ),
-    new_one: CLValueBuilder.key(new CLByteArray(hex2)),
-    token_ids: new CLList([
-      new CLString("6d2a5d89-572e-4906-9e31-8a018591937e"),
-    ]),
+    token_ids: new CLString("6d2a5d89"),
   });
   let deploy = DeployUtil.makeDeploy(
     new DeployUtil.DeployParams(
@@ -56,14 +34,12 @@ const main = async () => {
       "counter_inc",
       runtimeArgs
     ),
-    DeployUtil.standardPayment(300000000000)
+    DeployUtil.standardPayment(300000000)
   );
 
-  // console.log("deploy is before sign: ",deploy)
   //Step 5.2 Sign deploy.
   deploy = client.signDeploy(deploy, keyPairofContract);
 
-  // console.log("deploy is after sign: ",deploy)
   //Step 5.3 Dispatch deploy to node.
   let deployHash = await client.putDeploy(deploy);
 
