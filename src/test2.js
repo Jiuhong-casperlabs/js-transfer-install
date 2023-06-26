@@ -17,37 +17,22 @@ const main = async () => {
     `/home/jh/casper-node/utils/nctl/assets/net-1/users/user-1`
   );
 
-  //
-  // --session-arg "group_key:account_hash='account-hash-8cf71022d8a4240c486d8653fbf31de4b7748ef3c1477b728d3eb1e7d307f1b2'"  \
-  const hash2 =
-    "8cf71022d8a4240c486d8653fbf31de4b7748ef3c1477b728d3eb1e7d307f1b2";
-  const group_key = new CLByteArray(Uint8Array.from(Buffer.from(hash2, "hex")));
-  // --session-arg "fee_public_key:account_hash='account-hash-0be6e84e1011ed08d58a0650043bb3ece261ec06e8a84c37984d187227438194'"  \
-  const hash3 =
-    "0be6e84e1011ed08d58a0650043bb3ece261ec06e8a84c37984d187227438194";
-  const fee_public_key = new CLByteArray(
-    Uint8Array.from(Buffer.from(hash3, "hex"))
-  );
-  //
-  // cep78 => whitelist list
-  const hash4 =
-    "186920323eff953a3897d9e5518daf58e74c47c0b71a016e495c9f36579c36c4";
-  const whitelist = new CLList([
-    new CLByteArray(Uint8Array.from(Buffer.from(hash4, "hex"))),
-  ]);
-
-  //
-  //xp
+  // cep78
   const constracthash_str =
-    "hash-5927606db903f1825e57f7c4aadb971434615fe5b84464798a8e55fd9205d10f";
+    "hash-186920323eff953a3897d9e5518daf58e74c47c0b71a016e495c9f36579c36c4";
   const contractHashAsByteArray = [
     ...Buffer.from(constracthash_str.slice(5), "hex"),
   ];
 
+  //xp
+  const hash4 =
+    "5927606db903f1825e57f7c4aadb971434615fe5b84464798a8e55fd9205d10f";
+  const contract_whitelist = new CLList([
+    new CLByteArray(Uint8Array.from(Buffer.from(hash4, "hex"))),
+  ]);
+
   const runtimeArgs = RuntimeArgs.fromMap({
-    group_key,
-    fee_public_key,
-    whitelist,
+    contract_whitelist,
   });
   let deploy = DeployUtil.makeDeploy(
     new DeployUtil.DeployParams(
@@ -58,7 +43,7 @@ const main = async () => {
     ),
     DeployUtil.ExecutableDeployItem.newStoredContractByHash(
       contractHashAsByteArray,
-      "init",
+      "set_variables",
       runtimeArgs
     ),
     DeployUtil.standardPayment(300000000000)

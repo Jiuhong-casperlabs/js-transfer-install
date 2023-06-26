@@ -31,6 +31,7 @@ export const PATH_TO_TRAGET_KEYS = `${process.env.HOME}/casper-node/utils/nctl/a
 // path to signing keys
 export const PATH_TO_SIGN_KEY1 = `${process.env.HOME}/keys/test1`;
 export const PATH_TO_SIGN_KEY2 = `${process.env.HOME}/keys/test2`;
+export const PATH_TO_SIGN_KEY3 = `${process.env.HOME}/keys/test3`;
 //Path to test11 which has KVstorage contract installed
 export const PATH_TO_KV_KEYS = `${process.env.HOME}/keys/test1`;
 export const PATH_TO_CALLLOCKED = `${process.env.HOME}/keys/test98`;
