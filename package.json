@@ -22,6 +22,7 @@
     "test2": "node -r esm -e 'require(\"./src/test2.js\")'",
     "test3": "node -r esm -e 'require(\"./src/test3.js\")'",
     "test4": "node -r esm -e 'require(\"./src/test4.js\")'",
+    "test5": "node -r esm -e 'require(\"./src/test5.js\")'",
     "testmint": "node -r esm -e 'require(\"./src/testmint.js\")'",
     "balance": "node -r esm -e 'require(\"./src/getAccountBalance.js\")'",
     "ptoa": "node -r esm -e 'require(\"./src/publickeytoaccounthash.js\")'",

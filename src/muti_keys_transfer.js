@@ -40,7 +40,7 @@ const main = async () => {
       "integration-test",
       // "casper-test",
       constants.DEPLOY_GAS_PAYMENT,
-      constants.DEPLOY_TTL_MS
+      86400000
     ),
     DeployUtil.ExecutableDeployItem.newTransfer(
       AMOUNT_TO_TRANSFER,
