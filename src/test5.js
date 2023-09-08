@@ -18,27 +18,21 @@ const main = async () => {
 
   //Step 2: Set contract operator key pair
   const keyPairofContract = utils.getKeyPairOfContract(
-    // `/home/jh/casper-node/utils/nctl/assets/net-1/users/user-1`
-    "/home/jh/keys/test1"
+    `/home/jh/test/tricorn-smart-contracts/casper`
+    // "/home/jh/keys/test1"
   );
 
   // contract hash
   const constracthash_str =
-    // "hash-417c887a5dc2ac817fed932ff9cc0abb74c8c6cf04e771a2f5e98aa755680f49";
-    "hash-8c27013f86e02f66662c029abb14d14783f9c1a07b475b8097da2e36e166c51c";
+    "hash-b20163febf2ddc2cdefdb0163dad77c722c552e65c0a77938cd0dac473e49d96";
   const contractHashAsByteArray = [
     ...Buffer.from(constracthash_str.slice(5), "hex"),
   ];
 
   //   token_contract: ByteArray":32
   // erc20 package
-  // 5a76d550c34e60cad96ecba94437a0846f3961b8e2445d7f1012eb6bed8179f9
   const token_contract_str =
-    // "813ebae62a86a7c92b6d16e0a341b3927bf08231322ba00936258f1c8adaa78d"; // integration-test
-    "f9d45845641f79857fe9b84dd624d69ee826ebadf1a68cc106368d8245dc47b8"; // nctl
-  // const token_contract = new CLByteArray(
-  //   Uint8Array.from(Buffer.from(token_contract_str, "hex"))
-  // );
+    "92d343bebed415c0e8cca53d5b9a6d85cff7e3539669c250ff8a648554e4a20f"; // nctl
   const token_contract = new CLByteArray(decodeBase16(token_contract_str));
   // amount: u256
   // 10
@@ -47,8 +41,9 @@ const main = async () => {
   // 5
   const gas_commission = new CLU256(5);
   // deadline:u256
-  // 1688807878692
-  const deadline = new CLU256(1794009713);
+  //                          1688807878692
+  const deadline = new CLU256(1794009713000); //length is important!!!
+  //                          1694057676800
 
   // nonce:u128
   // 1
@@ -72,7 +67,6 @@ const main = async () => {
 
   const hash =
     "73f7882d21ddbb78d397b2fc681630db95bdde6a4821e986654c71ec40cec7225bc5b0bc34498f071c438bd932b9724273aa411ef5cdd5433efcff21e4d71096";
-  // const signature = new CLByteArray(Uint8Array.from(Buffer.from(hash, "hex")));
   const signature = new CLByteArray(decodeBase16(hash));
 
   const runtimeArgs = RuntimeArgs.fromMap({
@@ -99,7 +93,7 @@ const main = async () => {
       "bridge_in",
       runtimeArgs
     ),
-    DeployUtil.standardPayment(7000000000)
+    DeployUtil.standardPayment(700000000000)
   );
 
   //Step 5.2 Sign deploy.

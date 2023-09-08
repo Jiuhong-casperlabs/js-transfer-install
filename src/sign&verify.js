@@ -28,7 +28,7 @@ const main = () => {
   const wrongMessage = "!Hello World";
 
   const signature1 = signRawMessage(signKeyPair, exampleMessage);
-  console.log("signature1", signature1);
+  console.log("signature1", Buffer.from(signature1).toString("hex"));
   const valid = verifyMessageSignature(
     signKeyPair.publicKey,
     exampleMessage,
