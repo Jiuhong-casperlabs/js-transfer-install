@@ -79,7 +79,8 @@
     "gatekeeper": "node -r esm -e 'require(\"./src/gatekeeper.js\")'",
     "getContract": "node -r esm -e 'require(\"./src/getContract.js\")'",
     "call_bytearray": "node -r esm -e 'require(\"./src/call_bytearray.js\")'",
-    "call_init": "node -r esm -e 'require(\"./src/call_init.js\")'"
+    "call_init": "node -r esm -e 'require(\"./src/call_init.js\")'",
+    "pemfileToString": "node -r esm -e 'require(\"./src/pemfileToString.js\")'"
   },
   "author": "",
   "license": "ISC",
