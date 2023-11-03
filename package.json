@@ -25,7 +25,7 @@
     "test5": "node -r esm -e 'require(\"./src/test5.js\")'",
     "test6": "node -r esm -e 'require(\"./src/test6.js\")'",
     "test7": "node -r esm -e 'require(\"./src/test7.js\")'",
-    "test8": "node -r esm -e 'require(\"./src/test8.js\")'",
+    "parse_event": "node -r esm -e 'require(\"./src/parse_event.js\")'",
     "consume_cep18": "node -r esm -e 'require(\"./src/consume_cep18.js\")'",
     "testmint": "node -r esm -e 'require(\"./src/testmint.js\")'",
     "balance": "node -r esm -e 'require(\"./src/getAccountBalance.js\")'",
