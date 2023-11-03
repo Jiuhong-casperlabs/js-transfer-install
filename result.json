@@ -1,469 +1,125 @@
-
-> kvstorage@1.0.0 getStateKeyValue
-> node -r esm -e 'require("./src/getStateKeyValue.js")'
-
-secp256k1 unavailable, reverting to browser version
-result is  {
-    "Contract": {
-        "contractPackageHash": "contract-package-wasmf800b4329a7516e5a30743b295ba5266870f96427e7820b6838a307a4a5d563c",
-        "contractWasmHash": "contract-wasm-8ea7dcc32f0dbb8ddbf809e0757e271f1e816fc2bafc4fbf347d147ac8095a25",
-        "entrypoints": [
-            {
-                "access": "Public",
-                "entryPointType": "Contract",
-                "name": "balance_of",
-                "ret": "U256",
-                "args": [
-                    {
-                        "name": "owner",
-                        "clType": "Key"
-                    }
-                ]
-            },
-            {
-                "access": "Public",
-                "entryPointType": "Contract",
-                "name": "burn",
-                "ret": "Unit",
-                "args": [
-                    {
-                        "name": "owner",
-                        "clType": "Key"
-                    },
-                    {
-                        "name": "token_ids",
-                        "clType": {
-                            "List": "String"
-                        }
-                    }
-                ]
-            },
-            {
-                "entryPointType": "Contract",
-                "name": "constructor",
-                "ret": "Unit",
-                "args": [
-                    {
-                        "name": "name",
-                        "clType": "String"
-                    },
-                    {
-                        "name": "symbol",
-                        "clType": "String"
-                    },
-                    {
-                        "name": "meta",
-                        "clType": {
-                            "Map": {
-                                "key": "String",
-                                "value": "String"
-                            }
-                        }
-                    },
-                    {
-                        "name": "admin",
-                        "clType": "Key"
-                    }
-                ]
-            },
-            {
-                "access": "Public",
-                "entryPointType": "Contract",
-                "name": "get_token_by_index",
-                "ret": {
-                    "Option": "String"
+{
+    "Success": {
+        "effect": {
+            "operations": [
+                {
+                    "key": "account-hash-2293223427d59ebb331ac2221c3fcd1b3656a5cb72be924a6cdc9d52cdb6db0f",
+                    "kind": "Read"
                 },
-                "args": [
-                    {
-                        "name": "owner",
-                        "clType": "Key"
-                    },
-                    {
-                        "name": "index",
-                        "clType": "U256"
-                    }
-                ]
-            },
-            {
-                "access": "Public",
-                "entryPointType": "Contract",
-                "name": "grant_admin",
-                "ret": "Unit",
-                "args": [
-                    {
-                        "name": "admin",
-                        "clType": "Key"
-                    }
-                ]
-            },
-            {
-                "access": "Public",
-                "entryPointType": "Contract",
-                "name": "grant_minter",
-                "ret": "Unit",
-                "args": [
-                    {
-                        "name": "minter",
-                        "clType": "Key"
-                    }
-                ]
-            },
-            {
-                "access": "Public",
-                "entryPointType": "Contract",
-                "name": "meta",
-                "ret": {
-                    "Map": {
-                        "key": "String",
-                        "value": "String"
+                {
+                    "key": "hash-9824d60dc3a5c44a20b9fd260a412437933835b52fc683d8ae36e4ec2114843e",
+                    "kind": "Read"
+                },
+                {
+                    "key": "hash-010c3fe81b7b862e50c77ef9a958a05bfa98444f26f96f23d37a13c96244cfb7",
+                    "kind": "Read"
+                },
+                {
+                    "key": "balance-579f80a6434079516747da1e5ab466f212370093b93892c155b7d3834b8e2106",
+                    "kind": "Write"
+                },
+                {
+                    "key": "balance-98d945f5324f865243b7c02c0417ab6eac361c5c56602fd42ced834a1ba201b6",
+                    "kind": "Read"
+                },
+                {
+                    "key": "transfer-a4a7d33ac974622ac2fc6025da6b0eaa1d35ce9d3f04a409d4599c03d4809299",
+                    "kind": "Write"
+                },
+                {
+                    "key": "deploy-a8b80dcc7ca8e975a84932ad3d8cae008da1aff580c4fe89294e0b5842ed77ae",
+                    "kind": "Write"
+                },
+                {
+                    "key": "balance-5cbc900b918b0a1f24485036abaf3988cd2157021158d92cd002cce573277323",
+                    "kind": "Write"
+                },
+                {
+                    "key": "balance-65791c5e4cc22b504aa6a98846c00bfa452cd89982657d03bf1118da9616819f",
+                    "kind": "Write"
+                },
+                {
+                    "key": "hash-8cf5e4acf51f54eb59291599187838dc3bc234089c46fc6ca8ad17e762ae4401",
+                    "kind": "Read"
+                }
+            ],
+            "transforms": [
+                {
+                    "key": "hash-010c3fe81b7b862e50c77ef9a958a05bfa98444f26f96f23d37a13c96244cfb7",
+                    "transform": "Identity"
+                },
+                {
+                    "key": "deploy-a8b80dcc7ca8e975a84932ad3d8cae008da1aff580c4fe89294e0b5842ed77ae",
+                    "transform": {
+                        "WriteDeployInfo": {
+                            "deploy_hash": "a8b80dcc7ca8e975a84932ad3d8cae008da1aff580c4fe89294e0b5842ed77ae",
+                            "transfers": [
+                                "transfer-a4a7d33ac974622ac2fc6025da6b0eaa1d35ce9d3f04a409d4599c03d4809299"
+                            ],
+                            "from": "account-hash-4cb4df3355d2750ec3544f0182727f7ba6826834ec8263f32466fbab4634581e",
+                            "source": "uref-5cbc900b918b0a1f24485036abaf3988cd2157021158d92cd002cce573277323-007",
+                            "gas": "10000"
+                        }
                     }
                 },
-                "args": []
-            },
-            {
-                "access": "Public",
-                "entryPointType": "Contract",
-                "name": "mint",
-                "ret": "Unit",
-                "args": [
-                    {
-                        "name": "recipient",
-                        "clType": "Key"
-                    },
-                    {
-                        "name": "token_ids",
-                        "clType": {
-                            "Option": {
-                                "List": "String"
-                            }
+                {
+                    "key": "transfer-a4a7d33ac974622ac2fc6025da6b0eaa1d35ce9d3f04a409d4599c03d4809299",
+                    "transform": {
+                        "WriteTransfer": {
+                            "deploy_hash": "a8b80dcc7ca8e975a84932ad3d8cae008da1aff580c4fe89294e0b5842ed77ae",
+                            "from": "account-hash-4cb4df3355d2750ec3544f0182727f7ba6826834ec8263f32466fbab4634581e",
+                            "to": "account-hash-2293223427d59ebb331ac2221c3fcd1b3656a5cb72be924a6cdc9d52cdb6db0f",
+                            "source": "uref-5cbc900b918b0a1f24485036abaf3988cd2157021158d92cd002cce573277323-007",
+                            "target": "uref-579f80a6434079516747da1e5ab466f212370093b93892c155b7d3834b8e2106-004",
+                            "amount": "2500000000",
+                            "gas": "0",
+                            "id": 0
                         }
-                    },
-                    {
-                        "name": "token_metas",
-                        "clType": {
-                            "List": {
-                                "Map": {
-                                    "key": "String",
-                                    "value": "String"
-                                }
-                            }
-                        }
-                    },
-                    {
-                        "name": "token_commissions",
-                        "clType": {
-                            "List": {
-                                "Map": {
-                                    "key": "String",
-                                    "value": "String"
-                                }
-                            }
-                        }
-                    }
-                ]
-            },
-            {
-                "access": "Public",
-                "entryPointType": "Contract",
-                "name": "mint_copies",
-                "ret": "Unit",
-                "args": [
-                    {
-                        "name": "recipient",
-                        "clType": "Key"
-                    },
-                    {
-                        "name": "token_ids",
-                        "clType": {
-                            "Option": {
-                                "List": "String"
-                            }
-                        }
-                    },
-                    {
-                        "name": "token_meta",
-                        "clType": {
-                            "Map": {
-                                "key": "String",
-                                "value": "String"
-                            }
-                        }
-                    },
-                    {
-                        "name": "count",
-                        "clType": "U32"
-                    }
-                ]
-            },
-            {
-                "access": "Public",
-                "entryPointType": "Contract",
-                "name": "name",
-                "ret": "String",
-                "args": []
-            },
-            {
-                "access": "Public",
-                "entryPointType": "Contract",
-                "name": "owner_of",
-                "ret": {
-                    "Option": "Key"
-                },
-                "args": [
-                    {
-                        "name": "token_id",
-                        "clType": "String"
-                    }
-                ]
-            },
-            {
-                "access": "Public",
-                "entryPointType": "Contract",
-                "name": "revoke_admin",
-                "ret": "Unit",
-                "args": [
-                    {
-                        "name": "admin",
-                        "clType": "Key"
-                    }
-                ]
-            },
-            {
-                "access": "Public",
-                "entryPointType": "Contract",
-                "name": "revoke_minter",
-                "ret": "Unit",
-                "args": [
-                    {
-                        "name": "minter",
-                        "clType": "Key"
-                    }
-                ]
-            },
-            {
-                "access": "Public",
-                "entryPointType": "Contract",
-                "name": "set_token_meta",
-                "ret": "Unit",
-                "args": [
-                    {
-                        "name": "token_id",
-                        "clType": "String"
-                    },
-                    {
-                        "name": "token_meta",
-                        "clType": {
-                            "Map": {
-                                "key": "String",
-                                "value": "String"
-                            }
-                        }
-                    }
-                ]
-            },
-            {
-                "access": "Public",
-                "entryPointType": "Contract",
-                "name": "symbol",
-                "ret": "String",
-                "args": []
-            },
-            {
-                "access": "Public",
-                "entryPointType": "Contract",
-                "name": "token_commission",
-                "ret": {
-                    "Map": {
-                        "key": "String",
-                        "value": "String"
                     }
                 },
-                "args": [
-                    {
-                        "name": "token_id",
-                        "clType": "String"
-                    },
-                    {
-                        "name": "property",
-                        "clType": "String"
-                    }
-                ]
-            },
-            {
-                "access": "Public",
-                "entryPointType": "Contract",
-                "name": "token_meta",
-                "ret": {
-                    "Map": {
-                        "key": "String",
-                        "value": "String"
+                {
+                    "key": "balance-98d945f5324f865243b7c02c0417ab6eac361c5c56602fd42ced834a1ba201b6",
+                    "transform": "Identity"
+                },
+                {
+                    "key": "balance-579f80a6434079516747da1e5ab466f212370093b93892c155b7d3834b8e2106",
+                    "transform": {
+                        "AddUInt512": "2500000000"
                     }
                 },
-                "args": [
-                    {
-                        "name": "token_id",
-                        "clType": "String"
-                    }
-                ]
-            },
-            {
-                "access": "Public",
-                "entryPointType": "Contract",
-                "name": "total_supply",
-                "ret": "U256",
-                "args": []
-            },
-            {
-                "access": "Public",
-                "entryPointType": "Contract",
-                "name": "transfer",
-                "ret": "Unit",
-                "args": [
-                    {
-                        "name": "recipient",
-                        "clType": "Key"
-                    },
-                    {
-                        "name": "token_ids",
-                        "clType": {
-                            "List": "String"
+                {
+                    "key": "hash-9824d60dc3a5c44a20b9fd260a412437933835b52fc683d8ae36e4ec2114843e",
+                    "transform": "Identity"
+                },
+                {
+                    "key": "hash-8cf5e4acf51f54eb59291599187838dc3bc234089c46fc6ca8ad17e762ae4401",
+                    "transform": "Identity"
+                },
+                {
+                    "key": "account-hash-2293223427d59ebb331ac2221c3fcd1b3656a5cb72be924a6cdc9d52cdb6db0f",
+                    "transform": "Identity"
+                },
+                {
+                    "key": "balance-5cbc900b918b0a1f24485036abaf3988cd2157021158d92cd002cce573277323",
+                    "transform": {
+                        "WriteCLValue": {
+                            "cl_type": "U512",
+                            "bytes": "05105759cda8",
+                            "parsed": "724999690000"
                         }
                     }
-                ]
-            },
-            {
-                "access": "Public",
-                "entryPointType": "Contract",
-                "name": "transfer_from",
-                "ret": "Unit",
-                "args": [
-                    {
-                        "name": "sender",
-                        "clType": "Key"
-                    },
-                    {
-                        "name": "recipient",
-                        "clType": "Key"
-                    },
-                    {
-                        "name": "token_ids",
-                        "clType": {
-                            "List": "String"
-                        }
+                },
+                {
+                    "key": "balance-65791c5e4cc22b504aa6a98846c00bfa452cd89982657d03bf1118da9616819f",
+                    "transform": {
+                        "AddUInt512": "10000"
                     }
-                ]
-            },
-            {
-                "access": "Public",
-                "entryPointType": "Contract",
-                "name": "update_token_commission",
-                "ret": "Unit",
-                "args": [
-                    {
-                        "name": "token_id",
-                        "clType": "String"
-                    },
-                    {
-                        "name": "property",
-                        "clType": "String"
-                    },
-                    {
-                        "name": "account",
-                        "clType": "Key"
-                    },
-                    {
-                        "name": "mode",
-                        "clType": "String"
-                    },
-                    {
-                        "name": "value",
-                        "clType": "String"
-                    }
-                ]
-            },
-            {
-                "access": "Public",
-                "entryPointType": "Contract",
-                "name": "update_token_meta",
-                "ret": "Unit",
-                "args": [
-                    {
-                        "name": "token_id",
-                        "clType": "String"
-                    },
-                    {
-                        "name": "token_meta_key",
-                        "clType": "String"
-                    },
-                    {
-                        "name": "token_meta_value",
-                        "clType": "String"
-                    }
-                ]
-            }
+                }
+            ]
+        },
+        "transfers": [
+            "transfer-a4a7d33ac974622ac2fc6025da6b0eaa1d35ce9d3f04a409d4599c03d4809299"
         ],
-        "protocolVersion": "1.0.0",
-        "namedKeys": [
-            {
-                "name": "admins",
-                "key": "uref-d1e27456d76d62287ab057f64e159dca14ed1e032372925fed6e104bf6258130-007"
-            },
-            {
-                "name": "allowances",
-                "key": "uref-786e15213a5c98ba852773c59ee32102336033264f6c5145e3addd9697efc632-007"
-            },
-            {
-                "name": "balances",
-                "key": "uref-6a7bf20f29414b6057a1ccbb13a95cd8598a970f2895f463c51333482eab993a-007"
-            },
-            {
-                "name": "commissions",
-                "key": "uref-5db0ab5579f9d93dabb7c5e771918d026de15b5112489aeaf65376ec8956af19-007"
-            },
-            {
-                "name": "contract_package_hash",
-                "key": "uref-957ec27ebe170fcd583d8a5a0f66f8e784c7c906f05269ce7c4e3e6ba2e607c4-007"
-            },
-            {
-                "name": "kyc_package_hash",
-                "key": "uref-c1f15c3246340303a1b73e15eb5d6372b33b86dfa09755bbc2575e831c2cebd5-007"
-            },
-            {
-                "name": "meta",
-                "key": "uref-7b8fe5725a352eb6928a23391eeeb25da09db1b11697b4560c5fe12c164c13a4-007"
-            },
-            {
-                "name": "metadata",
-                "key": "uref-f3659b54c871d3056890bb464abcbc8dbc0f230210ab2380778543b9215013bb-007"
-            },
-            {
-                "name": "minters",
-                "key": "uref-c5b4c3f99710d176bbd693a299dff8f94469ef7f310fae743357e30e127a6aa7-007"
-            },
-            {
-                "name": "name",
-                "key": "uref-c0351493cf9c921473a4fd1f7cba22ae69f886fb61e282791442235e16474cc0-007"
-            },
-            {
-                "name": "owned_indexes_by_token",
-                "key": "uref-d00fae805058b74dbf70679aa012d28e6f5995fc41c3f69c89706d2c3764339c-007"
-            },
-            {
-                "name": "owned_tokens_by_index",
-                "key": "uref-fbb65f2afdefce6f25e201b5c8efe215244bc4ff91913d0beedb6ea54985b3c9-007"
-            },
-            {
-                "name": "owners",
-                "key": "uref-0bb5dae51bb99398726f78a4fd233183b30fa7c812986f8bc6b06d59d169860a-007"
-            },
-            {
-                "name": "symbol",
-                "key": "uref-1cba2c81e105edecfd886277ef7d61a9fb5ad22bf0d576f528d6f6ce39b31267-007"
-            },
-            {
-                "name": "total_supply",
-                "key": "uref-cfd3bcaa2c75a4954991da9ca2804c7fc379fa6b6418e48666f8097ad577f944-007"
-            }
-        ]
+        "cost": "10000"
     }
 }
