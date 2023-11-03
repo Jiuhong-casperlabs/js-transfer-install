@@ -53,6 +53,7 @@ const main = async () => {
 
         if (result["execution_results"][0]["result"]["Success"]) {
           console.log("Success");
+          // here are the args where you can get the account
           console.log("args==>", JSON.stringify(contract_from_deploy["args"]));
         } else {
           console.log("Failure");
