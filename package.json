@@ -4,6 +4,8 @@
   "description": "sdk for kvstorage erc20",
   "scripts": {
     "teststack": "node -r esm -e 'require(\"./src/callstack_test.js\")'",
+    "base64topem_Secp256K1": "node -r esm -e 'require(\"./src/base64topem_Secp256K1.js\")'",
+    "base64topem_Ed25519": "node -r esm -e 'require(\"./src/base64topem_Ed25519.js\")'",
     "transfer": "node -r esm -e 'require(\"./src/transfer.js\")'",
     "erc20-exec-approve": "node -r esm -e 'require(\"./src/exec_approve.js\")'",
     "sessiontransfer": "node -r esm -e 'require(\"./src/session_transfer.js\")'",
