@@ -1,7 +1,7 @@
 import {
   CasperClient,
   Contracts,
-  CLPublicKey,
+  encodeBase64,
   CLKey,
   CLByteArray,
   CLValueParsers,
@@ -14,7 +14,7 @@ const main = async () => {
   const contractClient = new Contract(client);
   // contract hash
   const contract_hash =
-    "hash-ba950993182bbc4a73fbcc0183c43534bdf7fa9a862db5a847cc7d726e274d9e";
+    "hash-4a31d64f1c5c09ce791083db791303f1f2cf83c208efc0a37ee1a3bf7422d9a7";
   contractClient.setContractHash(contract_hash);
 
   // // public key whose balance to be checked
@@ -26,15 +26,17 @@ const main = async () => {
   // const keyBytes = CLValueParsers.toBytes(key).unwrap();
   // const itemKey = Buffer.from(keyBytes).toString("base64");
   // public key whose balance to be checked
+
+  //recipient_package_hash
   const hexString2 =
-    "3bfdd9e022e160f8d6e05638ab4647a8c7983276f001ba08a33ab1828cfbefa4"; //bridge_package_has
+    "2d7914257740a8101563776b0b1575b7776bebbc38a97a0d5a986552d76668e5";
 
   const hex2 = Uint8Array.from(Buffer.from(hexString2, "hex"));
 
-  const bridge_package_hash = new CLKey(new CLByteArray(hex2));
-  console.log("bridge_package_hash=>", bridge_package_hash);
-  const keyBytes = CLValueParsers.toBytes(bridge_package_hash).unwrap();
-  const itemKey = Buffer.from(keyBytes).toString("base64");
+  const recipient_package_hash = new CLKey(new CLByteArray(hex2));
+  console.log("recipient_package_hash=>", recipient_package_hash);
+  const keyBytes = CLValueParsers.toBytes(recipient_package_hash).unwrap();
+  const itemKey = encodeBase64(keyBytes);
 
   console.log(itemKey);
   const balance = await contractClient.queryContractDictionary(
@@ -46,11 +48,3 @@ const main = async () => {
 };
 
 main();
-
-// b'\x00"\x93"4\'\xd5\x9e\xbb3\x1a\xc2"\x1c?\xcd\x1b6V\xa5\xcbr\xbe\x92Jl\xdc\x9dR\xcd\xb6\xdb\x0f'
-// data: Uint8Array(32) [
-//   34, 147,  34,  52,  39, 213, 158, 187,
-//   51,  26, 194,  34,  28,  63, 205,  27,
-//   54,  86, 165, 203, 114, 190, 146,  74,
-//  108, 220, 157,  82, 205, 182, 219,  15
-// ]
