@@ -9,12 +9,14 @@ import {
   RuntimeArgs,
   CLString,
   CLMap,
+  CasperServiceByJsonRPC,
 } from "casper-js-sdk";
 import * as constants from "../constants";
 import * as utils from "../utils";
 
 // Path to contract to be installed.
-const PATH_TO_CONTRACT = constants.PATH_TO_CONTRACT_ERC_20;
+const PATH_TO_CONTRACT =
+  "/home/jh/caspereco/casper-nft-cep47/target/wasm32-unknown-unknown/release/cep47-token.wasm";
 
 // Token parameters.
 
@@ -25,12 +27,15 @@ const CONTRACT_NAME = "myceptest011";
 /**
  * Demonstration entry point.
  */
+
+const PATH_TO_KEY = "/home/jh/casper-node/utils/nctl/assets/net-1/users/user-1";
+
 const main = async () => {
   // Step 1: Set casper node client.
-  const client = new CasperClient(" http://94.130.10.55:7777/rpc");
+  const client = new CasperServiceByJsonRPC("http://localhost:11101/rpc");
 
   // Step 2: Set contract operator key pair.
-  const keyPairOfContract = utils.getKeyPairOfContract("/home/jh/keys/test1");
+  const keyPairOfContract = utils.getKeyPairOfContract(PATH_TO_KEY);
 
   const myKey = new CLString("ice");
   const myVal = new CLString("cream");
@@ -40,7 +45,7 @@ const main = async () => {
   let deploy = DeployUtil.makeDeploy(
     new DeployUtil.DeployParams(
       keyPairOfContract.publicKey,
-      "casper-test",
+      "casper-net-1",
       constants.DEPLOY_GAS_PRICE,
       constants.DEPLOY_TTL_MS
     ),
@@ -57,30 +62,15 @@ const main = async () => {
         contract_name: CLValueBuilder.string(CONTRACT_NAME),
       })
     ),
-    DeployUtil.standardPayment(2)
+    DeployUtil.standardPayment(300000000000)
   );
 
   // Step 4: Sign deploy.
-  deploy = client.signDeploy(deploy, keyPairOfContract);
+  deploy = DeployUtil.signDeploy(deploy, keyPairOfContract);
 
   // Step 5: Dispatch deploy to node.
-  const deployHash = await client.putDeploy(deploy);
-
-  // Step 6: Render deploy details.
-  logDetails(deployHash);
-};
-
-/**
- * Emits to stdout deploy details.
- * @param {String} deployHash - Identifer of dispatched deploy.
- */
-const logDetails = (deployHash) => {
-  console.log(`
----------------------------------------------------------------------
-installed contract -> CEP47
-... deploy hash = ${deployHash}
----------------------------------------------------------------------
-    `);
+  let deployHash = await client.deploy(deploy);
+  console.log("deployHash", deployHash);
 };
 
 main();

@@ -79,8 +79,8 @@ export const PATH_TO_CONTRACT_AUCTION =
 
 // Name of target chain.
 export const DEPLOY_CHAIN_NAME =
-  // process.env.CSPR_INTS_DEPLOY_CHAIN_NAME || "casper-net-1";
-  process.env.CSPR_INTS_DEPLOY_CHAIN_NAME || "casper-test";
+  process.env.CSPR_INTS_DEPLOY_CHAIN_NAME || "casper-net-1";
+// process.env.CSPR_INTS_DEPLOY_CHAIN_NAME || "casper-test";
 
 // Gas payment to be offered.
 export const DEPLOY_GAS_PAYMENT_FOR_INSTALL =
