@@ -1,5 +1,5 @@
 import {
-  CasperClient,
+  CasperServiceByJsonRPC,
   Contracts,
   encodeBase64,
   CLKey,
@@ -8,7 +8,7 @@ import {
 } from "casper-js-sdk";
 
 const main = async () => {
-  const client = new CasperClient("http://94.130.10.55:7777/rpc");
+  const client = new CasperServiceByJsonRPC("http://94.130.10.55:7777/rpc");
   const { Contract } = Contracts;
 
   const contractClient = new Contract(client);

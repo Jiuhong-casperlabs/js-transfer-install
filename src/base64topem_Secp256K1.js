@@ -1,5 +1,4 @@
-import { decodeBase64, Keys, encodeBase64 } from "casper-js-sdk";
-import * as utils from "../utils";
+import { decodeBase64, Keys } from "casper-js-sdk";
 const main = async () => {
   // const keyPairOfContract = utils.getSecp256k1KeyPairOfContract(
   //   "/home/jh/keys/test12"

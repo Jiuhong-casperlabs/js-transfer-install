@@ -1,12 +1,8 @@
 import {
   CLPublicKey,
-  CLKey,
-  CLU256,
   CLAccountHash,
   CLValueParsers,
-  CLString,
   CLValueBuilder,
-  CLByteArray,
 } from "casper-js-sdk";
 import blake from "blakejs";
 import { concat } from "@ethersproject/bytes";

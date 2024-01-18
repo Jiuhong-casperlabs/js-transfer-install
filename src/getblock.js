@@ -2,20 +2,8 @@
  * @fileOverview CSPR JS SDK demo: CASK - install contract.
  */
 
-import {
-  CasperClient,
-  DeployUtil,
-  RuntimeArgs,
-  CLString,
-  CLMap,
-  CLByteArray,
-  CLAccountHash,
-  CLPublicKey,
-  CLList,
-  CasperServiceByJsonRPC,
-} from "casper-js-sdk";
+import { CasperServiceByJsonRPC, CLPublicKey, CLList } from "casper-js-sdk";
 import * as constants from "../constants";
-import * as utils from "../utils";
 
 // Path to contract to be installed.
 const PATH_TO_CONTRACT = constants.PATH_TO_CONTRACT_ACCOUNT_ACCESS;

@@ -18,11 +18,11 @@ export const PATH_TO_FAUCET_KEYS =
   `${process.env.NCTL}/assets/net-1/faucet`;
 
 // Path to source keys
-// export const PATH_TO_SOURCE_KEYS = `${process.env.HOME}/casper-node/utils/nctl/assets/net-1/users/user-1`;
+export const PATH_TO_SOURCE_KEYS = `${process.env.HOME}/casper-node/utils/nctl/assets/net-1/users/user-1`;
 // export const PATH_TO_SOURCE_KEYS = `${process.env.HOME}/casper-node/utils/nctl/assets/net-1/users/user-1`;
 // export const PATH_TO_SOURCE_KEYS = `/home/jh/casper-node/utils/nctl/assets/net-1/faucet`;
 // export const PATH_TO_SOURCE_KEYS = `${process.env.HOME}/keys/test2`;
-export const PATH_TO_SOURCE_KEYS = `${process.env.HOME}/keys/test1`;
+// export const PATH_TO_SOURCE_KEYS = `${process.env.HOME}/keys/test1`;
 
 //Path to target keys
 // export const PATH_TO_TRAGET_KEYS = `${process.env.HOME}/keys/test2`;

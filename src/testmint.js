@@ -1,7 +1,6 @@
 import {
   DeployUtil,
   RuntimeArgs,
-  CLList,
   CasperServiceByJsonRPC,
   CLByteArray,
   CLPublicKey,
@@ -79,7 +78,7 @@ const main = async () => {
   );
 
   //Step 5.2 Sign deploy.
-  // deploy = client.signDeploy(deploy, keyPairofContract);
+  // deploy = DeployUtil.signDeploy(deploy, keyPairofContract);
   deploy = DeployUtil.signDeploy(deploy, keyPairofContract);
 
   //Step 5.3 Dispatch deploy to node.

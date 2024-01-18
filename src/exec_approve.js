@@ -4,7 +4,7 @@
 
 import _ from "lodash";
 import {
-  CasperClient,
+  CasperServiceByJsonRPC,
   CLValueBuilder,
   DeployUtil,
   RuntimeArgs,
@@ -20,7 +20,7 @@ const AMOUNT_TO_APPROVE = 1000000000000;
  */
 const main = async () => {
   // Step 1: Set casper node client.
-  const client = new CasperClient(constants.DEPLOY_NODE_ADDRESS);
+  const client = new CasperServiceByJsonRPC(constants.DEPLOY_NODE_ADDRESS);
 
   // Step 2: Set contract operator key pair.
   const keyPairOfContract = utils.getKeyPairOfContract(
@@ -70,11 +70,11 @@ const main = async () => {
   );
 
   // Step 5.2: Sign deploy.
-  deploy = client.signDeploy(deploy, keyPairOfContract);
+  deploy = DeployUtil.signDeploy(deploy, keyPairOfContract);
 
   // Step 5.3: Dispatch deploy to node.
 
-  let deployHash = await client.putDeploy(deploy);
+  let deployHash = await client.deploy(deploy);
 
   // Step 6: Render details.
 

@@ -1,5 +1,5 @@
 import {
-  CasperClient,
+  CasperServiceByJsonRPC,
   Keys,
   signRawMessage,
   verifyMessageSignature,
@@ -7,7 +7,9 @@ import {
 
 const tempDir = "/home/jh/keys/test2";
 const main = () => {
-  let casperClient = new CasperClient("http://88.99.167.167:7777/rpc");
+  let casperClient = new CasperServiceByJsonRPC(
+    "http://88.99.167.167:7777/rpc"
+  );
 
   const signKeyPair = casperClient.loadKeyPairFromPrivateFile(
     tempDir + "/secret_key.pem",

@@ -3,12 +3,7 @@
  */
 
 import _ from "lodash";
-import {
-  CasperServiceByJsonRPC,
-  DeployUtil,
-  CLURef,
-  CLString,
-} from "casper-js-sdk";
+import { CasperServiceByJsonRPC, DeployUtil, CLString } from "casper-js-sdk";
 import * as constants from "../constants";
 import * as utils from "../utils";
 

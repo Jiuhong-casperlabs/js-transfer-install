@@ -3,12 +3,11 @@
  */
 
 import {
-  CasperClient,
+  CasperServiceByJsonRPC,
   DeployUtil,
   RuntimeArgs,
   CLString,
   CLMap,
-  CLByteArray,
   CLAccountHash,
   CLPublicKey,
   CLKey,
@@ -45,7 +44,7 @@ const TOKEN_ADMIN = new CLKey(myHash1);
  */
 const main = async () => {
   // Step 1: Set casper node client.
-  const client = new CasperClient(constants.DEPLOY_NODE_ADDRESS);
+  const client = new CasperServiceByJsonRPC(constants.DEPLOY_NODE_ADDRESS);
 
   // Step 2: Set contract operator key pair.
   const keyPairOfContract = utils.getKeyPairOfContract(
@@ -74,10 +73,10 @@ const main = async () => {
   );
 
   // Step 4: Sign deploy.
-  deploy = client.signDeploy(deploy, keyPairOfContract);
+  deploy = DeployUtil.signDeploy(deploy, keyPairOfContract);
 
   // Step 5: Dispatch deploy to node.
-  const deployHash = await client.putDeploy(deploy);
+  const deployHash = await client.deploy(deploy);
 
   // Step 6: Render deploy details.
   logDetails(deployHash);

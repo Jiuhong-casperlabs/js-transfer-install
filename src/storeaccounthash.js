@@ -1,10 +1,7 @@
 import {
   DeployUtil,
-  CasperClient,
+  CasperServiceByJsonRPC,
   RuntimeArgs,
-  CLAccountHash,
-  CLPublicKey,
-  CLValueParsers,
   CLByteArray,
 } from "casper-js-sdk";
 import * as utils from "../utils";
@@ -19,8 +16,8 @@ const main = async () => {
   const PATH_TO_CONTRACTS =
     "/home/jh/mywork/contractsworkspace/target/wasm32-unknown-unknown/release/accounthash.wasm";
 
-  const client = new CasperClient("http://localhost:11101/rpc");
-  // const client = new CasperClient("http://16.162.124.124:7777/rpc");
+  const client = new CasperServiceByJsonRPC("http://localhost:11101/rpc");
+  // const client = new CasperServiceByJsonRPC("http://16.162.124.124:7777/rpc");
 
   // Step 2: Set contract operator key pair.
   const keyPairOfContract = utils.getKeyPairOfContract(
@@ -52,10 +49,10 @@ const main = async () => {
   );
 
   //Step 5.2 Sign deploy.
-  deploy = client.signDeploy(deploy, keyPairOfContract);
+  deploy = DeployUtil.signDeploy(deploy, keyPairOfContract);
 
   //Step 5.3 Dispatch deploy to node.
-  let deployHash = await client.putDeploy(deploy);
+  let deployHash = await client.deploy(deploy);
 
   console.log(`deploy hash = ${deployHash}`);
 };

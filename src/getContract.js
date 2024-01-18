@@ -2,7 +2,7 @@ import { CasperClient } from "casper-js-sdk";
 import * as utils from "../utils";
 
 const main = async () => {
-  // const client = new CasperClient("http://localhost:11101/rpc");
+  // const client = new CasperServiceByJsonRPC("http://localhost:11101/rpc");
   const client = new CasperClient("http://94.130.10.55:7777/rpc");
 
   const stateRootHash = await utils.getStateRootHash(client);

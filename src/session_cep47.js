@@ -10,6 +10,7 @@ import {
   CLPublicKey,
   CLAccountHash,
   decodeBase16,
+  CLByteArray,
 } from "casper-js-sdk";
 import * as utils from "../utils";
 import * as constants from "../constants";
@@ -26,7 +27,7 @@ const main = async () => {
   const contract_hash =
     "5980eae4c01d536a0db6de3ec3bec87d9d1b7887805e224e940e45227cc4d83c";
 
-  const token_ids = new CLList([new CLU256(11)]);
+  const token_ids = new CLList([new CLU256(23)]);
 
   const token_meta1 = new CLMap([
     [new CLString("name"), new CLString("myNFT")],
@@ -44,12 +45,24 @@ const main = async () => {
   //   "transform": "WriteContractPackage"
   // },
 
+  // this is from account hash start
   const hexString =
     "015cf35dbaa8133731dad5691dc70ec9c56011bf7339fd732797de7405c58b1d1e";
   const hash = CLPublicKey.fromHex(hexString).toAccountHash();
 
   const accounthash = new CLAccountHash(hash);
   const receipient = new CLKey(accounthash);
+  // this is from account hash end
+
+  // this is from package hash start
+  const package_hash =
+    "547759de44cb9b212f88eda8fbe9430de9c7dfe405f3f8eeb91d71c3f6d18eed";
+
+  const hex2 = decodeBase16(package_hash);
+
+  const receipient1 = new CLKey(new CLByteArray(hex2));
+  // this is from package hash end
+
   let deploy = DeployUtil.makeDeploy(
     new DeployUtil.DeployParams(
       keyPairofContract.publicKey,
@@ -61,7 +74,7 @@ const main = async () => {
       decodeBase16(contract_hash),
       "mint",
       RuntimeArgs.fromMap({
-        recipient: receipient,
+        recipient: receipient1,
         token_ids: token_ids,
         token_metas: token_metas,
       })

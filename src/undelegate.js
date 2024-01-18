@@ -1,6 +1,6 @@
 import {
   DeployUtil,
-  CasperClient,
+  CasperServiceByJsonRPC,
   RuntimeArgs,
   CLU512,
   CLPublicKey,
@@ -18,7 +18,7 @@ const DEPLOY_NODE_ADDRESS = "http://localhost:11101/rpc";
 
 const main = async () => {
   //Step 1: Set casper node client
-  const client = new CasperClient(DEPLOY_NODE_ADDRESS);
+  const client = new CasperServiceByJsonRPC(DEPLOY_NODE_ADDRESS);
 
   //Step 2: Set contract operator key pair
   const keyPairOfDelegator = utils.getKeyPairOfContract(PATH_TO_DELEGATOR_KEY);
@@ -47,10 +47,10 @@ const main = async () => {
   );
 
   // Step 3.2: Sign deploy.
-  deploy = client.signDeploy(deploy, keyPairOfDelegator);
+  deploy = DeployUtil.signDeploy(deploy, keyPairOfDelegator);
 
   //Step 5.3 Dispatch deploy to node.
-  let deployHash = await client.putDeploy(deploy);
+  let deployHash = await client.deploy(deploy);
 
   console.log(`deploy hash = ${deployHash}`);
 };

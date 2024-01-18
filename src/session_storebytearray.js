@@ -73,10 +73,10 @@ const main = async () => {
   console.log("deploy is: ", deploy);
 
   //Step 5.2 Sign deploy.
-  deploy = client.signDeploy(deploy, keyPairofContract);
+  deploy = DeployUtil.signDeploy(deploy, keyPairofContract);
 
   //Step 5.3 Dispatch deploy to node.
-  let deployHash = await client.putDeploy(deploy);
+  let deployHash = await client.deploy(deploy);
 
   console.log(`store_key ${myValue} 
    deploy hash = ${deployHash}`);

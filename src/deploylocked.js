@@ -1,13 +1,9 @@
 import {
-  CasperClient,
-  CLValueBuilder,
+  CasperServiceByJsonRPC,
   DeployUtil,
   RuntimeArgs,
   CLList,
-  CLString,
-  CLKey,
   CLByteArray,
-  CLValue,
 } from "casper-js-sdk";
 import * as constants from "../constants";
 import * as utils from "../utils";
@@ -20,7 +16,7 @@ const PATH_TO_CONTRACT = constants.PATH_TO_LOCKED;
  */
 const main = async () => {
   // Step 1: Set casper node client.
-  const client = new CasperClient(constants.DEPLOY_NODE_ADDRESS);
+  const client = new CasperServiceByJsonRPC(constants.DEPLOY_NODE_ADDRESS);
 
   // Step 2: Set contract operator key pair.
   const keyPairOfContract = utils.getKeyPairOfContract(
@@ -60,10 +56,10 @@ const main = async () => {
   );
 
   // Step 4: Sign deploy.
-  deploy = client.signDeploy(deploy, keyPairOfContract);
+  deploy = DeployUtil.signDeploy(deploy, keyPairOfContract);
 
   // Step 5: Dispatch deploy to node.
-  const deployHash = await client.putDeploy(deploy);
+  const deployHash = await client.deploy(deploy);
 
   console.log(`deploy hash = ${deployHash}`);
 };

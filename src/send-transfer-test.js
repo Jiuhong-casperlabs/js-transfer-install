@@ -5,7 +5,7 @@ const casperClientSDK = require("casper-js-sdk");
 
 const {
   Keys,
-  CasperClient,
+  CasperServiceByJsonRPC,
   CLPublicKey,
   DeployUtil,
 } = require("casper-js-sdk");
@@ -28,16 +28,28 @@ const sendTransfer = async ({ from, to, amount }) => {
   // Time that the deploy will remain valid for, in milliseconds
   // The default value is 1800000 ms (30 minutes)
   const ttl = 1800000;
-  const chainName = 'casper-test';
+  const chainName = "casper-test";
 
   const senderPublicKey = CLPublicKey.fromHex(accountAddress);
 
-  let deployParams = new DeployUtil.DeployParams(senderPublicKey, chainName, gasPrice, ttl);
+  let deployParams = new DeployUtil.DeployParams(
+    senderPublicKey,
+    chainName,
+    gasPrice,
+    ttl
+  );
 
   // We create a public key from account-address (it is the hex representation of the public-key with an added prefix)
-  const toPublicKey = CLPublicKey.fromHex('0202d9c3548ad3741faabe08e5c48c88a61b19debf24771a9b1019569bff97a1bf01');
+  const toPublicKey = CLPublicKey.fromHex(
+    "0202d9c3548ad3741faabe08e5c48c88a61b19debf24771a9b1019569bff97a1bf01"
+  );
 
-  const session = DeployUtil.ExecutableDeployItem.newTransfer(amountToBPaid, toPublicKey, null, id);
+  const session = DeployUtil.ExecutableDeployItem.newTransfer(
+    amountToBPaid,
+    toPublicKey,
+    null,
+    id
+  );
 
   const payment = DeployUtil.standardPayment(paymentAmount);
   const deploy = DeployUtil.makeDeploy(deployParams, session, payment);

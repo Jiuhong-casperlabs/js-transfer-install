@@ -3,13 +3,12 @@
  */
 
 import {
-  CasperClient,
+  CasperServiceByJsonRPC,
   CLValueBuilder,
   DeployUtil,
   RuntimeArgs,
   CLString,
   CLMap,
-  CasperServiceByJsonRPC,
 } from "casper-js-sdk";
 import * as constants from "../constants";
 import * as utils from "../utils";

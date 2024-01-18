@@ -1,4 +1,3 @@
-import { Keys } from "casper-js-sdk";
 import * as utils from "../utils";
 import * as constants from "../constants";
 import fs from "fs";

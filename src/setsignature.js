@@ -2,7 +2,7 @@
  * @fileOverview CSPR JS SDK demo: CASK - install contract.
  */
 import _ from "lodash";
-import { CasperClient, DeployUtil, CLU64 } from "casper-js-sdk";
+import { CasperServiceByJsonRPC, DeployUtil, CLU64 } from "casper-js-sdk";
 import * as constants from "../constants";
 import * as utils from "../utils";
 
@@ -14,7 +14,7 @@ const AMOUNT_TO_TRANSFER = 2500000000;
 
 const main = async () => {
   //Step1: set casper node client
-  const client = new CasperClient(constants.DEPLOY_NODE_ADDRESS);
+  const client = new CasperServiceByJsonRPC(constants.DEPLOY_NODE_ADDRESS);
 
   //step 2: Set source key pair
   //        Set target key pair
@@ -44,7 +44,7 @@ const main = async () => {
   deploy = DeployUtil.setSignature(deploy, signature, source.publicKey);
 
   // Step 5: Dispatch deploy to node.
-  const deployHash = await client.putDeploy(deploy);
+  const deployHash = await client.deploy(deploy);
 
   // Step 6: Render deploy details.
   logDetails(deployHash);

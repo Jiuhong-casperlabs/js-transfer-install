@@ -14,8 +14,8 @@ import * as constants from "../constants";
 
 const main = async () => {
   //Step 1: Set casper node client
-  // const client = new CasperClient("https://rpc.testnet.casperlabs.io/rpc");
-  // const client = new CasperClient("http://85.114.132.133:7777/rpc");
+  // const client = new CasperServiceByJsonRPC("https://rpc.testnet.casperlabs.io/rpc");
+  // const client = new CasperServiceByJsonRPC("http://85.114.132.133:7777/rpc");
   const client = new CasperServiceByJsonRPC("http://localhost:11101/rpc");
 
   //Step 2: Set contract operator key pair
@@ -79,7 +79,7 @@ const main = async () => {
   );
 
   //Step 5.2 Sign deploy.
-  // deploy = client.signDeploy(deploy, keyPairofContract);
+  // deploy = DeployUtil.signDeploy(deploy, keyPairofContract);
   deploy = DeployUtil.signDeploy(deploy, keyPairofContract);
   const json = DeployUtil.deployToJson(deploy);
   console.log("json,", json);
@@ -87,8 +87,8 @@ const main = async () => {
   console.log("deploy", deploy);
 
   //Step 5.3 Dispatch deploy to node.
-  // let deployHash = await client.deploy(deploy);
-  // console.log(`deploy hash = ${JSON.stringify(deployHash)}`);
+  let deployHash = await client.deploy(deploy);
+  console.log(`deploy hash = ${JSON.stringify(deployHash)}`);
 };
 
 main();

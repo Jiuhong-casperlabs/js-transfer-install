@@ -5,7 +5,7 @@ const casperClientSDK = require("casper-js-sdk");
 
 const {
   Keys,
-  CasperClient,
+  CasperServiceByJsonRPC,
   CLPublicKey,
   DeployUtil,
 } = require("casper-js-sdk");
@@ -14,7 +14,7 @@ const RPC_API = "http://3.208.91.63:7777/rpc";
 const STATUS_API = "http://3.208.91.63:8888";
 
 const sendTransfer = async ({ from, to, amount }) => {
-  const casperClient = new CasperClient(RPC_API);
+  const casperClient = new CasperServiceByJsonRPC(RPC_API);
 
   const folder = path.join("./", "casper_keys");
   // read keys from structure created in #Generating keys
@@ -62,7 +62,7 @@ const sendTransfer = async ({ from, to, amount }) => {
   const signedDeploy = DeployUtil.signDeploy(deploy, signKeyPair);
 
   // we are sending the signed deploy
-  return await casperClient.putDeploy(signedDeploy);
+  return await casperClient.deploy(signedDeploy);
 };
 
 sendTransfer({

@@ -1,10 +1,9 @@
 import {
   DeployUtil,
-  CasperClient,
+  CasperServiceByJsonRPC,
   RuntimeArgs,
   CLList,
   CLU8,
-  CLString,
   CLByteArray,
 } from "casper-js-sdk";
 import * as utils from "../utils";
@@ -27,7 +26,7 @@ const main = async () => {
 
   const myList1 = new CLList([hex1, hex2]);
 
-  const client = new CasperClient("http://localhost:11101/rpc");
+  const client = new CasperServiceByJsonRPC("http://localhost:11101/rpc");
 
   // Step 2: Set contract operator key pair.
   const keyPairOfContract = utils.getKeyPairOfContract(
@@ -52,10 +51,10 @@ const main = async () => {
   );
 
   //Step 5.2 Sign deploy.
-  deploy = client.signDeploy(deploy, keyPairOfContract);
+  deploy = DeployUtil.signDeploy(deploy, keyPairOfContract);
 
   //Step 5.3 Dispatch deploy to node.
-  let deployHash = await client.putDeploy(deploy);
+  let deployHash = await client.deploy(deploy);
 
   console.log(`store_tuple2 ${myList} 
    deploy hash = ${deployHash}`);

@@ -3,7 +3,7 @@
  */
 
 import {
-  CasperClient,
+  CasperServiceByJsonRPC,
   CLValueBuilder,
   DeployUtil,
   RuntimeArgs,
@@ -25,7 +25,7 @@ const TOKEN_SUPPLY = 1e15;
  */
 const main = async () => {
   // Step 1: Set casper node client.
-  const client = new CasperClient("http://localhost:11101/rpc");
+  const client = new CasperServiceByJsonRPC("http://localhost:11101/rpc");
 
   // Step 2: Set contract operator key pair.
   const keyPairOfContract = utils.getKeyPairOfContract(
@@ -59,15 +59,15 @@ const main = async () => {
   );
 
   // Step 4: Sign deploy.
-  // deploy = client.signDeploy(deploy, keyPairOfContract);
+  // deploy = DeployUtil.signDeploy(deploy, keyPairOfContract);
 
   for (let key of signingKeys) {
     console.log(`Signed by: ${key.publicKey.toAccountHashStr()}`);
-    deploy = client.signDeploy(deploy, key);
+    deploy = DeployUtil.signDeploy(deploy, key);
   }
 
   // Step 5: Dispatch deploy to node.
-  const deployHash = await client.putDeploy(deploy);
+  const deployHash = await client.deploy(deploy);
 
   // Step 6: Render deploy details.
   logDetails(deployHash);

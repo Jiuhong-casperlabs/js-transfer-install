@@ -1,21 +1,11 @@
 import {
-  DeployUtil,
   CasperClient,
-  RuntimeArgs,
   CLList,
-  CLU8,
   CLString,
-  CLPublicKey,
-  CLByteArray,
-  CLKey,
-  CLAccountHash,
-  CLURef,
-  AccessRights,
-  decodeBase16,
   CLBool,
   CLOption,
   CLBoolType,
-  CLStringType
+  CLStringType,
 } from "casper-js-sdk";
 import * as utils from "../utils";
 import * as constants from "../constants";
@@ -47,8 +37,8 @@ const main = async () => {
   const myValue2 = new CLOption(None, new CLStringType());
   const myValue3 = new CLOption(Some(new CLBool(true)));
   const myValue4 = new CLOption(None, new CLBoolType());
-  const myList = new CLList([myValue1, myValue2, myValue3,myValue4]);
-  console.log(myList)
+  const myList = new CLList([myValue1, myValue2, myValue3, myValue4]);
+  console.log(myList);
 
   // let deploy = DeployUtil.makeDeploy(
   //   new DeployUtil.DeployParams(
@@ -71,12 +61,12 @@ const main = async () => {
   // );
 
   // //Step 5.2 Sign deploy.
-  // deploy = client.signDeploy(deploy, keyPairofContract);
+  // deploy = DeployUtil.signDeploy(deploy, keyPairofContract);
 
   // //Step 5.3 Dispatch deploy to node.
-  // let deployHash = await client.putDeploy(deploy);
+  // let deployHash = await client.deploy(deploy);
 
-  // console.log(`store_list ${myList} 
+  // console.log(`store_list ${myList}
   //  deploy hash = ${deployHash}`);
 };
 

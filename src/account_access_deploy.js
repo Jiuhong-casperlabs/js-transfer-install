@@ -3,12 +3,8 @@
  */
 
 import {
-  CasperClient,
   DeployUtil,
   RuntimeArgs,
-  CLString,
-  CLMap,
-  CLByteArray,
   CasperServiceByJsonRPC,
   CLPublicKey,
   CLList,

@@ -1,5 +1,5 @@
 import * as constants from "../constants";
-import { CasperClient, DeployUtil, Keys } from "casper-js-sdk";
+import { CasperClient } from "casper-js-sdk";
 import * as utils from "../utils";
 
 const DEPLOY_HASH =

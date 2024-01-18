@@ -1,20 +1,18 @@
 import {
   DeployUtil,
-  CasperClient,
+  CasperServiceByJsonRPC,
   RuntimeArgs,
   CLString,
-  CLPublicKey,
   CLByteArray,
   CLKey,
   CLOption,
-  CLAccountHash,
 } from "casper-js-sdk";
 import * as utils from "../utils";
 import * as constants from "../constants";
-import { Some, None } from "ts-results";
+import { Some } from "ts-results";
 const main = async () => {
   //Step 1: Set casper node client
-  const client = new CasperClient(constants.DEPLOY_NODE_ADDRESS);
+  const client = new CasperServiceByJsonRPC(constants.DEPLOY_NODE_ADDRESS);
 
   //Step 2: Set contract operator key pair
   const keyPairofContract = utils.getKeyPairOfContract(
@@ -67,11 +65,11 @@ const main = async () => {
 
   console.log("deploy is before sign: ", deploy);
   //Step 5.2 Sign deploy.
-  deploy = client.signDeploy(deploy, keyPairofContract);
+  deploy = DeployUtil.signDeploy(deploy, keyPairofContract);
 
   console.log("deploy is after sign: ", deploy);
   //Step 5.3 Dispatch deploy to node.
-  let deployHash = await client.putDeploy(deploy);
+  let deployHash = await client.deploy(deploy);
 
   console.log(`deploy hash = ${deployHash}`);
 };

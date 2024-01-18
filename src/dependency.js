@@ -1,15 +1,7 @@
 import {
   DeployUtil,
-  CasperClient,
+  CasperServiceByJsonRPC,
   RuntimeArgs,
-  CLOption,
-  CLMap,
-  CLString,
-  CLList,
-  CLByteArray,
-  CLKey,
-  CLU32,
-  CLU256,
   decodeBase16,
 } from "casper-js-sdk";
 import * as utils from "../utils";
@@ -19,7 +11,7 @@ const PATH_TO_CONTRACT =
   "/home/jh/mywork/helloworld/contract/target/wasm32-unknown-unknown/release/contract.wasm";
 const main = async () => {
   //Step 1: Set casper node client
-  const client = new CasperClient(constants.DEPLOY_NODE_ADDRESS);
+  const client = new CasperServiceByJsonRPC(constants.DEPLOY_NODE_ADDRESS);
 
   //Step 2: Set contract operator key pair
   const keyPairofContract = utils.getKeyPairOfContract(
@@ -47,7 +39,7 @@ const main = async () => {
   );
 
   // Sign deploy.
-  firstDeploy = client.signDeploy(firstDeploy, keyPairofContract);
+  firstDeploy = DeployUtil.signDeploy(firstDeploy, keyPairofContract);
 
   //step1: second deploy
   const dependencies = [firstDeploy.hash];
@@ -72,13 +64,13 @@ const main = async () => {
   );
 
   //Step 5.2 Sign deploy.
-  secondDeploy = client.signDeploy(secondDeploy, keyPairofContract);
+  secondDeploy = DeployUtil.signDeploy(secondDeploy, keyPairofContract);
 
   //Step 5.3 Dispatch deploy to node.
 
   //Step 5.3 Dispatch deploy to node.
-  let firstDeployHash = await client.putDeploy(firstDeploy);
-  // let secondDeployHash = await client.putDeploy(secondDeploy);
+  let firstDeployHash = await client.deploy(firstDeploy);
+  // let secondDeployHash = await client.deploy(secondDeploy);
 
   console.log(` first deploy hash = ${firstDeployHash}`);
 

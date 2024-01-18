@@ -1,6 +1,6 @@
 import {
   DeployUtil,
-  CasperClient,
+  CasperServiceByJsonRPC,
   RuntimeArgs,
   CLValueBuilder,
 } from "casper-js-sdk";
@@ -11,7 +11,7 @@ const AMOUNT_TO_TRANSFER = 2500000000;
 
 const main = async () => {
   //Step 1: Set casper node client
-  const client = new CasperClient(constants.DEPLOY_NODE_ADDRESS);
+  const client = new CasperServiceByJsonRPC(constants.DEPLOY_NODE_ADDRESS);
 
   //Step 2: Set contract operator key pair
   const keyPairofContract = utils.getKeyPairOfContract(
@@ -71,14 +71,14 @@ const main = async () => {
   //   );
 
   //Step 5.2 Sign deploy.
-  deploy = client.signDeploy(deploy, keyPairofContract);
+  deploy = DeployUtil.signDeploy(deploy, keyPairofContract);
 
   console.log("=====content for putdeploy============");
   console.log("content for putdeploy is, ", JSON.stringify(deploy));
   console.log("=====content for putdeploy============");
 
   //Step 5.3 Dispatch deploy to node.
-  let deployHash = await client.putDeploy(deploy);
+  let deployHash = await client.deploy(deploy);
 
   console.log(`transferring ${AMOUNT_TO_TRANSFER} ERC-20 tokens -> user
   ${keyPairofTarget} :: deploy hash = ${deployHash}`);

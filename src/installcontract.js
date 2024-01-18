@@ -1,10 +1,8 @@
 import {
   DeployUtil,
-  CasperClient,
+  CasperServiceByJsonRPC,
   RuntimeArgs,
   CLU8,
-  CLAccountHash,
-  CLPublicKey,
   CLByteArray,
   CLOption,
   CLU8Type,
@@ -22,9 +20,9 @@ const main = async () => {
   const PATH_TO_CONTRACTS =
     "/home/jh/mywork/multi-sign/target/wasm32-unknown-unknown/release/add_associated_key.wasm";
 
-  // const client = new CasperClient("http://localhost:11101/rpc");
-  // const client = new CasperClient("http://16.162.124.124:7777/rpc");
-  const client = new CasperClient("http://94.130.10.55:7777/rpc");
+  // const client = new CasperServiceByJsonRPC("http://localhost:11101/rpc");
+  // const client = new CasperServiceByJsonRPC("http://16.162.124.124:7777/rpc");
+  const client = new CasperServiceByJsonRPC("http://94.130.10.55:7777/rpc");
 
   const hexString1 =
     "56befc13a6fd62e18f361700a5e08f966901c34df8041b36ec97d54d605c23de";
@@ -71,10 +69,10 @@ const main = async () => {
   );
 
   // Step 5.2 Sign deploy.
-  deploy = client.signDeploy(deploy, keyPairOfContract);
+  deploy = DeployUtil.signDeploy(deploy, keyPairOfContract);
 
   //Step 5.3 Dispatch deploy to node.
-  let deployHash = await client.putDeploy(deploy);
+  let deployHash = await client.deploy(deploy);
 
   console.log(`deploy hash = ${deployHash}`);
 };

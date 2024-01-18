@@ -1,4 +1,4 @@
-import { CasperClient, Keys } from "casper-js-sdk";
+import { CasperServiceByJsonRPC, Keys } from "casper-js-sdk";
 
 export const parseTokenMeta = (str: string): Array<[string, string]> =>
   str.split(",").map((s) => {
@@ -25,7 +25,7 @@ export const getKeyPairOfUserSet = (pathToUsers: string) => {
 };
 
 export const getDeploy = async (NODE_URL: string, deployHash: string) => {
-  const client = new CasperClient(NODE_URL);
+  const client = new CasperServiceByJsonRPC(NODE_URL);
   let i = 300;
   while (i != 0) {
     const [deploy, raw] = await client.getDeploy(deployHash);

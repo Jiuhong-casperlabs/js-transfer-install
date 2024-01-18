@@ -1,13 +1,16 @@
 import { CasperClient, Contracts } from "casper-js-sdk";
 
+const PACKAGE_HASH =
+  "547759de44cb9b212f88eda8fbe9430de9c7dfe405f3f8eeb91d71c3f6d18eed";
 const ACCOUNT_HASH =
-  "8d288f9a28f942afe39a45fce375bc3c1026c8f97acdd4de14e6bfcc3f707322";
+  "06a1376eb616edf017c271fa470c099a013aa671bbc2779acb2fb3e5a8fafe85";
 const CONTRACT_HASH =
-  "hash-5980eae4c01d536a0db6de3ec3bec87d9d1b7887805e224e940e45227cc4d83c";
+  "hash-9827ba39b049d2d2f29f8793200287345cdeb105ffdcf4e7bc5fdeafc25b5ffa";
 
 // query cep47 balance
 const main = async () => {
-  const client = new CasperClient("http://localhost:11101/rpc");
+  // const client = new CasperServiceByJsonRPC("http://localhost:11101/rpc");
+  const client = new CasperClient("https://rpc.testnet.casperlabs.io/rpc");
 
   const { Contract } = Contracts;
 

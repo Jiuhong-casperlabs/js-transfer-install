@@ -2,7 +2,7 @@ import { CasperClient, Contracts } from "casper-js-sdk";
 
 const main = async () => {
   const client = new CasperClient("http://localhost:11101/rpc");
-  // const client = new CasperClient("http://16.162.124.124:7777/rpc");
+  // const client = new CasperServiceByJsonRPC("http://16.162.124.124:7777/rpc");
 
   const { Contract } = Contracts;
 

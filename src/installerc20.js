@@ -3,11 +3,10 @@
  */
 
 import {
-  CasperClient,
+  CasperServiceByJsonRPC,
   CLValueBuilder,
   DeployUtil,
   RuntimeArgs,
-  CasperServiceByJsonRPC,
 } from "casper-js-sdk";
 import * as constants from "../constants";
 import * as utils from "../utils";
@@ -30,7 +29,7 @@ const main = async () => {
   //   "https://rpc.integration.casperlabs.io"
   // );
   // const client = new CasperServiceByJsonRPC("http://94.130.10.55:7777/rpc");
-  const client = new CasperClient("http://94.130.10.55:7777/rpc");
+  const client = new CasperServiceByJsonRPC("http://94.130.10.55:7777/rpc");
 
   // Step 2: Set contract operator key pair.
   // const keyPairOfContract = utils.getKeyPairOfContract(
@@ -61,12 +60,12 @@ const main = async () => {
   );
 
   // Step 4: Sign deploy.
-  // deploy = client.signDeploy(deploy, keyPairOfContract);
+  // deploy = DeployUtil.signDeploy(deploy, keyPairOfContract);
   // deploy = DeployUtil.signDeploy(deploy, keyPairOfContract);
 
   // Step 5: Dispatch deploy to node.
   // const deployHash = await client.deploy(deploy);
-  const deployHash = await client.putDeploy(deploy);
+  const deployHash = await client.deploy(deploy);
   // Step 6: Render deploy details.
   logDetails(deployHash);
 };

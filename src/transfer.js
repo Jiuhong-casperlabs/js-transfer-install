@@ -8,10 +8,8 @@ import {
   DeployUtil,
   CLPublicKey,
   Keys,
-  CasperClient,
 } from "casper-js-sdk";
 import * as constants from "../constants";
-import * as utils from "../utils";
 
 // Amount with which to fund each account.
 const AMOUNT_TO_TRANSFER = 2500000000;
@@ -23,10 +21,6 @@ const main = async () => {
   const client = new CasperServiceByJsonRPC(
     "https://rpc.testnet.casperlabs.io/rpc"
   ); // https://rpc.integration.casperlabs.io/rpc
-
-  const casperClient = new CasperClient(
-    "https://rpc.integration.casperlabs.io/rpc"
-  );
 
   //step 2: Set source key pair
   //        Set target key pair
