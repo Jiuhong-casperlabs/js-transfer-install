@@ -7,6 +7,7 @@ import {
   CLByteArray,
   CLValueParsers,
   CLAccountHash,
+  decodeBase16,
 } from "casper-js-sdk";
 
 const main = async () => {
@@ -19,11 +20,10 @@ const main = async () => {
     "hash-9ed71ebcc07181f5392f2125803c7e9efd5232b4e715b52b664e6f70c9ac0085";
   contractClient.setContractHash(contract_hash);
 
-  // public key whose balance to be checked
-  const pk1String1 =
-    "0118686f9a8ca3362ca24ab8d7e05edff7f780ac432f14c3e14a333c5571203c76";
-  const account = CLPublicKey.fromHex(pk1String1);
-  const key = new CLKey(new CLAccountHash(account.toAccountHash()));
+  const account_hash = decodeBase16(
+    "ee66df06bc57389b14f64030a7a759db54f62a1ea439296f34fdc99150dd478e"
+  );
+  const key = new CLKey(new CLAccountHash(account_hash));
   console.log("key=>", key);
   const keyBytes = CLValueParsers.toBytes(key).unwrap();
   const itemKey = Buffer.from(keyBytes).toString("base64");
