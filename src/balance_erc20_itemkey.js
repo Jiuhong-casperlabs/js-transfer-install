@@ -21,7 +21,7 @@ const main = async () => {
   contractClient.setContractHash(contract_hash);
 
   const account_hash = decodeBase16(
-    "ee66df06bc57389b14f64030a7a759db54f62a1ea439296f34fdc99150dd478e"
+    "90520d4a353a6ee2ef2d661e33896b7c0978fecba9535caea20d83d10eed2b47"
   );
   const key = new CLKey(new CLAccountHash(account_hash));
   console.log("key=>", key);
@@ -30,18 +30,18 @@ const main = async () => {
   console.log(itemKey);
   // public key whose balance to be checked
 
-  //recipient_package_hash
-  const hexString2 =
-    "2d7914257740a8101563776b0b1575b7776bebbc38a97a0d5a986552d76668e5";
+  // //recipient_package_hash
+  // const hexString2 =
+  //   "2d7914257740a8101563776b0b1575b7776bebbc38a97a0d5a986552d76668e5";
 
-  const hex2 = Uint8Array.from(Buffer.from(hexString2, "hex"));
+  // const hex2 = Uint8Array.from(Buffer.from(hexString2, "hex"));
 
-  const recipient_package_hash = new CLKey(new CLByteArray(hex2));
-  console.log("recipient_package_hash=>", recipient_package_hash);
-  const keyBytes1 = CLValueParsers.toBytes(recipient_package_hash).unwrap();
-  const itemKey1 = encodeBase64(keyBytes1);
+  // const recipient_package_hash = new CLKey(new CLByteArray(hex2));
+  // console.log("recipient_package_hash=>", recipient_package_hash);
+  // const keyBytes1 = CLValueParsers.toBytes(recipient_package_hash).unwrap();
+  // const itemKey1 = encodeBase64(keyBytes1);
 
-  console.log(itemKey1);
+  // console.log(itemKey1);
 };
 
 main();

@@ -76,7 +76,7 @@
     "serilize_transfer": "node -r esm -e 'require(\"./src/serialize_transfer.js\")'",
     "setsignature": "node -r esm -e 'require(\"./src/setsignature.js\")'",
     "storepks": "node -r esm -e 'require(\"./src/storepks.js\")'",
-    "balanceerc20": "node -r esm -e 'require(\"./src/query_balance_erc20.js\")'",
+    "erc20_itemkey": "node -r esm -e 'require(\"./src/balance_erc20_itemkey.js\")'",
     "installcep47": "node -r esm -e 'require(\"./src/installcep47.js\")'",
     "dependency": "node -r esm -e 'require(\"./src/dependency.js\")'",
     "kyc_install": "node -r esm -e 'require(\"./src/kyc_install.js\")'",
@@ -85,7 +85,8 @@
     "getContract": "node -r esm -e 'require(\"./src/getContract.js\")'",
     "call_bytearray": "node -r esm -e 'require(\"./src/call_bytearray.js\")'",
     "call_init": "node -r esm -e 'require(\"./src/call_init.js\")'",
-    "pemfileToString": "node -r esm -e 'require(\"./src/pemfileToString.js\")'"
+    "pemfileToString": "node -r esm -e 'require(\"./src/pemfileToString.js\")'",
+    "cep78install": "node -r esm -e 'require(\"./src/cep78-install.js\")'"
   },
   "author": "",
   "license": "ISC",
