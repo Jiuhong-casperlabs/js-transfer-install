@@ -11,17 +11,17 @@ import {
 } from "casper-js-sdk";
 
 const main = async () => {
-  const client = new CasperServiceByJsonRPC("http://94.130.10.55:7777/rpc");
-  const { Contract } = Contracts;
+  // const client = new CasperServiceByJsonRPC("http://94.130.10.55:7777/rpc");
+  // const { Contract } = Contracts;
 
-  const contractClient = new Contract(client);
-  // contract hash
-  const contract_hash =
-    "hash-9ed71ebcc07181f5392f2125803c7e9efd5232b4e715b52b664e6f70c9ac0085";
-  contractClient.setContractHash(contract_hash);
+  // const contractClient = new Contract(client);
+  // // contract hash
+  // const contract_hash =
+  //   "hash-9ed71ebcc07181f5392f2125803c7e9efd5232b4e715b52b664e6f70c9ac0085";
+  // contractClient.setContractHash(contract_hash);
 
   const account_hash = decodeBase16(
-    "90520d4a353a6ee2ef2d661e33896b7c0978fecba9535caea20d83d10eed2b47"
+    "612f48b9e3e517192b028dec3ede75e38d9a23196476c2502d64089bc7c43213"
   );
   const key = new CLKey(new CLAccountHash(account_hash));
   console.log("key=>", key);
