@@ -87,7 +87,8 @@
     "call_init": "node -r esm -e 'require(\"./src/call_init.js\")'",
     "pemfileToString": "node -r esm -e 'require(\"./src/pemfileToString.js\")'",
     "cep78install": "node -r esm -e 'require(\"./src/cep78-install.js\")'",
-    "cep18_transfer": "node -r esm -e 'require(\"./src/cep18_transfer.js\")'"
+    "cep18_transfer": "node -r esm -e 'require(\"./src/cep18_transfer.js\")'",
+    "getDictionaryValue": "node -r esm -e 'require(\"./src/getDictionaryValue.js\")'"
   },
   "author": "",
   "license": "ISC",

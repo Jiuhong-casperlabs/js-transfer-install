@@ -14,13 +14,13 @@ const main = () => {
     Keys.SignatureAlgorithm.Ed25519
   );
 
-  const message = Buffer.from(",ki87ujm");
+  const message = Buffer.from("Casper Message\nhello world!");
   const signature = signKeyPair.sign(Buffer.from(message));
   console.log("signature string is\n", Buffer.from(signature).toString("hex"));
   console.log("signature is", signature);
 
   const result = signKeyPair.verify(signature, message);
-  // console.log("result is ", result);
+  console.log("result is ", result);
 
   // =========new
 

@@ -24,9 +24,7 @@ const main = async () => {
     "32cdc13a3ba05784f9ed45f07a81a0fd015cafbdff8246759903bb8f7f564d8d";
 
   //Step 1: Set casper node client
-  const client = new CasperServiceByJsonRPC(
-    "https://rpc.testnet.casperlabs.io/rpc"
-  );
+  const client = new CasperServiceByJsonRPC("http://95.217.67.131:7777/rpc");
 
   //Step 2: Set contract operator key pair
 
