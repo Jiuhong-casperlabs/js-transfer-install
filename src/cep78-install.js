@@ -21,7 +21,7 @@ const main = async () => {
     "https://rpc.testnet.casperlabs.io/rpc"
   );
   //Step 2: Set contract operator key pair
-  const keyPairofContract = utils.getKeyPairOfContract(`/home/jh/keys/test1`);
+  const keyPairofContract = utils.getKeyPairOfContract(`/home/jh/keys/worker1`);
 
   // --session-path /home/jh/caspereco/cep-78-enhanced-nft/contract/target/wasm32-unknown-unknown/release/contract.wasm \
   // --session-arg "collection_name:string='CPSR TST '" \
@@ -78,7 +78,8 @@ const main = async () => {
     new DeployUtil.DeployParams(
       keyPairofContract.publicKey,
       "casper-test",
-      constants.DEPLOY_GAS_PRICE,
+      // constants.DEPLOY_GAS_PRICE,
+      2,
       constants.DEPLOY_TTL_MS
     ),
     DeployUtil.ExecutableDeployItem.newModuleBytes(
@@ -101,7 +102,7 @@ const main = async () => {
         acl_whitelist,
       })
     ),
-    DeployUtil.standardPayment(500000000000)
+    DeployUtil.standardPayment(1200000000000)
   );
 
   //Step 5.2 Sign deploy.
